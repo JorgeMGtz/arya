@@ -1,0 +1,49 @@
+
+// List style type
+.#{$namespace}list-none	    { list-style-type: none; }
+.#{$namespace}list-disc	    { list-style-type: disc; }
+.#{$namespace}list-decimal  { list-style-type: decimal; }
+.#{$namespace}list-square	  { list-style-type: square; }
+
+// List style position
+.#{$namespace}list-inside   { list-style-position: inside; }
+.#{$namespace}list-outside  { list-style-position: outside; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("list-style") {
+
+  // List style type
+  .hover\:#{$namespace}list-none:hover	    { list-style-type: none; }
+  .hover\:#{$namespace}list-disc:hover	    { list-style-type: disc; }
+  .hover\:#{$namespace}list-decimal:hover   { list-style-type: decimal; }
+  .hover\:#{$namespace}list-square:hover	  { list-style-type: square; }
+
+  // List style position
+  .hover\:#{$namespace}list-inside:hover   { list-style-position: inside; }
+  .hover\:#{$namespace}list-outside:hover  { list-style-position: outside; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("list-style") {
+  @each $breakpoint in responsive-breakpoints("list-style") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+
+      // List style type
+      .#{$namespace}#{$infix}list-none	    { list-style-type: none; }
+      .#{$namespace}#{$infix}list-disc	    { list-style-type: disc; }
+      .#{$namespace}#{$infix}list-decimal   { list-style-type: decimal; }
+      .#{$namespace}#{$infix}list-square	  { list-style-type: square; }
+
+      // List style position
+      .#{$namespace}#{$infix}list-inside   { list-style-position: inside; }
+      .#{$namespace}#{$infix}list-outside  { list-style-position: outside; }
+    }
+  }
+}

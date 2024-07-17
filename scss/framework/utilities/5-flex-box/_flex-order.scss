@@ -1,0 +1,36 @@
+
+//
+// Standard
+//
+
+.#{$namespace}flex-first { @include flex-first(); }
+.#{$namespace}flex-last  { @include flex-last(); }
+
+.#{$namespace}order-1 { order: 1; }
+.#{$namespace}order-2 { order: 2; }
+.#{$namespace}order-3 { order: 3; }
+.#{$namespace}order-4 { order: 4; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("flex-order") {
+  .hover\:#{$namespace}flex-first:hover { @include flex-first(); }
+  .hover\:#{$namespace}flex-last:hover  { @include flex-last(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("flex-order") {
+  @each $breakpoint in responsive-breakpoints("flex-order") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}flex-first { @include flex-first(); }
+      .#{$namespace}#{$infix}flex-last  { @include flex-last(); }
+      .#{$namespace}#{$infix}order-inherit { order: inherit; }
+    }
+  }
+}

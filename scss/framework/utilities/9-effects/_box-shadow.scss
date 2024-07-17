@@ -1,0 +1,51 @@
+
+.#{$namespace}shadow          { @include shadow(); }
+.#{$namespace}shadow-xs       { @include shadow-xs(); }
+.#{$namespace}shadow-sm       { @include shadow-sm(); }
+.#{$namespace}shadow-md       { @include shadow-md(); }
+.#{$namespace}shadow-lg       { @include shadow-lg(); }
+.#{$namespace}shadow-xl       { @include shadow-xl(); }
+.#{$namespace}shadow-inner    { @include shadow-inner(); }
+.#{$namespace}shadow-outline  { @include shadow-outline(); }
+.#{$namespace}shadow-solid    { @include shadow-solid(); }
+.#{$namespace}shadow-none     { @include shadow-none(); }
+.#{$namespace}shadow-bottom   { box-shadow: $shadow-nav-menu; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("box-shadow") {
+  .hover\:#{$namespace}shadow:hover         { @include shadow(); }
+  .hover\:#{$namespace}shadow-xs:hover      { @include shadow-xs(); }
+  .hover\:#{$namespace}shadow-sm:hover      { @include shadow-sm(); }
+  .hover\:#{$namespace}shadow-md:hover      { @include shadow-md(); }
+  .hover\:#{$namespace}shadow-lg:hover      { @include shadow-lg(); }
+  .hover\:#{$namespace}shadow-xl:hover      { @include shadow-xl(); }
+  .hover\:#{$namespace}shadow-inner:hover   { @include shadow-inner(); }
+  .hover\:#{$namespace}shadow-outline:hover { @include shadow-outline(); }
+  .hover\:#{$namespace}shadow-solid:hover   { @include shadow-solid(); }
+  .hover\:#{$namespace}shadow-none:hover    { @include shadow-none(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("box-shadow") {
+  @each $breakpoint in responsive-breakpoints("box-shadow") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}shadow         { @include shadow(); }
+      .#{$namespace}#{$infix}shadow-xs      { @include shadow-xs(); }
+      .#{$namespace}#{$infix}shadow-sm      { @include shadow-sm(); }
+      .#{$namespace}#{$infix}shadow-md      { @include shadow-md(); }
+      .#{$namespace}#{$infix}shadow-lg      { @include shadow-lg(); }
+      .#{$namespace}#{$infix}shadow-xl      { @include shadow-xl(); }
+      .#{$namespace}#{$infix}shadow-inner   { @include shadow-inner(); }
+      .#{$namespace}#{$infix}shadow-outline { @include shadow-outline(); }
+      .#{$namespace}#{$infix}shadow-solid   { @include shadow-solid(); }
+      .#{$namespace}#{$infix}shadow-none    { @include shadow-none(); }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+
+.#{$namespace}block              { display: block !important; }
+.#{$namespace}inline-block       { display: inline-block !important; }
+.#{$namespace}inline             { display: inline !important; }
+.#{$namespace}table              { display: table !important; }
+.#{$namespace}table-header-group { display: table-header-group !important; }
+.#{$namespace}table-row          { display: table-row !important; }
+.#{$namespace}table-cell         { display: table-cell !important; }
+.#{$namespace}flex               { @include flex(!important); }
+.#{$namespace}inline-flex        { @include inline-flex(!important); }
+.#{$namespace}hidden             { display: none !important; }
+
+.empty\:hidden:empty {
+  display: none;
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("display") {
+  .hover\:#{$namespace}block:hover              { display: block !important; }
+  .hover\:#{$namespace}inline-block:hover       { display: inline-block !important; }
+  .hover\:#{$namespace}inline:hover             { display: inline !important; }
+  .hover\:#{$namespace}table:hover              { display: table !important; }
+  .hover\:#{$namespace}table-header-group:hover { display: table-header-group !important; }
+  .hover\:#{$namespace}table-row:hover          { display: table-row !important; }
+  .hover\:#{$namespace}table-cell:hover         { display: table-cell !important; }
+  .hover\:#{$namespace}flex:hover               { @include flex(!important); }
+  .hover\:#{$namespace}inline-flex:hover        { @include inline-flex(!important); }
+  .hover\:#{$namespace}hidden:hover             { display: none !important; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("display") {
+  @each $breakpoint in responsive-breakpoints("display") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}block              { display: block !important; }
+      .#{$namespace}#{$infix}inline-block       { display: inline-block !important; }
+      .#{$namespace}#{$infix}inline             { display: inline !important; }
+      .#{$namespace}#{$infix}table              { display: table !important; }
+      .#{$namespace}#{$infix}table-header-group { display: table-header-group !important; }
+      .#{$namespace}#{$infix}table-row          { display: table-row !important; }
+      .#{$namespace}#{$infix}table-cell         { display: table-cell !important; }
+      .#{$namespace}#{$infix}flex               { @include flex(!important); }
+      .#{$namespace}#{$infix}inline-flex        { @include inline-flex(!important); }
+      .#{$namespace}#{$infix}hidden             { display: none !important; }
+    }
+  }
+}

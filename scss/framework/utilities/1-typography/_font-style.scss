@@ -1,0 +1,26 @@
+
+.#{$namespace}normal { font-style: normal; }
+.#{$namespace}italic { font-style: italic; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("font-style") {
+  .hover\:#{$namespace}normal:hover { font-style: normal; }
+  .hover\:#{$namespace}italic:hover { font-style: italic; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("font-style") {
+  @each $breakpoint in responsive-breakpoints("font-style") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}normal { font-style: normal; }
+      .#{$namespace}#{$infix}italic { font-style: italic; }
+    }
+  }
+}

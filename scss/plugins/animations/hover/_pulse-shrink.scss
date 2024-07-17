@@ -1,0 +1,17 @@
+@include keyframes(pulseShrink) {
+
+	to {
+    transform: scale(0.9);
+  }
+}
+
+.#{$namespace}hover\:pulse-shrink {
+
+  @include hover-focus-active {
+    animation-name: pulseShrink;
+    animation-duration: $transition-duration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}

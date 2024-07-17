@@ -1,0 +1,115 @@
+
+//
+// Custom check and number lists.
+//
+// These list styles can easily be applied to <ol> or <ul> elements in article content.
+//
+
+.#{$namespace}list-check,
+.#{$namespace}list-number {
+  list-style: none;
+  padding-left: 0;
+  margin-top: spacing(5);
+  margin-bottom: spacing(5);
+
+  > li {
+    position: relative;
+    padding-left: 2.75em;
+    margin-top: spacing(3);
+    margin-bottom: spacing(3);
+
+    &::before {
+      position: absolute;
+      left: .5em;
+      display: inline-block;
+      width:  1.725em;
+      height: 1.725em;
+      line-height: 1.725em;
+      text-align: center;
+      font-size: .875em;
+      font-weight: 500;
+      @include circle();
+    }
+  }
+}
+
+.#{$namespace}list-check {
+
+  > li::before {
+    content: quote("✓");
+    color: $color-list-check;
+    background-color: $bg-color-list-check;
+  }
+}
+
+.#{$namespace}list-number {
+  counter-reset: list;
+
+  > li {
+    counter-increment: list;
+
+    &::before {
+      content: counter(list);
+      color: $color-list-number;
+      background-color: $bg-color-list-number;
+    }
+  }
+}
+
+//
+// Styles for the {{recent_articles}} and {{related_articles}} placeholders.
+//
+
+.recent-articles,
+.related-articles {
+  @extend %grid-column;
+
+  @include media-breakpoint-up(md) {
+    @include flex-basis(0);
+    @include flex-grow();
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-h3;
+    margin-top: 1rem;
+  }
+
+  ul {
+    @include list-unstyled();
+  }
+
+  a {
+    display: block;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}
+
+//
+// Styles for the suggestion list presented when a user types in the Subject (New request) or Title (New post)
+// fields of the New Request and New Community Post forms, respectively.
+//
+
+.suggestion-list {
+
+  label {
+    display: block;
+    padding-bottom: .5rem;
+    font-size: $font-size-input-label;
+    @include border-bottom();
+  }
+
+  ul {
+    @include list-unstyled();
+    font-size: $font-size-md;
+    padding-bottom: 1rem;
+  }
+
+  a {
+    display: block;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}

@@ -1,0 +1,48 @@
+
+
+//
+// List without list style or padding.
+//
+
+.#{$namespace}list-unstyled {
+  @include list-unstyled();
+}
+
+//
+// List with a border between list items.
+//
+
+.#{$namespace}list-bordered {
+
+  > :not(:last-child) {
+    @include border-bottom();
+  }
+}
+
+//
+// List item
+//
+
+.#{$namespace}list-item {
+  margin: $margin-list-item;
+}
+
+//
+// List with divider
+//
+
+.#{$namespace}list-divider {
+  @include list-divider(.5rem);
+
+  > * + * {
+
+    &::before {
+      color: $color-list-divider;
+    }
+
+    // Allow the divider to be specified in HTML
+    &[data-divider]::before {
+      content: attr(data-divider);
+    }
+  }
+}

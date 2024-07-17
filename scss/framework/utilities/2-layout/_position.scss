@@ -1,0 +1,60 @@
+$positions: static, relative, absolute, fixed, sticky, initial;
+
+@each $position in $positions {
+  .#{$namespace}#{$position} {
+    position: $position;
+  }
+}
+
+.#{$namespace}absolute-top     { @include absolute-top(); }
+.#{$namespace}absolute-center  { @include absolute-center(); }
+.#{$namespace}absolute-bottom  {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+}
+
+.#{$namespace}fixed-top        { @include fixed-top(); }
+.#{$namespace}fixed-bottom     { @include fixed-bottom() }
+.#{$namespace}sticky-top       { @include sticky-top(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("position") {
+  @each $position in $positions {
+    .hover\:#{$namespace}#{$position}:hover {
+      position: $position;
+    }
+  }
+
+  .hover\:#{$namespace}absolute-top:hover     { @include absolute-top(); }
+  .hover\:#{$namespace}absolute-center:hover  { @include absolute-center(); }
+  .hover\:#{$namespace}fixed-top:hover        { @include fixed-top(); }
+  .hover\:#{$namespace}fixed-bottom:hover     { @include fixed-bottom() }
+  .hover\:#{$namespace}sticky-top:hover       { @include sticky-top(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("position") {
+  @each $breakpoint in responsive-breakpoints("position") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $position in $positions {
+        .#{$namespace}#{$infix}#{$position} {
+          position: $position;
+        }
+      }
+      .#{$namespace}#{$infix}absolute-top     { @include absolute-top(); }
+      .#{$namespace}#{$infix}absolute-center  { @include absolute-center(); }
+      .#{$namespace}#{$infix}fixed-top        { @include fixed-top(); }
+      .#{$namespace}#{$infix}fixed-bottom     { @include fixed-bottom() }
+      .#{$namespace}#{$infix}sticky-top       { @include sticky-top(); }
+    }
+  }
+}

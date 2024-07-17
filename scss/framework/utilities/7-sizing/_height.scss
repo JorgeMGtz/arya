@@ -1,0 +1,35 @@
+
+@each $size, $height in $heights {
+  .#{$namespace}h-#{$size} {
+    height: $height;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("height") {
+  @each $size, $height in $heights {
+    .hover\:#{$namespace}h-#{$size}:hover {
+      height: $height;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("height") {
+  @each $breakpoint in responsive-breakpoints("height") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $size, $height in $heights {
+        .#{$namespace}#{$infix}h-#{$size} {
+          height: $height;
+        }
+      }
+    }
+  }
+}

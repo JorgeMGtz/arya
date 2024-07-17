@@ -1,0 +1,47 @@
+
+.#{$namespace}bg-bottom       { background-position: bottom; }
+.#{$namespace}bg-center       { background-position: center; }
+.#{$namespace}bg-left         { background-position: left; }
+.#{$namespace}bg-right        { background-position: right; }
+.#{$namespace}bg-top          { background-position: top; }
+.#{$namespace}bg-left-bottom  { background-position: left bottom; }
+.#{$namespace}bg-left-top     { background-position: left top; }
+.#{$namespace}bg-right-bottom { background-position: right bottom; }
+.#{$namespace}bg-right-top    { background-position: right top; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("background-position") {
+  .hover\:#{$namespace}bg-bottom:hover       { background-position: bottom; }
+  .hover\:#{$namespace}bg-center:hover       { background-position: center; }
+  .hover\:#{$namespace}bg-left:hover         { background-position: left; }
+  .hover\:#{$namespace}bg-right:hover        { background-position: right; }
+  .hover\:#{$namespace}bg-top:hover          { background-position: top; }
+  .hover\:#{$namespace}bg-left-bottom:hover  { background-position: left bottom; }
+  .hover\:#{$namespace}bg-left-top:hover     { background-position: left top; }
+  .hover\:#{$namespace}bg-right-bottom:hover { background-position: right bottom; }
+  .hover\:#{$namespace}bg-right-top:hover    { background-position: right top; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("background-position") {
+  @each $breakpoint in responsive-breakpoints("background-position") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}bg-bottom       { background-position: bottom; }
+      .#{$namespace}#{$infix}bg-center       { background-position: center; }
+      .#{$namespace}#{$infix}bg-left         { background-position: left; }
+      .#{$namespace}#{$infix}bg-right        { background-position: right; }
+      .#{$namespace}#{$infix}bg-top          { background-position: top; }
+      .#{$namespace}#{$infix}bg-left-bottom  { background-position: left bottom; }
+      .#{$namespace}#{$infix}bg-left-top     { background-position: left top; }
+      .#{$namespace}#{$infix}bg-right-bottom { background-position: right bottom; }
+      .#{$namespace}#{$infix}bg-right-top    { background-position: right top; }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+
+pre,
+code,
+samp {
+  font-family: $font-family-code;
+  font-size: $font-size-code;
+}
+
+code {
+  padding: $padding-code;
+  color: $color-code;
+  background-color: $bg-color-code;
+  border-radius: $border-radius-code;
+}
+
+pre {
+  padding: $padding-pre;
+  margin: $margin-pre;
+  background-color: $bg-color-pre;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+  }
+}
+
+kbd {
+  display: inline-block;
+  padding: $padding-kbd;
+  color: $color-kbd;
+  background-color: $bg-color-kbd;
+  font-family: $font-family-code;
+  font-size: $font-size-kbd;
+  text-align: center;
+  user-select: none;
+  @include border();
+  @include border-radius();
+  box-shadow: $shadow-kbd;
+}

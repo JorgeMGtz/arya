@@ -1,0 +1,44 @@
+
+@each $width, $border-width in $border-widths {
+  .#{$namespace}border-#{$width}         { border-width: #{$border-width}; }
+  .#{$namespace}border-top-#{$width}     { border-top-width: #{$border-width}; }
+  .#{$namespace}border-right-#{$width}   { border-right-width: #{$border-width}; }
+  .#{$namespace}border-bottom-#{$width}  { border-bottom-width: #{$border-width}; }
+  .#{$namespace}border-left-#{$width}    { border-left-width: #{$border-width}; }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("border-width") {
+  .hover\:#{$namespace}border-solid:hover   { border-style: solid; }
+
+  @each $width, $border-width in $border-widths {
+    .hover\:#{$namespace}border-#{$width}:hover         { border-width: #{$border-width}; }
+    .hover\:#{$namespace}border-top-#{$width}:hover     { border-top-width: #{$border-width}; }
+    .hover\:#{$namespace}border-right-#{$width}:hover   { border-right-width: #{$border-width}; }
+    .hover\:#{$namespace}border-bottom-#{$width}:hover  { border-bottom-width: #{$border-width}; }
+    .hover\:#{$namespace}border-left-#{$width}:hover    { border-left-width: #{$border-width}; }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("border-width") {
+  @each $breakpoint in responsive-breakpoints("border-width") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $width, $border-width in $border-widths {
+        .#{$namespace}#{$infix}border-#{$width}         { border-width: #{$border-width}; }
+        .#{$namespace}#{$infix}border-top-#{$width}     { border-top-width: #{$border-width}; }
+        .#{$namespace}#{$infix}border-right-#{$width}   { border-right-width: #{$border-width}; }
+        .#{$namespace}#{$infix}border-bottom-#{$width}  { border-bottom-width: #{$border-width}; }
+        .#{$namespace}#{$infix}border-left-#{$width}    { border-left-width: #{$border-width}; }
+      }
+    }
+  }
+}
+

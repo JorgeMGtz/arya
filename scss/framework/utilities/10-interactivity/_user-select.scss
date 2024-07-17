@@ -1,0 +1,26 @@
+
+.#{$namespace}select-none { user-select: none; }
+.#{$namespace}select-text { user-select: text; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("user-select") {
+  .hover\:#{$namespace}select-none:hover { user-select: none; }
+  .hover\:#{$namespace}select-text:hover { user-select: text; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("user-select") {
+  @each $breakpoint in responsive-breakpoints("user-select") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}select-none { user-select: none; }
+      .#{$namespace}#{$infix}select-text { user-select: text; }
+    }
+  }
+}

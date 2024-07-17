@@ -1,0 +1,29 @@
+
+@mixin link-plain {
+  //color: currentColor;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@mixin link-anchor {
+  opacity: 0;
+  margin-left: spacing(2);
+  margin-right: spacing(1);
+
+  :hover > &,
+  &:focus {
+    opacity: 1;
+  }
+
+  //&::before {
+  //  content: "#";
+  //}
+
+  @include hover-focus-active {
+    text-decoration: none;
+  }
+}

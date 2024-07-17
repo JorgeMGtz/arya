@@ -1,0 +1,10 @@
+
+.#{$namespace}meta-block {
+
+  @include media-breakpoint-up(lg) {
+
+    &::before {
+      display: none;
+    }
+  }
+}

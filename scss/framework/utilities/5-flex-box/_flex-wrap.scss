@@ -1,0 +1,29 @@
+
+.#{$namespace}flex-wrap         { @include flex-wrap(); }
+.#{$namespace}flex-no-wrap      { @include flex-nowrap(); }
+.#{$namespace}flex-wrap-reverse { @include flex-wrap-reverse(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("flex-wrap") {
+  .hover\:#{$namespace}flex-wrap:hover         { @include flex-wrap(); }
+  .hover\:#{$namespace}flex-no-wrap:hover      { @include flex-nowrap(); }
+  .hover\:#{$namespace}flex-wrap-reverse:hover { @include flex-wrap-reverse(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("flex-wrap") {
+  @each $breakpoint in responsive-breakpoints("flex-wrap") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}flex-wrap         { @include flex-wrap(); }
+      .#{$namespace}#{$infix}flex-no-wrap      { @include flex-nowrap(); }
+      .#{$namespace}#{$infix}flex-wrap-reverse { @include flex-wrap-reverse(); }
+    }
+  }
+}

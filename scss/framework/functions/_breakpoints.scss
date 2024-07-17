@@ -1,0 +1,67 @@
+
+//
+// Returns the name of the next breakpoint, or null for the largest (last) breakpoint.
+//
+@function breakpoint-next($name) {
+  $breakpoint-names: map-keys($breakpoints);
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+//
+// Returns the minimum breakpoint width, or null for the smallest (first) breakpoint.
+//
+@function breakpoint-min($name) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+//
+// Returns the maximum breakpoint width, or null for the largest (last) breakpoint.
+//
+@function breakpoint-max($name) {
+  $next: breakpoint-next($name);
+  @return if($next, breakpoint-min($next) - .02, null);
+}
+
+//
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash prepended.
+//
+@function breakpoint-infix($name) {
+  $separator: "\\:";
+  @return if(breakpoint-min($name) == null, "", "#{$name}#{$separator}");
+}
+
+//
+// Returns the responsive breakpoints for a given utility type
+//
+@function responsive-breakpoints($type) {
+  @if length($responsive-variants) > 0 and false != index($responsive-variants, $type) {
+    @return map_keys($breakpoints);
+  }
+  @return nth(map_keys($breakpoints), 1);
+}
+
+
+@function has-hover-variants($type) {
+  @return length($hover-variants) > 0 and null != index($hover-variants, $type);
+}
+
+@function has-responsive-variants($type) {
+  @return length($responsive-variants) > 0 and null != index($responsive-variants, $type);
+}
+
+@function hover-breakpoints($type) {
+  @if has-hover-variants($type) {
+    @return map_keys($breakpoints);
+  }
+  @return nth(map_keys($breakpoints), 1);
+}
+
+
+@function responsive-breakpoints($type) {
+  @if has-responsive-variants($type) {
+    @return slice(map_keys($breakpoints), 2);
+  }
+  @return false;
+}

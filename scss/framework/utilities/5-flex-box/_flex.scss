@@ -1,0 +1,47 @@
+
+.#{$namespace}flex-initial   { @include flex-initial(); }
+.#{$namespace}flex-1         { @include flex-1(); }
+.#{$namespace}flex-auto      { @include flex-auto(); }
+.#{$namespace}flex-none      { @include flex-none();}
+.#{$namespace}flex-fill      { @include flex-fill(); }
+.#{$namespace}flex-grow      { @include flex-grow(); }
+.#{$namespace}flex-grow-0    { @include flex-no-grow(); }
+.#{$namespace}flex-shrink    { @include flex-shrink(); }
+.#{$namespace}flex-shrink-0  { @include flex-no-shrink(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("flex") {
+  .hover\:#{$namespace}flex-initial:hover   { @include flex-initial(); }
+  .hover\:#{$namespace}flex-1:hover         { @include flex-1(); }
+  .hover\:#{$namespace}flex-auto:hover      { @include flex-auto(); }
+  .hover\:#{$namespace}flex-none:hover      { @include flex-none();}
+  .hover\:#{$namespace}flex-fill:hover      { @include flex-fill(); }
+  .hover\:#{$namespace}flex-grow:hover      { @include flex-grow(); }
+  .hover\:#{$namespace}flex-grow-0:hover    { @include flex-no-grow(); }
+  .hover\:#{$namespace}flex-shrink:hover    { @include flex-shrink(); }
+  .hover\:#{$namespace}flex-shrink-0:hover  { @include flex-no-shrink(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("flex") {
+  @each $breakpoint in responsive-breakpoints("flex") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}flex-initial   { @include flex-initial(); }
+      .#{$namespace}#{$infix}flex-1         { @include flex-1(); }
+      .#{$namespace}#{$infix}flex-auto      { @include flex-auto(); }
+      .#{$namespace}#{$infix}flex-none      { @include flex-none();}
+      .#{$namespace}#{$infix}flex-fill      { @include flex-fill(); }
+      .#{$namespace}#{$infix}flex-grow      { @include flex-grow(); }
+      .#{$namespace}#{$infix}flex-grow-0    { @include flex-no-grow(); }
+      .#{$namespace}#{$infix}flex-shrink    { @include flex-shrink(); }
+      .#{$namespace}#{$infix}flex-shrink-0  { @include flex-no-shrink(); }
+    }
+  }
+}

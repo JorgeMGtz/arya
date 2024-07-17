@@ -1,0 +1,9 @@
+
+@mixin flex-basis($value) {
+  @if $legacy-browser-support {
+    -ms-flex-preferred-size: $value;
+    @include prefix(flex-basis, $value, webkit);
+  } @else {
+    flex-basis: $value;
+  }
+}

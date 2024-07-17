@@ -1,0 +1,59 @@
+
+//[class*="column-count-"] {
+//  @if $legacy-browser-support {
+//    @include prefix(column-gap, 1.5rem, webkit moz);
+//  }
+//  column-gap: 1.5rem;
+//
+//  > * {
+//    -webkit-column-break-inside: avoid;
+//    page-break-inside: avoid;
+//    break-inside: avoid;
+//  }
+//}
+//
+//@each $breakpoint in map-keys($breakpoints) {
+//  $infix: breakpoint-infix($breakpoint);
+//
+//  @include media-breakpoint-up($breakpoint) {
+//
+//    .#{$namespace}#{$infix}column-count-auto {
+//      @if $legacy-browser-support {
+//        @include prefix(column-count, auto, webkit moz);
+//      }
+//      column-count: auto;
+//      column-width: 20em;
+//    }
+//
+//    @for $i from 2 through 4 {
+//      .#{$namespace}#{$infix}column-count-#{$i} {
+//        @if $legacy-browser-support {
+//          @include prefix(column-count, $i, webkit moz);
+//        }
+//        column-count: $i;
+//      }
+//    }
+//  }
+//}
+
+[class*="grid-"] {
+  display: grid;
+  gap: $column-gap;
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+  $infix: breakpoint-infix($breakpoint);
+
+  @include media-breakpoint-up($breakpoint) {
+
+    .#{$namespace}#{$infix}grid-auto {
+      grid-auto-rows: minmax(20em, auto);
+    }
+
+    @for $i from 2 through 4 {
+      .#{$namespace}#{$infix}grid-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+
+.breadcrumbs {
+  font-size: $font-size-breadcrumbs;
+  font-weight: $font-weight-breadcrumbs;
+  @include list-divider($padding-breadcrumb-divider, $content-breadcrumb-divider);
+
+  li {
+    color: $color-breadcrumb-item;
+
+    + li {
+
+      &::before {
+        color: $color-breadcrumb-divider;
+      }
+    }
+  }
+
+  a {
+    padding: $padding-breadcrumb-link;
+    color: $color-breadcrumb-link;
+    background-color: $bg-color-breadcrumb-link;
+
+    &:hover {
+      color: $color-breadcrumb-link-hover;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+
+.#{$namespace}hover\:backward {
+
+  &:hover {
+    transform: translateX(calc(var(--transition-translate-factor, .5) * var(--spacer, 1rem) * -1));
+  }
+}

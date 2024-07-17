@@ -1,0 +1,19 @@
+
+@mixin container-fluid  {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  background-color: $bg-color-container;
+}
+
+@mixin container  {
+  @include container-fluid();
+
+  @each $breakpoint, $max-width-container in $max-width-container {
+    @if $max-width-container {
+      @include media-breakpoint-up($breakpoint) {
+        max-width: $max-width-container;
+      }
+    }
+  }
+}

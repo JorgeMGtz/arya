@@ -1,0 +1,1190 @@
+
+//
+// The following variables are defined in the theme settings:
+//
+// $color_primary
+// $color_primary_inverse
+// $color_heading
+// $color_text
+// $color_link
+// $color_outline
+//
+// $bg_color
+//
+// $heading_font
+// $text_font
+//
+// Because these variables, and those that reference them, are not set when SCSS is compiled into CSS, they
+// cannot be used in Sass functions.
+//
+
+//
+// Breakpoints
+// -----------
+//
+// Breakpoints define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes.
+//
+
+$breakpoint-xs:                           0 !default;
+$breakpoint-sm:                           576px !default;
+$breakpoint-md:                           768px !default;
+$breakpoint-lg:                           992px !default;
+$breakpoint-xl:                           1200px !default;
+
+//
+// Component breakpoints
+//
+
+$breakpoint-collapse:                     sm !default;
+$breakpoint-nav:                          $breakpoint-collapse !default;
+$breakpoint-mobile-nav:                   $breakpoint-collapse !default;
+
+$breakpoints:                             () !default;
+$breakpoints: map-merge(
+  (
+    xs:                                   $breakpoint-xs,
+    sm:                                   $breakpoint-sm,
+    md:                                   $breakpoint-md,
+    lg:                                   $breakpoint-lg,
+    xl:                                   $breakpoint-xl
+  ),
+  $breakpoints
+);
+
+
+//
+// Framework settings
+// ------------------
+//
+// Namespace
+//
+// Specify a namespace to have it prepended to all generated CSS selectors
+//
+
+$namespace:                               '' !default;
+
+//
+// Legacy browser support
+//
+// Enable to add vendor prefixes to CSS declarations that require them
+//
+
+$legacy-browser-support:                  false !default;
+
+
+//
+// Grid
+// ----
+//
+// Columns
+//
+
+$column-number:                           12 !default;
+$column-gap:                              2rem !default;
+$column-gap-sm:                           1.5rem !default;
+$column-gap-lg:                           3rem !default;
+
+//
+// Colors
+// ------
+//
+// Black, white and translucent
+//
+
+$color-black:                             #000 !default;
+$color-white:                             #fff !default;
+$color-translucent:                       rgba($color-white, .1) !default;
+
+//
+// Gray scale
+//
+// These are the colors you will use the most and will make up the majority of your UI.
+// They're often used for text, backgrounds and borders.
+//
+
+$color-gray-100:                          #F7FAFC !default;
+$color-gray-200:                          #EDF2F7 !default;
+$color-gray-300:                          #E2E8F0 !default;
+$color-gray-400:                          #CBD5E0 !default;
+$color-gray-500:                          #A0AEC0 !default;
+$color-gray-600:                          #718096 !default;
+$color-gray-700:                          #4A5568 !default;
+$color-gray-800:                          #2D3748 !default;
+$color-gray-900:                          #1A202C !default;
+
+//
+// Red
+//
+// Used for danger states and destroy actions.
+//
+
+$color-red-100:                           #FFF5F5 !default;
+$color-red-200:                           #FED7D7 !default;
+$color-red-300:                           #FEB2B2 !default;
+$color-red-400:                           #FC8181 !default;
+$color-red-500:                           #F56565 !default;
+$color-red-600:                           #E53E3E !default;
+$color-red-700:                           #C53030 !default;
+$color-red-800:                           #9B2C2C !default;
+$color-red-900:                           #742A2A !default;
+
+//
+// Yellow and orange
+//
+// Used for warning states and notes.
+//
+
+$color-yellow-100:                        #FFFFF0 !default;
+$color-yellow-200:                        #FEFCBF !default;
+$color-yellow-300:                        #FAF089 !default;
+$color-yellow-400:                        #F6E05E !default;
+$color-yellow-500:                        #ECC94B !default;
+$color-yellow-600:                        #D69E2E !default;
+$color-yellow-700:                        #B7791F !default;
+$color-yellow-800:                        #975A16 !default;
+$color-yellow-900:                        #744210 !default;
+
+$color-orange-100:                        #FFFAF0 !default;
+$color-orange-200:                        #FEEBC8 !default;
+$color-orange-300:                        #FBD38D !default;
+$color-orange-400:                        #F6AD55 !default;
+$color-orange-500:                        #ED8936 !default;
+$color-orange-600:                        #DD6B20 !default;
+$color-orange-700:                        #C05621 !default;
+$color-orange-800:                        #9C4221 !default;
+$color-orange-900:                        #7B341E !default;
+
+//
+// Green
+//
+// Used for success states.
+//
+
+$color-green-100:                         #F0FFF4 !default;
+$color-green-200:                         #C6F6D5 !default;
+$color-green-300:                         #9AE6B4 !default;
+$color-green-400:                         #68D391 !default;
+$color-green-500:                         #48BB78 !default;
+$color-green-600:                         #38A169 !default;
+$color-green-700:                         #2F855A !default;
+$color-green-800:                         #276749 !default;
+$color-green-900:                         #22543D !default;
+
+//
+// Theme colors
+//
+// Colors are saved as rgba color values, for example: rgba(17, 17, 17, 1)
+//
+
+$theme-colors:                            () !default;
+$theme-colors: map-merge(
+  (
+
+    //
+    // These are the splashes of color that should appear the most in your UI, and are the ones that determine
+    // the overall "look" of the site. Used for things like primary actions, links, navigation items,
+    // icons, accent borders or text that needs to be emphasized.
+    //
+    "primary":                            $color_primary,
+    "secondary":                          $color_secondary,
+    "tertiary":                           $color_tertiary,
+  ),
+  $theme-colors
+);
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "black":                              $color-black,
+    "white":                              $color-white,
+
+    "gray-100":                           $color-gray-100,
+    "gray-200":                           $color-gray-200,
+    "gray-300":                           $color-gray-300,
+    "gray-400":                           $color-gray-400,
+    "gray-500":                           $color-gray-500,
+    "gray-600":                           $color-gray-600,
+    "gray-700":                           $color-gray-700,
+    "gray-800":                           $color-gray-800,
+    "gray-900":                           $color-gray-900,
+
+    "red-500":                            $color-red-500,
+    "orange-500":                         $color-orange-500,
+    "green-500":                          $color-green-500,
+  ),
+  $colors
+);
+
+$all-colors:                              () !default;
+$all-colors: map-merge(
+  map-merge($colors, $theme-colors),
+  $all-colors
+);
+
+
+//
+// Text colors
+// -----------
+//
+// The following text color variables are defined in the theme settings:
+//
+// $color_primary
+// $color_primary_inverse
+// $color_heading
+// $color_text
+// $color_link
+//
+//
+// Link state colors are derived from the $color_link setting
+//
+
+$color-link:                              $color_link !default;
+$color-link-hover:                        zass-darken($color_link, 4%) !default;
+$color-link-active:                       zass-darken($color_link, 8%) !default;
+$color-link-disabled:                     $color-gray-400 !default;
+
+//
+// Base text colors
+//
+
+$color-blockquote:                        null !default;
+$color-code:                              null !default;
+$color-em:                                null !default;
+$color-figcaption:                        $color-gray-600 !default;
+$color-input:                             inherit !default;
+$color-input-description:                 $color-gray-600 !default;
+$color-input-placeholder:                 #718096 !default; // $text-gray-600
+$color-kbd:                               $color_text !default;
+$color-mark:                              $color_text !default;
+$color-table:                             $color_text !default;
+$color-table-header:                      null !default;
+
+//
+// Component text colors
+//
+
+$color-breadcrumb-divider:                $color-gray-700 !default;
+$color-breadcrumb-item:                   $color-breadcrumb-divider !default;
+$color-breadcrumb-link:                   null !default;
+$color-breadcrumb-link-hover:             null !default;
+$color-button:                            $color_text !default;
+$color-card:                              null !default;
+$color-collapsible-title:                 null !default;
+$color-dropdown-link:                     $color-gray-800 !default;
+$color-dropdown-link-hover:               zass-darken($color-gray-800, 5%) !default;
+$color-dropdown-link-active:              $color-white !default;
+$color-navbar-dark:                       $color-gray-300 !default;
+$color-navbar-dark-hover:                 $color-white !default;
+$color-navbar-light:                      $color-gray-700 !default;
+$color-navbar-light-hover:                $color-gray-900 !default;
+$color-nav-link:                          null !default;
+$color-nav-link-hover:                    null !default;
+$color-nav-link-pills:                    null !default;
+$color-nav-link-pills-hover:              null !default;
+$color-nav-link-pills-active:             $color_primary_inverse !default;
+$color-list-divider:                      $color-gray-600 !default;
+$color-list-group:                        null !default;
+$color-list-group-active:                 $color-white !default;
+$color-list-group-disabled:               $color-gray-600 !default;
+$color-list-group-action:                 $color_text !default;
+$color-list-group-action-hover:           $color-list-group-action !default;
+$color-list-group-action-active:          $color_text !default;
+$color-header-link:                       $color_header_link !default;
+$color-header-link-hover:                 zass-darken($color-header-link, 6%) !default;
+$color-header-link-active:                zass-darken($color-header-link, 12%) !default;
+$color-header-fixed-link:                 $color_header_link_fixed !default;
+$color-header-fixed-link-hover:           zass-darken($color-header-fixed-link, 6%) !default;
+$color-header-fixed-link-active:          zass-darken($color-header-fixed-link, 12%) !default;
+$color-footer-link:                       $color_footer_link !default;
+$color-footer-link-hover:                 zass-darken($color-footer-link, 6%) !default;
+$color-footer-link-active:                zass-darken($color-footer-link, 12%) !default;
+
+// Content elements
+$color-list-check:                        null !default;
+$color-list-number:                       $color-list-check !default;
+
+// Status colors
+$color-status-new:                        #D69E2E !default; // $color-yellow-600
+$color-status-open:                       #E53E3E !default; // $color-red-600
+$color-status-pending:                    #3490dc !default;
+$color-status-hold:                       #1A202C !default; // $color-gray-900
+$color-status-solved:                     #718096 !default; // $color-gray-600
+
+// Social networks
+$color-facebook:                          #3b5998 !default;
+$color-twitter:                           #00aced !default;
+$color-linkedin:                          #007bb6 !default;
+
+//
+// Background colors
+// -----------------
+//
+// The following background color variables are defined in the theme settings:
+//
+// $bg_color
+//
+// Base background colors
+//
+
+$bg-color-blockquote:                     null !default;
+$bg-color-code:                           #F7FAFC !default; // $color-gray-100
+$bg-color-em:                             #fff4cc !default;
+$bg-color-input:                          $color-white !default;
+$bg-color-input-disabled:                 $color-gray-300 !default;
+$bg-color-kbd:                            $color-white !default;
+$bg-color-link:                           transparent !default;
+$bg-color-loader:                         #f9f9f9 !default;
+$bg-color-mark:                           $color-yellow-200 !default;
+$bg-color-pre:                            #F7FAFC !default; // $color-gray-100
+$bg-color-table:                          null !default;
+$bg-color-table-header:                   null !default;
+$bg-color-table-body:                     null !default;
+
+//
+// Component background colors
+//
+
+$bg-color-badge:                          #EDF2F7 !default // $color-gray-200
+$bg-color-breadcrumb-link:                null !default;
+$bg-color-card:                           null !default;
+$bg-color-container:                      null !default;
+$bg-color-dropdown-menu:                  #fff !default;
+$bg-color-dropdown-item-hover:            $color-gray-200 !default;
+$bg-color-dropdown-item-active:           $color_link !default;
+$bg-color-list-group:                     $color-white !default;
+$bg-color-list-group-hover:               $color-gray-100 !default;
+$bg-color-list-group-active:              $color_link !default;
+$bg-color-list-group-disabled:            $bg-color-list-group !default;
+$bg-color-list-group-action-active:       $color-gray-200 !default;
+$bg-color-nav-link-pills:                 null !default;
+$bg-color-nav-link-pills-hover:           null !default;
+$bg-color-nav-link-pills-active:          $color_primary !default;
+$bg-color-input-search:                   $bg-color-input !default;
+$bg-color-header:                         $bg_color_header !default;
+$bg-color-footer:                         $bg_color_footer !default;
+
+// Content elements
+$bg-color-icon-circle:                    $color-gray-100 !default;
+$bg-color-list-check:                     $color-gray-300 !default;
+$bg-color-list-number:                    $bg-color-list-check !default;
+
+//
+// Border colors
+// -------------
+//
+
+$border-color:                            $color_border !default;
+$border-color-hover:                      $color-gray-600 !default;
+$border-color-focus:                      $color_primary !default;
+
+//
+// Base border colors
+//
+
+$border-color-blockquote:                 $border-color !default;
+$border-color-hr:                         $border-color !default;
+$border-color-input:                      $border-color !default;
+$border-color-input-hover:                $border-color-hover !default;
+$border-color-input-focus:                $border-color-focus !default;
+$border-color-input-disabled:             $border-color !default;
+$border-color-input-search:               $border-color-input !default;
+$border-color-input-search-hover:         $border-color-input-hover !default;
+$border-color-input-search-focus:         $border-color-input-focus !default;
+$border-color-table:                      $border-color !default;
+
+//
+// Component border colors
+//
+
+$border-color-avatar-img:                 $color-white !default;
+$border-color-button:                     $border-color !default;
+$border-color-card:                       $border-color !default;
+$border-color-dropdown-menu:              $border-color !default;
+$border-color-list-group:                 $border-color !default;
+$border-color-list-group-active:          $bg-color-list-group-active !default;
+$border-color-nav-link-tabs:              $border-color !default;
+$border-color-nav-line-hover:             $border-color !default;
+$border-color-nav-line-active:            $color_primary !default;
+
+
+//
+// Focus colors
+// ------------
+//
+// Base focus colors
+//
+
+$focus-color:                             $color_outline !default;
+$focus-color-button:                      $focus-color !default;
+
+
+//
+// Font families
+// -------------
+//
+// The following font family variables are defined in the theme settings:
+//
+// $heading_font
+// $text_font
+//
+
+//
+// Component font families
+//
+
+$font-family-button:                      null !default;
+$font-family-link:                        null !default;
+$font-family-code:                        SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
+
+
+//
+// Font sizes
+// ----------
+//
+// The following font size variables are defined in the theme settings:
+//
+// $font_size_root
+//
+
+$font-size:                               1em !default;
+$font-size-xs:                            .75rem !default;    // 12px
+$font-size-sm:                            .875rem !default;   // 14px
+$font-size-md:                            .9375rem !default;  // 15px
+$font-size-lg:                            1.125rem !default;  // 18px
+$font-size-xl:                            1.25rem !default;   // 20px
+
+$font-size-2xl:                           1.5rem !default;    // 24px
+$font-size-3xl:                           1.875rem !default;  // 30px
+$font-size-4xl:                           2.25rem !default;   // 36px
+$font-size-5xl:                           3rem !default;      // 48px
+$font-size-6xl:                           4rem !default;      // 64px
+
+
+//
+// Base font sizes
+//
+
+$font-size-code:                          .875em !default;
+$font-size-h6:                            $font-size-sm !default;
+$font-size-h5:                            $font-size !default;
+$font-size-h4:                            $font-size-lg !default;
+$font-size-h3:                            $font-size-xl !default;
+$font-size-h2:                            $font-size-2xl !default;
+$font-size-h1:                            $font-size-3xl !default;
+$font-size-input:                         null !default;
+$font-size-input-label:                   $font-size-md !default;
+$font-size-input-description:             $font-size-sm !default;
+$font-size-kbd:                           $font-size-sm !default;
+$font-size-table-header:                  $font-size-md !default;
+$font-size-table-body:                    $font-size-md !default;
+
+//
+// Component font sizes
+//
+
+$font-size-badge:                         $font-size-xs !default;
+$font-size-breadcrumbs:                   null !default;
+$font-size-button:                        null !default;
+$font-size-button-sm:                     $font-size-sm !default;
+$font-size-button-lg:                     $font-size-lg !default;
+$font-size-collapsible-title:             $font-size !default;
+$font-size-dropdown:                      $font-size-sm !default;
+
+// Content elements
+$font-size-list-check:                    .875em;
+$font-size-list-number:                   .875em;
+
+$font-sizes:                              () !default;
+$font-sizes: map-merge(
+  (
+    "xs":                                 $font-size-xs,
+    "sm":                                 $font-size-sm,
+    "md":                                 $font-size-md,
+    "base":                               1rem,
+    "lg":                                 $font-size-lg,
+    "xl":                                 $font-size-xl,
+    "2xl":                                $font-size-2xl,
+    "3xl":                                $font-size-3xl,
+    "4xl":                                $font-size-4xl,
+    "5xl":                                $font-size-5xl,
+    "6xl":                                $font-size-6xl,
+  ),
+  $font-sizes
+);
+
+
+//
+// Font weights
+// ------------
+//
+
+$font-weight-hairline:                    100 !default;
+$font-weight-thin:                        200 !default;
+$font-weight-light:                       300 !default;
+$font-weight-normal:                      400 !default;
+$font-weight-medium:                      500 !default;
+$font-weight-semibold:                    600 !default;
+$font-weight-bold:                        700 !default;
+$font-weight-extrabold:                   800 !default;
+$font-weight-black:                       900 !default;
+
+//
+// Base font weights
+//
+
+$font-weight-h1:                          $font-weight-semibold !default;
+$font-weight-h2:                          $font-weight-semibold !default;
+$font-weight-h3:                          $font-weight-bold !default;
+$font-weight-h4:                          $font-weight-bold !default;
+$font-weight-h5:                          $font-weight-bold !default;
+$font-weight-h6:                          $font-weight-bold !default;
+$font-weight-link:                        null !default;
+$font-weight-em:                          $font-weight-bold !default;
+$font-weight-table-header:                $font-weight-medium !default;
+$font-weight-input-label:                 null !default;
+$font-weight-input-description:           null !default;
+
+//
+// Component font weights
+//
+
+$font-weight-badge:                       $font-weight-semibold !default;
+$font-weight-breadcrumbs:                 null !default;
+$font-weight-button:                      null !default;
+$font-weight-collapsible-title:           null !default;
+$font-weight-tagline:                     600 !default;
+
+$font-weights:                            () !default;
+$font-weights: map-merge(
+  (
+    "hairline":                           $font-weight-hairline,
+    "thin":                               $font-weight-thin,
+    "light":                              $font-weight-light,
+    "normal":                             $font-weight-normal,
+    "medium":                             $font-weight-medium,
+    "semibold":                           $font-weight-semibold,
+    "bold":                               $font-weight-bold,
+    "extrabold":                          $font-weight-extrabold,
+    "black":                              $font-weight-black,
+  ),
+  $font-weights
+);
+
+
+//
+// Letter spacings
+// ------------
+//
+
+$letter-spacing-tighter:                  -.05em !default;
+$letter-spacing-tight:                    -.025em !default;
+$letter-spacing-normal:                   0 !default;
+$letter-spacing-wide:                     .025em !default;
+$letter-spacing-wider:                    .05em !default;
+
+$letter-spacing-h1:                       null !default;
+$letter-spacing-h2:                       null !default;
+$letter-spacing-h3:                       null !default;
+$letter-spacing-h4:                       null !default;
+$letter-spacing-h5:                       null !default;
+$letter-spacing-h6:                       null !default;
+
+$letter-spacings:                         () !default;
+$letter-spacings: map-merge(
+  (
+    "tighter":                            $letter-spacing-tighter,
+    "tight":                              $letter-spacing-tight,
+    "normal":                             $letter-spacing-normal,
+    "wide":                               $letter-spacing-wide,
+    "wider":                              $letter-spacing-wider,
+  ),
+  $letter-spacings
+);
+
+
+//
+// Line heights
+// ------------
+//
+
+$line-height-1:                           1 !default;
+$line-height-tight:                       1.25 !default;
+$line-height-snug:                        1.375 !default;
+$line-height-normal:                      1.5 !default;
+$line-height-relaxed:                     1.625 !default;
+$line-height-wide:                        2 !default;
+
+//
+// Base line heights
+//
+
+$line-height-heading:                     $line-height-snug !default;
+$line-height-h1:                          null !default;
+$line-height-h2:                          null !default;
+$line-height-h3:                          null !default;
+$line-height-h4:                          null !default;
+$line-height-h5:                          null !default;
+$line-height-h6:                          null !default;
+$line-height-input:                       null !default;
+
+//
+// Component line heights
+//
+
+$line-height-badge:                       $line-height-1 !default;
+$line-height-button:                      $line-height-normal !default;
+$line-height-button-sm:                   null !default;
+$line-height-button-lg:                   null !default;
+$line-height-collapsible-nav:             3em !default;
+
+$line-heights:                            () !default;
+$line-heights: map-merge(
+  (
+    "1":                                  $line-height-1,
+    "tight":                              $line-height-tight,
+    "snug":                               $line-height-snug,
+    "normal":                             $line-height-normal,
+    "relaxed":                            $line-height-relaxed,
+    "wide":                               $line-height-wide,
+  ),
+  $line-heights
+);
+
+
+//
+// Text decoration
+// ---------------
+//
+// Base text decoration
+//
+
+$decoration-link:                         none !default;
+$decoration-link-hover:                   underline !default;
+
+
+//
+// Focus widths
+// ------------
+//
+
+$focus-width:                             .2rem !default;
+
+//
+// Base focus widths
+//
+
+$focus-width-input:                       $focus-width !default;
+
+//
+// Component focus widths
+//
+
+$focus-width-badge:                       $focus-width !default;
+$focus-width-button:                      $focus-width !default;
+
+
+//
+// Border widths
+// -------------
+//
+
+$border-width:                            1px !default;
+
+//
+// Base border widths
+//
+
+$border-width-blockquote:                 0 0 0 $border-width * 4 !default;
+$border-width-hr:                         $border-width !default;
+$border-width-input:                      $border-width !default;
+$border-width-table:                      $border-width !default;
+
+//
+// Component border widths
+//
+
+$border-width-avatar-img:                 $border-width * 2 !default;
+$border-width-button:                     $border-width !default;
+$border-width-card:                       $border-width !default;
+$border-width-list-group:                 $border-width !default;
+$border-width-nav-line:                   $border-width * 3 !default;
+
+$border-widths:                           () !default;
+$border-widths: map-merge(
+  (
+    1:                                    1px,
+    2:                                    2px,
+    3:                                    3px,
+    4:                                    4px,
+    0:                                    0,
+  ),
+  $border-widths
+);
+
+
+//
+// Border radius
+// -------------
+//
+
+$border-radius:                           4px !default;
+$border-radius-sm:                        .2rem !default;
+$border-radius-lg:                        .3rem !default;
+$border-radius-rounded:                   2rem !default;
+
+//
+// Base border radius
+//
+
+$border-radius-code:                      $border-radius !default;
+$border-radius-input:                     $border-radius !default;
+$border-radius-input-search:              $border-radius-input !default;
+
+//
+// Component border radius
+//
+
+$border-radius-avatar-img:                50% !default;
+$border-radius-badge:                     $border-radius !default;
+$border-radius-button:                    $border-radius !default;
+$border-radius-card:                      $border-radius !default;
+$border-radius-dropdown-menu:             4px !default;
+$border-radius-list-group:                $border-radius !default;
+
+
+//
+// Z-indices
+// ---------
+//
+
+$z-index-auto:                            auto !default;
+$z-index-0:                               0 !default;
+$z-index-10:                              10 !default;
+$z-index-20:                              20 !default;
+$z-index-30:                              30 !default;
+$z-index-40:                              40 !default;
+$z-index-50:                              50 !default;
+$z-index-100:                             100 !default;
+
+$z-index-fixed:                           96 !default;
+$z-index-sticky:                          97 !default;
+$z-index-absolute:                        100 !default;
+
+//
+// Component z-indices
+//
+
+$z-index-svg-shape:                       20 !default;
+$z-index-backdrop:                        98 !default;
+$z-index-dropdown:                        99 !default;
+$z-index-nav:                             99 !default;
+
+$z-layers:                                () !default;
+$z-layers: map-merge(
+  (
+    0:                                    $z-index-0,
+    10:                                   $z-index-10,
+    20:                                   $z-index-20,
+    30:                                   $z-index-30,
+    40:                                   $z-index-40,
+    50:                                   $z-index-50,
+    100:                                  $z-index-100,
+    "auto":                               $z-index-auto,
+    "fixed":                              $z-index-fixed,
+    "sticky":                             $z-index-sticky,
+  ),
+  $z-layers
+);
+
+
+//
+// Spacing
+// -------
+//
+// Used to generate standardized margin and padding utilities.
+//
+
+$spacer:                                  1rem !default;  // 16px
+$spacers:                                 () !default;
+$spacers: map-merge(
+  (
+    0:                                    0,
+    1:                                    ($spacer * .25),  // 4px
+    2:                                    ($spacer * .5),   // 8px
+    3:                                    ($spacer * .75),  // 12px
+    4:                                    ($spacer * 1),    // 16px
+    5:                                    ($spacer * 1.5),  // 24px
+    6:                                    ($spacer * 2),    // 32px
+    7:                                    ($spacer * 3),    // 48px
+    8:                                    ($spacer * 4),    // 64px
+    9:                                    ($spacer * 6),    // 96px
+    //10:                                   ($spacer * 8),   // 128px
+    //11:                                   ($spacer * 12),  // 192px
+    //12:                                   ($spacer * 16),  // 256px
+  ),
+  $spacers
+);
+
+
+//
+// Padding
+// -------
+//
+// Standardized padding utilities are generated from the $spacers map above.
+//
+// Base padding
+//
+
+$padding-blockquote:                      1.5em !default;
+$padding-code:                            .25em !default;
+$padding-em:                              0 3px !default;
+$padding-input:                           .5em .75em !default;
+$padding-input-checkbox:                  .5rem !default;
+$padding-input-search:                    .5em .75em !default;
+$padding-input-search-sm:                 .375em .675em !default;
+$padding-input-search-lg:                 .675em 1em !default;
+$padding-kbd:                             0 .25em !default;
+$padding-list:                            0 0 0 1.5rem !default;
+$padding-navbar:                          null !default;
+$padding-nav-menu:                        $header_height 0 ($spacer * 1.5) !default;
+$padding-pre:                             1em !default;
+$padding-table-cell:                      .75rem !default;
+$padding-table-cell-sm:                   .375rem !default;
+
+//
+// Component padding
+//
+
+$padding-badge:                           .25em .375em !default;
+$padding-breadcrumb-divider:              .5rem !default;
+$padding-breadcrumb-link:                 null !default;
+$padding-button:                          .5em 1.25em !default;
+$padding-button-sm:                       .25em .75em !default;
+$padding-button-lg:                       .5em 1.5em !default;
+$padding-card-body:                       1rem 1.5rem !default;
+$padding-container:                       0 $column-gap !default;
+$padding-container-fluid:                 $padding-container !default;
+$padding-collapsible-title:               .75rem 0 !default;
+$padding-dropdown-menu:                   .75rem 0 !default;
+$padding-dropdown-item:                   .5rem 1.5rem;
+$padding-list-divider:                    .5rem !default;
+$padding-list-group-item:                 .5em 1em !default;
+$padding-nav-link:                        .5em 1em !default;
+
+
+//
+// Margin
+// ------
+//
+// Standardized margin utilities, including those for negative margins, are generated from the
+// $spacers map above.
+//
+// Base margin
+//
+
+$margin-blockquote:                       0 0 1rem !default;
+$margin-figure:                           0 0 1rem !default;
+$margin-form-field:                       1.5rem !default;
+$margin-heading:                          1.5rem 0 1rem !default;
+$margin-hr:                               0 !default;
+$margin-input-label:                      0 0 .5rem !default;
+$margin-input-description:                .25rem 0 0 !default;
+$margin-list:                             0 0 1rem !default;
+$margin-pre:                              0 0 1rem !default;
+
+//
+// Component margin
+//
+
+$margin-avatar:                           0 .75rem 1rem 0 !default;
+$margin-dropdown-menu:                    0.25rem 0 !default;
+$margin-list-item:                        .5rem 0 !default;
+$margin-nav-link-line:                    1rem !default;
+$margin-pagination:                       1rem 0 !default;
+
+//
+// Widths
+// ------
+//
+// Component widths
+//
+
+$width-avatar-sm:                         2rem !default;
+$width-avatar:                            3rem !default;
+$width-avatar-lg:                         4rem !default;
+$width-col-auto:                          300px !default;
+
+$widths:                                  () !default;
+$widths: map-merge(
+  map-merge($spacers,
+    (
+      "px":                               1px,
+      "auto":                             auto,
+      "full":                             100%,
+      "screen":                           100vw,
+    )
+  ),
+  $widths
+);
+
+
+//
+// Min widths
+// ----------
+//
+
+$min-width-9:                             ($spacer * 6) !default; // 96px
+$min-width-10:                            ($spacer * 8) !default; // 128px
+$min-width-11:                            ($spacer * 12) !default; // 192px
+$min-width-12:                            ($spacer * 16) !default; // 256px
+$min-width-13:                            ($spacer * 20) !default; // 320px
+
+$min-width-dropdown-menu:                 170px !default;
+
+$min-widths:                              () !default;
+$min-widths: map-merge(
+  (
+    "0":                                  0,
+    "50":                                 50%,
+    "dropdown":                           $min-width-dropdown-menu,
+    "full":                               100%,
+    "screen":                             100vw,
+  ),
+  $min-widths
+);
+
+
+//
+// Max widths
+// ----------
+//
+// Default max widths are derived from theme breakpoints.
+//
+
+$max-width-9:                             ($spacer * 6) !default; // 96px
+$max-width-10:                            ($spacer * 8) !default; // 128px
+$max-width-11:                            ($spacer * 12) !default; // 192px
+$max-width-12:                            ($spacer * 16) !default; // 256px
+$max-width-13:                            ($spacer * 20) !default; // 320px
+
+$max-widths:                              () !default;
+$max-widths: map-merge(
+    (
+      9:                                  $max-width-9,
+      10:                                 $max-width-10,
+      11:                                 $max-width-11,
+      12:                                 $max-width-12,
+      13:                                 $max-width-13,
+      "sm":                               map-get($breakpoints, sm),
+      "md":                               map-get($breakpoints, md),
+      "lg":                               map-get($breakpoints, lg),
+      "xl":                               map-get($breakpoints, xl),
+      "full":                             100%,
+      "screen":                           100vw,
+      "none":                             none
+    ),
+    $max-widths
+);
+
+//
+// Component max width
+//
+
+$max-width-layout-boxed:                  1400px !default;
+$max-width-menu-slide-in:                 20rem !default;
+$max-width-container:                     () !default;
+$max-width-container: map-merge(
+  (
+    xs:                                   null,
+    sm:                                   null,
+    md:                                   null,
+    lg:                                   960px,
+    xl:                                   1140px
+  ),
+  $max-width-container
+);
+
+
+//
+// Heights
+// -------
+//
+// Component heights
+//
+
+$height-avatar:                           $width-avatar !default;
+$height-avatar-sm:                        $width-avatar-sm !default;
+$height-avatar-lg:                        $width-avatar-lg !default;
+
+$heights:                                 () !default;
+$heights: map-merge(
+  map-merge($spacers,
+    (
+      "px":                               1px,
+      "auto":                             auto,
+      "full":                             100%,
+      "screen":                           100vh,
+    )
+  ),
+  $heights
+);
+
+
+//
+// Min heights
+// -----------
+//
+
+$min-heights:                             () !default;
+$min-heights: map-merge(
+  (
+    0:                                    0,
+    "full":                               100%,
+    "screen":                             100vh,
+  ),
+  $min-heights
+);
+
+
+//
+// Max heights
+// -----------
+//
+
+$max-heights:                             () !default;
+$max-heights: map-merge(
+  (
+    "0":                                  0,
+    "full":                               100%,
+    "screen":                             100vh,
+  ),
+  $max-heights
+);
+
+
+//
+// Box shadows
+// -----------
+//
+
+$shadow:                                  0 1px 3px 0 rgba($color-black, 0.1),
+                                          0 1px 2px 0 rgba($color-black, 0.06) !default;
+$shadow-xs:                               0 1px 2px rgba($color-black, 0.08),
+                                          0 2px 4px rgba($color-black, 0.08) !default;
+$shadow-sm:                               0 4px 6px -1px rgba($color-black, 0.1),
+                                          0 2px 4px -1px rgba($color-black, 0.06) !default;
+$shadow-md:                               0 10px 15px -3px rgba($color-black, 0.1),
+                                          0 4px 6px -2px rgba($color-black, 0.05) !default;
+$shadow-lg:                               0 20px 25px -5px rgba($color-black, 0.1),
+                                          0 10px 10px -5px rgba($color-black, 0.04) !default;
+$shadow-xl:                               0 25px 50px -12px rgba($color-black, 0.25) !default;
+$shadow-inner:                            inset 0 2px 4px 0 rgba($color-black, 0.06) !default;
+$shadow-outline:                          0 0 0 2px $focus-color !default;
+$shadow-solid:                            .375rem .375rem 0 rgba($color-black, 0.5) !default;
+$shadow-3d:                               0.5rem 0.5rem 0 rgba($color-black, 0.5) !default;
+
+//
+// Base box shadows
+//
+
+$shadow-kbd:                              0 $border-width 0 $border-color !default;
+
+//
+// Component box shadows
+//
+
+$shadow-button:                           0 2px 0 rgba($color-black, .05),
+                                          inset 0 1px 0 rgba($color-white, .10) !default;
+$shadow-button-active:                    inset 0 3px 5px rgba($color-black, .125) !default;
+$shadow-dropdown-menu:                    0 4px 6px rgba(0, 0, 0, 0.1) !default;
+$shadow-nav-menu:                         0 2px 2px rgba($color-black, 0.08) !default;
+$shadow-input-search:                     null !default;
+$shadow-input-search-hover:               null !default;
+$shadow-input-search-focus:               0 0 0 $focus-width-input $focus-color !default;
+
+
+//
+// Opacity
+// -------
+//
+// Component opacity levels
+//
+
+$opacity-button-disabled:                 .65 !default;
+
+$opacity-levels:                          () !default;
+$opacity-levels: map-merge(
+  (
+    0:                                    0,
+    25:                                   .25,
+    50:                                   .50,
+    75:                                   .75,
+    100:                                  1,
+  ),
+  $opacity-levels
+);
+
+
+//
+// Transitions
+// -----------
+//
+
+$transition-duration-fast:              .15s !default;
+$transition-duration:                   .3s !default;
+$transition-duration-slow:              .5s !default;
+
+$transition-badge:                      $transition-duration-fast ease-in-out !default;
+$transition-button:                     $transition-duration-fast ease-in-out !default;
+$transition-collapsible-nav:            max-height $transition-duration ease-in-out !default;
+$transition-input:                      color $transition-duration-fast ease-in-out,
+                                        background-color $transition-duration-fast ease-in-out,
+                                        border-color $transition-duration-fast ease-in-out,
+                                        box-shadow $transition-duration-fast ease-in-out !default;
+
+//
+// The percentage increase or decrease to apply to scaled elements (e.g., .hover:grow)
+//
+
+$transition-scale-factor:               .05 !default;
+
+//
+// The proportion of the standard spacer to apply when translating elements (e.g., .hover:backward)
+//
+
+$transition-translate-factor:           .5 !default;
+
+//
+// The rotation to apply to rotated elements (e.g., .hover:rotate)
+//
+
+$transition-rotate-factor:              -4deg !default;
+$transition-skew-factor:                -4deg !default;
+
+//
+// Pseudo-element content
+// ----------------------
+//
+
+//
+// Default divider for lists
+//
+
+$content-list-divider:                  quote("\00b7") !default;
+$content-breadcrumb-divider:            quote("/") !default; // e.g., quote("\0276F")
+
+//
+// Other
+//
+
+$color-search-icon-hover:               null !default;
+$color-search-icon-focus:               $border-color-focus !default;
+
+$background-collapsible:                str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='#{$color-gray-800}' stroke-linecap='round' d='M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5'%3E%3C/path%3E%3C/svg%3E"), "#", "%23") no-repeat transparent center center !default;
+$background-collapsible-active:         str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='#{$color-gray-800}' stroke-linecap='round' d='M3 9l6-6m0 6L3 3'%3E%3C/path%3E%3C/svg%3E"), "#", "%23") no-repeat transparent center center !default;
+
+$background-select:                     str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6' width='10' height='6'%3E%3Cpath fill='#{$color-gray-800}' d='M0 0h10L5 6 0 0z'/%3E%3C/svg%3E"), "#", "%23") no-repeat $bg-color-input !default;
+
+$background-checkbox-checked:           str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='#{$color-white}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$background-checkbox-indeterminate:     str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='#{$color-white}' d='M0 2h4'/%3e%3c/svg%3e"), "#", "%23") !default;

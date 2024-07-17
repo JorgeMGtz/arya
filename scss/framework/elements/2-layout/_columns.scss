@@ -1,0 +1,69 @@
+
+%grid-column {
+  position: relative;
+  padding-right: ($column-gap / 2);
+  padding-left: ($column-gap / 2);
+  width: 100%;      // Prevent columns from becoming too narrow when at smaller grid tiers
+  min-height: 1px;  // Prevent columns from collapsing when empty
+  min-width: 0;     // Prevent columns from overflowing
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+  $infix: breakpoint-infix($breakpoint);
+
+  // Allow columns to stretch full width below their breakpoints
+  @for $i from 1 through $column-number {
+    .#{$namespace}#{$infix}col-#{$i} {
+      @extend %grid-column;
+    }
+  }
+
+  .#{$namespace}#{$infix}col,
+  .#{$namespace}#{$infix}col-auto {
+    @extend %grid-column;
+  }
+
+  .#{$namespace}#{$infix}col {
+    @extend %grid-column;
+  }
+
+  @include media-breakpoint-up($breakpoint) {
+
+    .#{$namespace}#{$infix}col {
+      @include flex-basis(0);
+      @include flex-grow();
+      max-width: 100%;
+    }
+
+    .#{$namespace}#{$infix}col-auto {
+      @include flex-layout(1 0 $width-col-auto);
+    }
+
+    @for $i from 1 through $column-number {
+
+      .#{$namespace}#{$infix}col-#{$i} {
+        @include flex-layout(0 0 percentage($i / $column-number));
+
+        // Add a `max-width` to ensure content within each column does not blow out
+        // the width of the column on IE10+ and Firefox.
+        max-width: percentage($i / $column-number);
+      }
+    }
+
+    @for $i from 1 through $column-number {
+      .#{$namespace}#{$infix}col-order-#{$i} {
+        @include flex-order($i);
+      }
+    }
+
+    @for $i from 0 through ($column-number - 1) {
+      @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+
+        .#{$namespace}#{$infix}col-offset-#{$i} {
+          $num: $i / $column-number;
+          margin-left: if($num == 0, 0, percentage($num));
+        }
+      }
+    }
+  }
+}

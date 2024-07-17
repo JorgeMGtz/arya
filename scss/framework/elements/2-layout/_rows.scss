@@ -1,0 +1,16 @@
+
+.#{$namespace}row {
+  @include row();
+}
+
+.#{$namespace}row-flush {
+  @include row-variant(0);
+}
+
+.#{$namespace}row-sm {
+  @include row-variant($column-gap-sm);
+}
+
+.#{$namespace}row-lg {
+  @include row-variant($column-gap-lg);
+}

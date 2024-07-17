@@ -1,0 +1,60 @@
+
+@mixin flex-layout($value) {
+  @if $legacy-browser-support {
+    @include prefix(flex, $value, ms webkit);
+  } @else {
+    flex: $value;
+  }
+}
+
+@mixin grow($value) {
+  @if $legacy-browser-support {
+    @include prefix(flex-grow, $value, webkit);
+  } @else {
+    flex-grow: $value;
+  }
+}
+
+@mixin shrink($value) {
+  @if $legacy-browser-support {
+    @include prefix(flex-shrink, $value, webkit);
+  } @else {
+    flex-shrink: $value;
+  }
+}
+
+@mixin flex-initial {
+  @include flex-layout(initial);
+}
+
+@mixin flex-1 {
+  @include flex-layout(1);
+}
+
+@mixin flex-auto {
+  @include flex-layout(auto);
+}
+
+@mixin flex-none {
+  @include flex-layout(none);
+}
+
+@mixin flex-fill {
+  @include flex-layout(1 1 auto);
+}
+
+@mixin flex-grow {
+  @include grow(1);
+}
+
+@mixin flex-no-grow {
+  @include grow(0);
+}
+
+@mixin flex-shrink {
+  @include shrink(1);
+}
+
+@mixin flex-no-shrink {
+  @include shrink(0);
+}

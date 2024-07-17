@@ -1,0 +1,127 @@
+
+.#{$namespace}navbar {
+  @include flex();
+  @include flex-wrap();
+  @include align-items-center();
+  @include justify-content-between();
+  padding: $padding-navbar;
+}
+
+//
+// Colors
+//
+
+.#{$namespace}navbar-light {
+
+  .#{$namespace}navbar-brand {
+    color: $color-navbar-light-hover;
+  }
+
+  .#{$namespace}navbar-toggle,
+  .#{$namespace}nav-link {
+    color: $color-navbar-light;
+
+    @include hover-focus {
+      color: $color-navbar-light-hover;
+    }
+  }
+}
+
+.#{$namespace}navbar-dark {
+
+  .#{$namespace}navbar-brand {
+    color: $color-navbar-dark-hover;
+  }
+
+  .#{$namespace}navbar-toggle,
+  .#{$namespace}nav-link {
+    color: $color-navbar-dark;
+
+    @include hover-focus {
+      color: $color-navbar-dark-hover;
+    }
+  }
+}
+
+//
+// Navbar elements
+//
+
+.#{$namespace}navbar-brand {
+  display: inline-flex;
+  align-items: center;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
+.#{$namespace}navbar-tagline {
+  font-weight: $font-weight-tagline;
+}
+
+.#{$namespace}navbar-toggle {
+  position: relative;
+  display: block;
+  padding: 1rem 0.5rem;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  @include flex-order(1);
+  z-index: $z-index-nav + 1;
+
+  span {
+    display: block;
+    position: relative;
+    pointer-events: none;
+
+    &,
+    &:before,
+    &:after {
+      background-color: currentColor;
+      height: 2px;
+      width: 26px;
+      outline: 1px solid transparent;
+      @include transition(background-color $transition-duration-fast, transform $transition-duration-fast);
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+    }
+
+    &:before {
+      top: -7px;
+    }
+
+    &:after {
+      top: 7px;
+    }
+  }
+
+  &[aria-expanded="true"] {
+    outline: none;
+
+    span {
+      background-color: transparent;
+
+      &:before,
+      &:after {
+        top: 0;
+      }
+
+      &:before {
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+
+.#{$namespace}hover\:skew {
+
+  &:hover {
+    transform: skew(var(--transition-skew-factor, -4deg));
+  }
+}

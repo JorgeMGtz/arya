@@ -1,0 +1,8 @@
+
+.#{$namespace}hover\:bounce-out {
+
+  &:hover {
+    transform: scale(calc(1 - (var(--transition-scale-factor, .05) * 1)));
+    transition-timing-function: cubic-bezier(.47,2.02,.31,-0.36);
+  }
+}

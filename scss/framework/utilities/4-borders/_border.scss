@@ -1,0 +1,35 @@
+
+.#{$namespace}border        { @include border(); }
+.#{$namespace}border-top    { @include border-top(); }
+.#{$namespace}border-right  { @include border-right(); }
+.#{$namespace}border-bottom { @include border-bottom(); }
+.#{$namespace}border-left   { @include border-left(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("border") {
+  .hover\:#{$namespace}border:hover        { @include border(); }
+  .hover\:#{$namespace}border-top:hover    { @include border-top(); }
+  .hover\:#{$namespace}border-right:hover  { @include border-right(); }
+  .hover\:#{$namespace}border-bottom:hover { @include border-bottom(); }
+  .hover\:#{$namespace}border-left:hover   { @include border-left(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("border") {
+  @each $breakpoint in responsive-breakpoints("border") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}border        { @include border(); }
+      .#{$namespace}#{$infix}border-top    { @include border-top(); }
+      .#{$namespace}#{$infix}border-right  { @include border-right(); }
+      .#{$namespace}#{$infix}border-bottom { @include border-bottom(); }
+      .#{$namespace}#{$infix}border-left   { @include border-left(); }
+    }
+  }
+}

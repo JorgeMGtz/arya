@@ -1,0 +1,16 @@
+@include keyframes(pop) {
+
+	50% {
+    transform: scale(1.1);
+  }
+}
+
+.#{$namespace}hover\:pop {
+
+  @include hover-focus-active {
+    animation-name: pop;
+    animation-duration: $transition-duration;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+}

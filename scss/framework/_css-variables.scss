@@ -1,0 +1,38 @@
+
+//
+// A small selection of CSS variables used for plugins
+//
+
+:root {
+
+  // Colors
+  --color-primary: #{$color-primary};
+  --color-primary-inverse: #{$color-primary-inverse};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-inverse: #{$color-secondary-inverse};
+  --color-tertiary: #{$color-tertiary};
+  --color-tertiary-inverse: #{$color-tertiary-inverse};
+  --color-gray-100: #{$color-gray-100};
+  --color-gray-200: #{$color-gray-200};
+  --color-gray-600: #{$color-gray-600};
+
+  // fonts
+  --font-heading: #{$heading_font};
+  --font-text: #{$text_font};
+
+  // Spacing
+  --spacer: #{$spacer};
+
+  // Transitions
+  --transition-translate-factor: #{$transition-translate-factor};
+  --transition-rotate-factor: #{$transition-rotate-factor};
+  --transition-scale-factor: #{$transition-scale-factor};
+  --transition-skew-factor: #{$transition-skew-factor};
+
+  // Breakpoints
+  --breakpoint-sm: #{$breakpoint-sm};
+  --breakpoint-md: #{$breakpoint-md};
+  --breakpoint-lg: #{$breakpoint-lg};
+  --breakpoint-xl: #{$breakpoint-xl};
+
+}

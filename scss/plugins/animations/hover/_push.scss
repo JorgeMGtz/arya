@@ -1,0 +1,20 @@
+@include keyframes(push) {
+
+	50% {
+    transform: scale(0.9);
+  }
+
+	100% {
+    transform: scale(1);
+  }
+}
+
+.#{$namespace}hover\:push {
+
+  @include hover-focus-active {
+    animation-name: push;
+    animation-duration: $transition-duration;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+}

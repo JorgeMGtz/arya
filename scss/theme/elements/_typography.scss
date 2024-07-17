@@ -1,0 +1,114 @@
+
+.#{$namespace}note,
+.#{$namespace}warning {
+  position: relative;
+  z-index: 1;
+  margin: 2rem 0;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.05;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$namespace}note,
+.#{$namespace}warning {
+  padding: 1.5rem;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    font-weight: bold;
+    margin-bottom: spacing(3);
+  }
+}
+
+.#{$namespace}note {
+  border-left: 4px solid $color_note;
+
+  &::before {
+    content: "$note_title";
+    color: $color_note;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &::after {
+    background-color: $color_note;
+  }
+}
+
+.#{$namespace}warning {
+  border-left: 4px solid $color_warning;
+
+  &::before {
+    content: "$warning_title";
+    color: $color_warning;
+  }
+
+  &::after {
+    background-color: $color_warning;
+  }
+}
+
+.#{$namespace}form .#{$namespace}note {
+  padding: $spacer;
+  border: 1px solid $color_note;
+
+  &::before {
+    display: none;
+  }
+}
+
+.#{$namespace}pull-left,
+.#{$namespace}pull-right {
+  font-weight: bold;
+}
+
+.#{$namespace}content {
+
+  em {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  img,
+  iframe {
+    max-width: 100%;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+
+  .#{$namespace}pull-left {
+    float: left;
+    margin-left: - spacing();
+    margin-right: spacing(5);
+    text-align: left;
+  }
+
+  .#{$namespace}pull-right {
+    float: right;
+    margin-left: spacing(5);
+    margin-right: - spacing();
+    text-align: right;
+  }
+
+  .#{$namespace}pull-left,
+  .#{$namespace}pull-right {
+    margin-top: spacing(2);
+    margin-bottom: spacing(2);
+    max-width: 20rem;
+  }
+}

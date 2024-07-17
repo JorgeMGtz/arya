@@ -1,0 +1,32 @@
+
+.#{$namespace}flex-row            { @include flex-row(); }
+.#{$namespace}flex-column         { @include flex-column(); }
+.#{$namespace}flex-row-reverse    { @include flex-row-reverse(); }
+.#{$namespace}flex-column-reverse { @include flex-column-reverse(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("flex-direction") {
+  .hover\:#{$namespace}flex-row:hover            { @include flex-row(); }
+  .hover\:#{$namespace}flex-column:hover         { @include flex-column(); }
+  .hover\:#{$namespace}flex-row-reverse:hover    { @include flex-row-reverse(); }
+  .hover\:#{$namespace}flex-column-reverse:hover { @include flex-column-reverse(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("flex-direction") {
+  @each $breakpoint in responsive-breakpoints("flex-direction") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}flex-row            { @include flex-row(); }
+      .#{$namespace}#{$infix}flex-column         { @include flex-column(); }
+      .#{$namespace}#{$infix}flex-row-reverse    { @include flex-row-reverse(); }
+      .#{$namespace}#{$infix}flex-column-reverse { @include flex-column-reverse(); }
+    }
+  }
+}

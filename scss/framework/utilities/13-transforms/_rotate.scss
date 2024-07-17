@@ -1,0 +1,32 @@
+
+.#{$namespace}rotate-45  { transform: rotate(45deg); }
+.#{$namespace}rotate-90  { transform: rotate(90deg); }
+.#{$namespace}rotate-180 { transform: rotate(180deg); }
+.#{$namespace}rotate-270 { transform: rotate(270deg); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("rotate") {
+  .hover\:#{$namespace}rotate-45:hover  { transform: rotate(45deg); }
+  .hover\:#{$namespace}rotate-90:hover  { transform: rotate(90deg); }
+  .hover\:#{$namespace}rotate-180:hover { transform: rotate(180deg); }
+  .hover\:#{$namespace}rotate-270:hover { transform: rotate(270deg); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("rotate") {
+  @each $breakpoint in responsive-breakpoints("rotate") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}rotate-45  { transform: rotate(45deg); }
+      .#{$namespace}#{$infix}rotate-90  { transform: rotate(90deg); }
+      .#{$namespace}#{$infix}rotate-180 { transform: rotate(180deg); }
+      .#{$namespace}#{$infix}rotate-270 { transform: rotate(270deg); }
+    }
+  }
+}

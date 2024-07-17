@@ -1,0 +1,10 @@
+
+//
+// Only `lighten` and `darken` functions (aliased as `zass-lighten` and `zass-darken`) are
+// supported for use with theme-defined variables.
+//
+
+@import "functions/base";
+@import "functions/breakpoints";
+@import "functions/color";
+@import "functions/spacing";

@@ -1,0 +1,88 @@
+
+// Add space between neighboring dropdowns
+.dropdown {
+  position: relative;
+  display: block;
+
+  &-toggle {
+    cursor: pointer;
+  }
+
+  &-menu {
+    position: absolute;
+    display: none;
+    background-color: $bg-color-dropdown-menu;
+    z-index: $z-index-dropdown;
+    padding: $padding-dropdown-menu;
+    margin: $margin-dropdown-menu;
+    border: 1px solid $border-color-dropdown-menu;
+    box-shadow: $shadow-dropdown-menu;
+    border-radius: $border-radius-dropdown-menu;
+    min-width: $min-width-dropdown-menu;
+    font-size: $font-size-dropdown;
+
+    &[aria-expanded="true"] {
+      display: block;
+    }
+  }
+
+  //
+  // Links, buttons, and more within the dropdown menu
+  //
+  // `<button>`-specific styles are denoted with `// For <button>s`
+
+  &-item {
+    display: block;
+    width: 100%; // For `<button>`s
+    padding: $padding-dropdown-item;
+    clear: both;
+    font-weight: $font-weight-normal;
+    color: $color-dropdown-link;
+    text-align: inherit; // For `<button>`s
+    background-color: transparent; // For `<button>`s
+    border: 0; // For `<button>`s
+
+    @include hover-focus {
+      color: $color-dropdown-link-hover;
+      text-decoration: none;
+      background-color: $bg-color-dropdown-item-hover;
+    }
+
+    &.is-active {
+      color: $color-dropdown-link-active;
+      text-decoration: none;
+      background-color: $bg-color-dropdown-item-active
+    }
+
+    &[aria-selected="true"] {
+      cursor: default;
+
+      &::after {
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1 7l3 3 7-7'%3E%3C/path%3E%3C/svg%3E");
+        display: inline-block;
+        height: 12px;
+        margin-left: 10px;
+        width: 12px;
+
+        [dir="rtl"] & {
+          margin-left: 0;
+          margin-right: 10px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+// Allow dropdown menus to be viewed on hover
+.has-dropdown {
+  position: relative;
+
+  @include hover-focus {
+
+    > .#{$namespace}dropdown-menu {
+      display: block;
+    }
+  }
+}

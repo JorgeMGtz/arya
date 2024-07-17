@@ -1,0 +1,45 @@
+
+@mixin flex-align-content($value) {
+  @if $legacy-browser-support {
+
+    // IE10
+    @if $value == space-between {
+      -ms-flex-line-pack: justify;
+    } @else if $value == space-around {
+      -ms-flex-line-pack: distribute;
+    } @else if $value == flex-start {
+      -ms-flex-line-pack: start;
+    } @else if $value == flex-end {
+      -ms-flex-line-pack: end;
+    } @else if $value == center or $value == stretch {
+      -ms-flex-line-pack: $value;
+    }
+    @include prefix(align-content, $value, webkit);
+  } @else {
+    align-content: $value;
+  }
+}
+
+@mixin align-content-start {
+  @include flex-align-content(flex-start);
+}
+
+@mixin align-content-end {
+  @include flex-align-content(flex-end);
+}
+
+@mixin align-content-center {
+  @include flex-align-content(center);
+}
+
+@mixin align-content-between {
+  @include flex-align-content(space-between);
+}
+
+@mixin align-content-around {
+  @include flex-align-content(space-around);
+}
+
+@mixin align-content-stretch {
+  @include flex-align-content(stretch);
+}

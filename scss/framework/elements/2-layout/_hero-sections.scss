@@ -1,0 +1,14 @@
+
+.#{$namespace}hero {
+  position: relative;
+  @include flex();
+  @include flex-column();
+  @include align-items-center();
+  @include justify-content-center();
+  color: $color_hero_text;
+
+  h1,
+  h2 {
+    color: $color_hero_heading;
+  }
+}

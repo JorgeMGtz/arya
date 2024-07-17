@@ -1,0 +1,55 @@
+
+.#{$namespace}border-transparent { border-color: transparent; }
+.#{$namespace}border-translucent { border-color: $color-translucent; }
+.#{$namespace}border-current     { border-color: currentColor; }
+.#{$namespace}border-note        { border-color: $color_note; }
+.#{$namespace}border-warning     { border-color: $color_warning; }
+
+@each $name, $color in $all-colors {
+  .#{$namespace}border-#{$name}        { border-color: $color; }
+  .#{$namespace}border-top-#{$name}    { border-top-color: $color; }
+  .#{$namespace}border-right-#{$name}  { border-right-color: $color; }
+  .#{$namespace}border-bottom-#{$name} { border-bottom-color: $color; }
+  .#{$namespace}border-left-#{$name}   { border-left-color: $color; }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("border-color") {
+  .hover\:#{$namespace}border-transparent:hover { border-color: transparent; }
+  .hover\:#{$namespace}border-translucent:hover { border-color: $color-translucent; }
+  .hover\:#{$namespace}border-current:hover     { border-color: currentColor; }
+
+  @each $name, $color in $all-colors {
+    .hover\:#{$namespace}border-#{$name}:hover        { border-color: $color; }
+    .hover\:#{$namespace}border-top-#{$name}:hover    { border-top-color: $color; }
+    .hover\:#{$namespace}border-right-#{$name}:hover  { border-right-color: $color; }
+    .hover\:#{$namespace}border-bottom-#{$name}:hover { border-bottom-color: $color; }
+    .hover\:#{$namespace}border-left-#{$name}:hover   { border-left-color: $color; }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("border-color") {
+  @each $breakpoint in responsive-breakpoints("border-color") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}border-transparent { border-color: transparent; }
+      .#{$namespace}#{$infix}border-translucent { border-color: $color-translucent; }
+      .#{$namespace}#{$infix}border-current     { border-color: currentColor; }
+
+      @each $name, $color in $all-colors {
+        .#{$namespace}#{$infix}border-#{$name}        { border-color: $color; }
+        .#{$namespace}#{$infix}border-top-#{$name}    { border-top-color: $color; }
+        .#{$namespace}#{$infix}border-right-#{$name}  { border-right-color: $color; }
+        .#{$namespace}#{$infix}border-bottom-#{$name} { border-bottom-color: $color; }
+        .#{$namespace}#{$infix}border-left-#{$name}   { border-left-color: $color; }
+      }
+    }
+  }
+}

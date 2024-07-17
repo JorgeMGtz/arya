@@ -1,0 +1,38 @@
+
+.#{$namespace}align-content-start   { @include align-content-start(); }
+.#{$namespace}align-content-end     { @include align-content-end(); }
+.#{$namespace}align-content-center  { @include align-content-center(); }
+.#{$namespace}align-content-between { @include align-content-between(); }
+.#{$namespace}align-content-around  { @include align-content-around(); }
+.#{$namespace}align-content-stretch { @include align-content-stretch(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("align-content") {
+  .hover\:#{$namespace}align-content-start:hover   { @include align-content-start(); }
+  .hover\:#{$namespace}align-content-end:hover     { @include align-content-end(); }
+  .hover\:#{$namespace}align-content-center:hover  { @include align-content-center(); }
+  .hover\:#{$namespace}align-content-between:hover { @include align-content-between(); }
+  .hover\:#{$namespace}align-content-around:hover  { @include align-content-around(); }
+  .hover\:#{$namespace}align-content-stretch:hover { @include align-content-stretch(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("align-content") {
+  @each $breakpoint in responsive-breakpoints("align-content") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}align-content-start   { @include align-content-start(); }
+      .#{$namespace}#{$infix}align-content-end     { @include align-content-end(); }
+      .#{$namespace}#{$infix}align-content-center  { @include align-content-center(); }
+      .#{$namespace}#{$infix}align-content-between { @include align-content-between(); }
+      .#{$namespace}#{$infix}align-content-around  { @include align-content-around(); }
+      .#{$namespace}#{$infix}align-content-stretch { @include align-content-stretch(); }
+    }
+  }
+}

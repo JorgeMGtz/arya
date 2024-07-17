@@ -1,0 +1,252 @@
+
+//
+// Standard
+//
+
+.#{$namespace}-mt-1px { margin-top: -1px; }
+.#{$namespace}-mb-1px { margin-bottom: -1px; }
+
+@each $size, $length in $spacers {
+
+  .#{$namespace}m-#{$size} {
+    margin: $length;
+  }
+
+  .#{$namespace}mt-#{$size},
+  .#{$namespace}my-#{$size} {
+    margin-top: $length;
+  }
+
+  .#{$namespace}mr-#{$size},
+  .#{$namespace}mx-#{$size} {
+    margin-right: $length;
+  }
+
+  .#{$namespace}mb-#{$size},
+  .#{$namespace}my-#{$size} {
+    margin-bottom: $length;
+  }
+
+  .#{$namespace}ml-#{$size},
+  .#{$namespace}mx-#{$size} {
+    margin-left: $length;
+  }
+
+  // Negative margins
+  .#{$namespace}-m-#{$size} {
+    margin: -$length;
+  }
+
+  .#{$namespace}-mt-#{$size},
+  .#{$namespace}-my-#{$size} {
+    margin-top: -$length;
+  }
+
+  .#{$namespace}-mr-#{$size},
+  .#{$namespace}-mx-#{$size} {
+    margin-right: -$length;
+  }
+
+  .#{$namespace}-mb-#{$size},
+  .#{$namespace}-my-#{$size} {
+    margin-bottom: -$length;
+  }
+
+  .#{$namespace}-ml-#{$size},
+  .#{$namespace}-mx-#{$size} {
+    margin-left: -$length;
+  }
+}
+
+.#{$namespace}m-auto {
+  margin: auto;
+}
+
+.#{$namespace}mt-auto,
+.#{$namespace}my-auto {
+  margin-top: auto;
+}
+
+.#{$namespace}mr-auto,
+.#{$namespace}mx-auto {
+  margin-right: auto;
+}
+
+.#{$namespace}mb-auto,
+.#{$namespace}my-auto {
+  margin-bottom: auto;
+}
+
+.#{$namespace}ml-auto,
+.#{$namespace}mx-auto {
+  margin-left: auto;
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("margin") {
+  @each $size, $length in $spacers {
+
+    .hover\:#{$namespace}m-#{$size}:hover {
+      margin: $length;
+    }
+
+    .hover\:#{$namespace}mt-#{$size}:hover,
+    .hover\:#{$namespace}my-#{$size}:hover {
+      margin-top: $length;
+    }
+
+    .hover\:#{$namespace}mr-#{$size}:hover,
+    .hover\:#{$namespace}mx-#{$size}:hover {
+      margin-right: $length;
+    }
+
+    .hover\:#{$namespace}mb-#{$size}:hover,
+    .hover\:#{$namespace}my-#{$size}:hover {
+      margin-bottom: $length;
+    }
+
+    .hover\:#{$namespace}ml-#{$size}:hover,
+    .hover\:#{$namespace}mx-#{$size}:hover {
+      margin-left: $length;
+    }
+
+    // Negative margins
+    .hover\:#{$namespace}-m-#{$size}:hover {
+      margin: -$length;
+    }
+
+    .hover\:#{$namespace}-mt-#{$size}:hover,
+    .hover\:#{$namespace}-my-#{$size}:hover {
+      margin-top: -$length;
+    }
+
+    .hover\:#{$namespace}-mr-#{$size}:hover,
+    .hover\:#{$namespace}-mx-#{$size}:hover {
+      margin-right: -$length;
+    }
+
+    .hover\:#{$namespace}-mb-#{$size}:hover,
+    .hover\:#{$namespace}-my-#{$size}:hover {
+      margin-bottom: -$length;
+    }
+
+    .hover\:#{$namespace}-ml-#{$size}:hover,
+    .hover\:#{$namespace}-mx-#{$size}:hover {
+      margin-left: -$length;
+    }
+  }
+
+  .hover\:#{$namespace}m-auto:hover {
+    margin: auto;
+  }
+
+  .hover\:#{$namespace}mt-auto:hover,
+  .hover\:#{$namespace}my-auto:hover {
+    margin-top: auto;
+  }
+
+  .hover\:#{$namespace}mr-auto:hover,
+  .hover\:#{$namespace}mx-auto:hover {
+    margin-right: auto;
+  }
+
+  .hover\:#{$namespace}mb-auto:hover,
+  .hover\:#{$namespace}my-auto:hover {
+    margin-bottom: auto;
+  }
+
+  .hover\:#{$namespace}ml-auto:hover,
+  .hover\:#{$namespace}mx-auto:hover {
+    margin-left: auto;
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("margin") {
+  @each $breakpoint in responsive-breakpoints("margin") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $size, $length in $spacers {
+
+        .#{$namespace}#{$infix}m-#{$size} {
+          margin: $length;
+        }
+
+        .#{$namespace}#{$infix}mt-#{$size},
+        .#{$namespace}#{$infix}my-#{$size} {
+          margin-top: $length;
+        }
+
+        .#{$namespace}#{$infix}mr-#{$size},
+        .#{$namespace}#{$infix}mx-#{$size} {
+          margin-right: $length;
+        }
+
+        .#{$namespace}#{$infix}mb-#{$size},
+        .#{$namespace}#{$infix}my-#{$size} {
+          margin-bottom: $length;
+        }
+
+        .#{$namespace}#{$infix}ml-#{$size},
+        .#{$namespace}#{$infix}mx-#{$size} {
+          margin-left: $length;
+        }
+
+        // Negative margins
+        .#{$namespace}#{$infix}-m-#{$size} {
+          margin: -$length;
+        }
+
+        .#{$namespace}#{$infix}-mt-#{$size},
+        .#{$namespace}#{$infix}-my-#{$size} {
+          margin-top: -$length;
+        }
+
+        .#{$namespace}#{$infix}-mr-#{$size},
+        .#{$namespace}#{$infix}-mx-#{$size} {
+          margin-right: -$length;
+        }
+
+        .#{$namespace}#{$infix}-mb-#{$size},
+        .#{$namespace}#{$infix}-my-#{$size} {
+          margin-bottom: -$length;
+        }
+
+        .#{$namespace}#{$infix}-ml-#{$size},
+        .#{$namespace}#{$infix}-mx-#{$size} {
+          margin-left: -$length;
+        }
+      }
+
+      .#{$namespace}#{$infix}m-auto {
+        margin: auto;
+      }
+
+      .#{$namespace}#{$infix}mt-auto,
+      .#{$namespace}#{$infix}my-auto {
+        margin-top: auto;
+      }
+
+      .#{$namespace}#{$infix}mr-auto,
+      .#{$namespace}#{$infix}mx-auto {
+        margin-right: auto;
+      }
+
+      .#{$namespace}#{$infix}mb-auto,
+      .#{$namespace}#{$infix}my-auto {
+        margin-bottom: auto;
+      }
+
+      .#{$namespace}#{$infix}ml-auto,
+      .#{$namespace}#{$infix}mx-auto {
+        margin-left: auto;
+      }
+    }
+  }
+}

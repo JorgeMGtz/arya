@@ -1,0 +1,88 @@
+
+.#{$namespace}overflow-auto      { overflow: auto; }
+.#{$namespace}overflow-hidden    { overflow: hidden; }
+.#{$namespace}overflow-visible   { overflow: visible; }
+.#{$namespace}overflow-scroll    { overflow: scroll; }
+.#{$namespace}overflow-x-auto    { overflow-x: auto; }
+.#{$namespace}overflow-y-auto    { overflow-y: auto; }
+.#{$namespace}overflow-x-hidden  { overflow-x: hidden; }
+.#{$namespace}overflow-y-hidden  { overflow-y: hidden; }
+.#{$namespace}overflow-x-visible { overflow-x: visible; }
+.#{$namespace}overflow-y-visible { overflow-y: visible; }
+.#{$namespace}overflow-x-scroll  { overflow-x: scroll; }
+.#{$namespace}overflow-y-scroll  { overflow-y: scroll; }
+.#{$namespace}scrolling-touch    { -webkit-overflow-scrolling: touch; }
+.#{$namespace}scrolling-auto     { -webkit-overflow-scrolling: auto; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("overflow") {
+  .hover\:#{$namespace}overflow-auto:hover      { overflow: auto; }
+  .hover\:#{$namespace}overflow-hidden:hover    { overflow: hidden; }
+  .hover\:#{$namespace}overflow-visible:hover   { overflow: visible; }
+  .hover\:#{$namespace}overflow-scroll:hover    { overflow: scroll; }
+  .hover\:#{$namespace}overflow-x-auto:hover    { overflow-x: auto; }
+  .hover\:#{$namespace}overflow-y-auto:hover    { overflow-y: auto; }
+  .hover\:#{$namespace}overflow-x-hidden:hover  { overflow-x: hidden; }
+  .hover\:#{$namespace}overflow-y-hidden:hover  { overflow-y: hidden; }
+  .hover\:#{$namespace}overflow-x-visible:hover { overflow-x: visible; }
+  .hover\:#{$namespace}overflow-y-visible:hover { overflow-y: visible; }
+  .hover\:#{$namespace}overflow-x-scroll:hover  { overflow-x: scroll; }
+  .hover\:#{$namespace}overflow-y-scroll:hover  { overflow-y: scroll; }
+  .hover\:#{$namespace}scrolling-touch:hover    { -webkit-overflow-scrolling: touch; }
+  .hover\:#{$namespace}scrolling-auto:hover     { -webkit-overflow-scrolling: auto; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("overflow") {
+  @each $breakpoint in responsive-breakpoints("overflow") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}overflow-auto      { overflow: auto; }
+      .#{$namespace}#{$infix}overflow-hidden    { overflow: hidden; }
+      .#{$namespace}#{$infix}overflow-visible   { overflow: visible; }
+      .#{$namespace}#{$infix}overflow-scroll    { overflow: scroll; }
+      .#{$namespace}#{$infix}overflow-x-auto    { overflow-x: auto; }
+      .#{$namespace}#{$infix}overflow-y-auto    { overflow-y: auto; }
+      .#{$namespace}#{$infix}overflow-x-hidden  { overflow-x: hidden; }
+      .#{$namespace}#{$infix}overflow-y-hidden  { overflow-y: hidden; }
+      .#{$namespace}#{$infix}overflow-x-visible { overflow-x: visible; }
+      .#{$namespace}#{$infix}overflow-y-visible { overflow-y: visible; }
+      .#{$namespace}#{$infix}overflow-x-scroll  { overflow-x: scroll; }
+      .#{$namespace}#{$infix}overflow-y-scroll  { overflow-y: scroll; }
+      .#{$namespace}#{$infix}scrolling-touch    { -webkit-overflow-scrolling: touch; }
+      .#{$namespace}#{$infix}scrolling-auto     { -webkit-overflow-scrolling: auto; }
+    }
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $next: breakpoint-next($breakpoint);
+    $infix: breakpoint-infix($next);
+
+    @include media-breakpoint-down($breakpoint) {
+
+      //
+      // Add the .{xs:,sm:,md:,lg:,xl:}scroll-x class to a container to make its content scrollable
+      // up to a given breakpoint
+      //
+      .#{$namespace}#{$infix}scroll-x {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        //-ms-overflow-style: -ms-autohiding-scrollbar;
+        -ms-overflow-style: none;  // IE 10+
+        scrollbar-width: none;  // Firefox
+
+        &::-webkit-scrollbar {
+          display: none;  // Safari and Chrome
+        }
+      }
+    }
+  }
+}

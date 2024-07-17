@@ -1,0 +1,198 @@
+
+@mixin button {
+  display: inline-block;
+  padding: $padding-button;
+  font-family: $font-family-button;
+  font-weight: $font-weight-button;
+  font-size: $font-size-button;
+  line-height: $line-height-button;
+  color: $color-button;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: $border-width-button solid $border-color-button;
+  cursor: pointer;
+  @include border-radius($border-radius-button);
+  @include transition($transition-button);
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &:disabled,
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: $opacity-button-disabled;
+    box-shadow: none;
+  }
+}
+
+@mixin not-a-button {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  overflow: visible;
+  user-select: none;
+  box-shadow: none;
+  @include appearance(none);
+  @content;
+}
+
+@function deep-map-get ($map, $keys...) {
+  @if type-of($map) != 'map' {
+    @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
+  }
+
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+@mixin button-variant($bg-color, $color, $border-color: $bg-color) {
+  color: $color;
+  border-color: $border-color;
+  background-color: $bg-color;
+  box-shadow: $shadow-button;
+
+  &:hover {
+    color: $color;
+    border-color: zass-darken($border-color, 5%);
+    background-color: zass-darken($bg-color, 4%);
+  }
+
+  &:focus,
+  &.is-focused {
+    outline: 0;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &:disabled,
+  &.is-disabled {
+    color: $color;
+    background-color: $bg-color;
+    border-color: $border-color;
+  }
+
+  &:not(:disabled):not(.is-disabled):active,
+  &:not(:disabled):not(.is-disabled)[data-selected="true"],
+  &:not(:disabled):not(.is-disabled).is-active {
+    color: $color;
+    border-color: zass-darken($border-color, 10%);
+    background-color: zass-darken($bg-color, 8%);
+    box-shadow: $shadow-button-active;
+  }
+}
+
+//@mixin button-variant(
+//  $bg-color,
+//  $color: color-yiq($bg-color),
+//  $border-color: $bg-color,
+//  $bg-color-hover: zass-darken($bg-color, 4%), $border-color-hover: zass-darken($border-color, 5%),
+//  $bg-color-active: zass-darken($bg-color, 8%), $border-color-active: zass-darken($border-color, 10%)
+//) {
+//  color: $color;
+//  border-color: $border-color;
+//  background-color: $bg-color;
+//  box-shadow: $shadow-button;
+//
+//  &:hover {
+//    color: $color;
+//    border-color: $border-color-hover;
+//    background-color: $bg-color-hover;
+//  }
+//
+//  &:focus,
+//  &.is-focused {
+//    outline: 0;
+//    box-shadow: none;
+//    //box-shadow: $shadow-button, 0 0 0 $focus-width-button $focus-color-button;
+//  }
+//
+//  // Disabled comes first so active can properly restyle
+//  &:disabled,
+//  &.is-disabled {
+//    color: $color;
+//    background-color: $bg-color;
+//    border-color: $border-color;
+//  }
+//
+//  &:not(:disabled):not(.is-disabled):active,
+//  &:not(:disabled):not(.is-disabled)[data-selected="true"],
+//  &:not(:disabled):not(.is-disabled).is-active {
+//    color: $color;
+//    background-color: $bg-color-active;
+//    border-color: $border-color-active;
+//    box-shadow: $shadow-button-active;
+//
+//    &:focus {
+//      box-shadow: none;
+//      //box-shadow: $shadow-button-active, 0 0 0 $focus-width-button $focus-color-button;
+//    }
+//  }
+//}
+
+@mixin button-outline($color-hover, $color-hover-inverse) {
+  $color-active: zass-darken($color-hover, 4%);
+
+  &:hover {
+    color: $color-hover;
+    border-color: $color-hover;
+  }
+
+  &:focus,
+  &.is-focused {
+    outline: 0;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    color: $color-button;
+    border-color: $border-color-button;
+  }
+
+  &:not(:disabled):not(.is-disabled):active,
+  &:not(:disabled):not(.is-disabled)[data-selected="true"],
+  &:not(:disabled):not(.is-disabled).is-active {
+    color: $color-active;
+    border-color: $color-active;
+  }
+}
+
+@mixin button-outline-variant(
+  $color,
+  $color-inverse,
+  $color-active: zass-darken($color, 4%)
+) {
+  color: $color;
+  border-color: $color;
+
+  &:hover {
+    color: $color-inverse;
+    background-color: $color;
+  }
+
+  &:focus,
+  &.is-focused {
+    outline: 0;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    color: $color-button;
+    border-color: $border-color-button;
+  }
+
+  &:not(:disabled):not(.is-disabled):active,
+  &:not(:disabled):not(.is-disabled)[data-selected="true"],
+  &:not(:disabled):not(.is-disabled).is-active {
+    color: $color-inverse;
+    border-color: $color-active;
+    background-color: $color-active;
+  }
+}

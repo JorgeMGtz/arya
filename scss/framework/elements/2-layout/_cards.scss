@@ -1,0 +1,21 @@
+
+.#{$namespace}card {
+  position: relative;
+  @include flex();
+  @include flex-column();
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  word-wrap: break-word;
+  background-color: $bg-color-card;
+  background-clip: border-box;
+  color: $color-card;
+  border: $border-width-card solid $border-color-card;
+  @include border-radius($border-radius-card);
+}
+
+.#{$namespace}card-body {
+
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  padding: $padding-card-body;
+}

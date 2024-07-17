@@ -1,0 +1,16 @@
+
+@mixin flex($property: null) {
+  @if $legacy-browser-support {
+    display: -ms-flexbox $property;
+    display: -webkit-flex $property;
+  }
+  display: flex $property;
+}
+
+@mixin inline-flex($property: null) {
+  @if $legacy-browser-support {
+    display: -ms-inline-flexbox $property;
+    display: -webkit-inline-flex $property;
+  }
+  display: inline-flex $property;
+}

@@ -1,0 +1,26 @@
+
+.#{$namespace}visible   { visibility: visible; }
+.#{$namespace}invisible { visibility: hidden; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("visibility") {
+  .hover\:#{$namespace}visible:hover   { visibility: visible; }
+  .hover\:#{$namespace}invisible:hover { visibility: hidden; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("visibility") {
+  @each $breakpoint in responsive-breakpoints("visibility") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}visible   { visibility: visible; }
+      .#{$namespace}#{$infix}invisible { visibility: hidden; }
+    }
+  }
+}

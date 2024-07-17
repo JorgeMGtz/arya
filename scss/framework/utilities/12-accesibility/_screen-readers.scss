@@ -1,0 +1,26 @@
+
+.#{$namespace}sr-only           { @include sr-only(); }
+.#{$namespace}sr-only-focusable { @include sr-only-focusable(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("accessibility") {
+  .hover\:#{$namespace}sr-only:hover            { @include sr-only(); }
+  .hover\:#{$namespace}sr-only-focusable:hover  { @include sr-only-focusable(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("accessibility") {
+  @each $breakpoint in responsive-breakpoints("accessibility") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}sr-only           { @include sr-only(); }
+      .#{$namespace}#{$infix}sr-only-focusable { @include sr-only-focusable(); }
+    }
+  }
+}

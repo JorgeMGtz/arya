@@ -1,0 +1,7 @@
+
+.#{$namespace}hover\:grow {
+
+  &:hover {
+    transform: scale(calc(1 + (var(--transition-scale-factor, .05) * 1)));
+  }
+}

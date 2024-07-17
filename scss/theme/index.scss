@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+//
+// 4. Theme
+// --------
+//
+
+//
+// Elements
+// ---------
+//
+
+@import "elements/badges";
+@import "elements/buttons";
+@import "elements/icons";
+@import "elements/images";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/meta";
+@import "elements/recent-activity";
+@import "elements/sidebar";
+@import "elements/tables";
+@import "elements/typography";
+
+//
+// Utilities
+// ---------
+//
+
+@import "utilities/background-image";
+@import "utilities/color";
+@import "utilities/columns";
+
+//
+// Plugins
+//
+
+@import "plugins/alpine";
+
+//
+// Custom CSS
+// ----------
+//
+// Write (or import) your own custom styles here
+//
+
+// Home page elements
+
+.custom-blocks { }
+
+.content-blocks { }
+
+.promoted-articles { }
+
+.video-library { }
+
+.recent-activity { }
+
+.contact-blocks { }
+
+.call-to-action { }
+
+// Hide the header search on the Home page
+
+.home-page,
+.community-topic-list-page,
+.community-post-list-page {
+
+  .header {
+
+    .search,
+    .search-toggle {
+      display: none !important;
+    }
+  }
+}
+
+// Avatar image background color
+
+.avatar-img {
+  background-color: zass-lighten($color_primary, 45%);
+}
+
+.home-page .card-body {
+  border-left-width: 8px;
+}
+
+//.home-page .fixed-header:not(.is-stuck) {
+//  background-color: $color-translucent !important;
+//}
+
+.layout--boxed {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+}
+
+// Extensions
+
+.js-carousel,
+.js-tabs,
+.js-toggles {
+  visibility: hidden;
+}
+
+// Preview code
+//.example-code {
+//
+//  .highlight,
+//  pre {
+//    display: block;
+//    width: 100%;
+//    margin-bottom: 0;
+//  }
+//}

@@ -1,0 +1,37 @@
+
+@each $type, $z-index in $z-layers {
+  .#{$namespace}z-#{$type} {
+    z-index: $z-index;
+  }
+}
+
+.#{$namespace}z-dropdown  { z-index: $z-index-dropdown; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("z-index") {
+  @each $type, $z-index in $z-layers {
+    .hover\:#{$namespace}z-#{$type}:hover {
+      z-index: $z-index;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("z-index") {
+  @each $breakpoint in responsive-breakpoints("z-index") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $type, $z-index in $z-layers {
+        .#{$namespace}#{$infix}z-#{$type} {
+          z-index: $z-index;
+        }
+      }
+    }
+  }
+}

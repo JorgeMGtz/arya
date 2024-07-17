@@ -1,0 +1,19 @@
+
+.#{$namespace}icon-circle {
+  @include inline-flex();
+  padding: 1em;
+  background-color: $bg-color-icon-circle;
+  @include circle();
+
+  [class*="#{$namespace}icon-"]::before,
+  .#{$namespace}svg-icon {
+    bottom: auto;
+  }
+
+  a:hover & {
+    color: $color_primary;
+    text-decoration: none;
+    background-color: $color_primary_inverse;
+    border-color: $color_primary;
+  }
+}

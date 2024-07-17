@@ -1,0 +1,29 @@
+
+.#{$namespace}bg-auto    { background-size: auto; }
+.#{$namespace}bg-cover   { background-size: cover; }
+.#{$namespace}bg-contain { background-size: contain; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("background-size") {
+  .hover\:#{$namespace}bg-auto:hover    { background-size: auto; }
+  .hover\:#{$namespace}bg-cover:hover   { background-size: cover; }
+  .hover\:#{$namespace}bg-contain:hover { background-size: contain; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("background-size") {
+  @each $breakpoint in responsive-breakpoints("background-size") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}bg-auto    { background-size: auto; }
+      .#{$namespace}#{$infix}bg-cover   { background-size: cover; }
+      .#{$namespace}#{$infix}bg-contain { background-size: contain; }
+    }
+  }
+}

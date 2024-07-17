@@ -1,0 +1,23 @@
+
+.#{$namespace}outline-none { outline: none; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("outline") {
+  .hover\:#{$namespace}outline-none:hover { outline: none; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("outline") {
+  @each $breakpoint in responsive-breakpoints("outline") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}outline-none { outline: none; }
+    }
+  }
+}

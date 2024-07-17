@@ -1,0 +1,38 @@
+
+.#{$namespace}align-self-auto     { @include align-self-auto(); }
+.#{$namespace}align-self-start    { @include align-self-start(); }
+.#{$namespace}align-self-end      { @include align-self-end(); }
+.#{$namespace}align-self-center   { @include align-self-center(); }
+.#{$namespace}align-self-baseline { @include align-self-baseline(); }
+.#{$namespace}align-self-stretch  { @include align-self-stretch(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("align-self") {
+  .hover\:#{$namespace}align-self-auto:hover     { @include align-self-auto(); }
+  .hover\:#{$namespace}align-self-start:hover    { @include align-self-start(); }
+  .hover\:#{$namespace}align-self-end:hover      { @include align-self-end(); }
+  .hover\:#{$namespace}align-self-center:hover   { @include align-self-center(); }
+  .hover\:#{$namespace}align-self-baseline:hover { @include align-self-baseline(); }
+  .hover\:#{$namespace}align-self-stretch:hover  { @include align-self-stretch(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("align-self") {
+  @each $breakpoint in responsive-breakpoints("align-self") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}align-self-auto     { @include align-self-auto(); }
+      .#{$namespace}#{$infix}align-self-start    { @include align-self-start(); }
+      .#{$namespace}#{$infix}align-self-end      { @include align-self-end(); }
+      .#{$namespace}#{$infix}align-self-center   { @include align-self-center(); }
+      .#{$namespace}#{$infix}align-self-baseline { @include align-self-baseline(); }
+      .#{$namespace}#{$infix}align-self-stretch  { @include align-self-stretch(); }
+    }
+  }
+}

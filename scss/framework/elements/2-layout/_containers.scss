@@ -1,0 +1,48 @@
+
+//
+// The page layout is responsible for applying the overall background color and, where appropriate,
+// a boxed layout
+//
+
+.#{$namespace}layout {
+  position: relative;
+  background-color: $bg_color;
+
+  // Avoid conflicts with sidebar pseudo element
+  z-index: 0;
+
+  &--boxed{
+    width: 100%;
+    max-width: $max-width-layout-boxed;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: clip;
+
+    ~ .powered-by-zendesk {
+      width: 100%;
+      max-width: $max-width-layout-boxed;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.#{$namespace}container {
+  @include container();
+  padding: $padding-container;
+}
+
+.#{$namespace}container-fluid {
+  @include container-fluid();
+  padding: $padding-container-fluid;
+}
+
+.#{$namespace}flex-container {
+  @include flex();
+  @include flex-column();
+
+  @include media-breakpoint-up(md) {
+    @include flex-row();
+    @include align-items-end();
+  }
+}

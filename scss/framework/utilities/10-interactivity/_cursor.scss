@@ -1,0 +1,23 @@
+
+.#{$namespace}cursor-pointer { cursor: pointer; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("cursor") {
+  .hover\:#{$namespace}cursor-pointer:hover { cursor: pointer; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("cursor") {
+  @each $breakpoint in responsive-breakpoints("cursor") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}cursor-pointer { cursor: pointer; }
+    }
+  }
+}

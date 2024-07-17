@@ -1,0 +1,32 @@
+
+.#{$namespace}border-solid   { border-style: solid; }
+.#{$namespace}border-dashed  { border-style: dashed; }
+.#{$namespace}border-dotted  { border-style: dotted; }
+.#{$namespace}border-none    { border-style: none; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("border-style") {
+  .hover\:#{$namespace}border-solid:hover   { border-style: solid; }
+  .hover\:#{$namespace}border-dashed:hover  { border-style: dashed; }
+  .hover\:#{$namespace}border-dotted:hover  { border-style: dotted; }
+  .hover\:#{$namespace}border-none:hover    { border-style: none; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("border-style") {
+  @each $breakpoint in responsive-breakpoints("border-style") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}border-solid   { border-style: solid; }
+      .#{$namespace}#{$infix}border-dashed  { border-style: dashed; }
+      .#{$namespace}#{$infix}border-dotted  { border-style: dotted; }
+      .#{$namespace}#{$infix}border-none    { border-style: none; }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+
+//
+// Base styles
+//
+
+.#{$namespace}button {
+  @include button();
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.#{$namespace}button.is-disabled,
+fieldset:disabled a.#{$namespace}button {
+  pointer-events: none;
+}
+
+//
+// Link buttons
+//
+// This class is for styling <button> and <input> elements to look like links
+//
+
+.#{$namespace}button-link {
+  color: $color_link;
+  border-color: transparent;
+  text-decoration: $decoration-link;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: $decoration-link-hover;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    color: $color-link-disabled;
+    pointer-events: none;
+  }
+
+  // No need for an active state here
+}
+
+//
+// Button sizes
+//
+
+.#{$namespace}button-sm {
+  padding: $padding-button-sm;
+  font-size: $font-size-button-sm;
+  line-height: $line-height-button-sm;
+}
+
+.#{$namespace}button-lg {
+  padding: $padding-button-lg;
+  font-size: $font-size-button-lg;
+  line-height: $line-height-button-lg;
+}
+
+//
+// Unstyled buttons
+//
+// This class removes the styles associated with buttons
+
+.#{$namespace}not-a-button {
+  @include not-a-button();
+}
+
+//
+// Button styles
+//
+
+.#{$namespace}button-primary {
+  @include button-variant($color_primary, $color_primary_inverse);
+}
+
+.#{$namespace}button-outline {
+  @include button-outline($color_primary, $color_primary_inverse);
+}
+
+.#{$namespace}button-outline-primary {
+  @include button-outline-variant($color_primary, $color_primary_inverse);
+}
+
+.#{$namespace}button-secondary {
+  @include button-variant($color_secondary, $color_secondary_inverse);
+}
+
+.#{$namespace}button-outline-secondary {
+  @include button-outline-variant($color_secondary, $color_secondary_inverse);
+}
+
+.#{$namespace}button-tertiary {
+  @include button-variant($color_tertiary, $color_tertiary_inverse);
+}
+
+.#{$namespace}button-outline-tertiary {
+  @include button-outline-variant($color_tertiary, $color_tertiary_inverse);
+}
+
+.#{$namespace}button-translucent {
+  color: $color-white;
+  border-color: $color-translucent;
+  background-color: $color-translucent;
+  box-shadow: $shadow-button;
+
+  &:hover{
+    color: $color-white;
+    border-color: rgba($color-translucent, .125);
+    background-color: rgba($color-translucent, .125);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: $shadow-button, 0 0 0 $focus-width-button $color_outline;
+  }
+
+
+  &:not(:disabled):not(.is-disabled):active,
+  &:not(:disabled):not(.is-disabled)[data-selected="true"],
+  &:not(:disabled):not(.is-disabled).is-active {
+    color: $color-white;
+    background-color: rgba($color-translucent, .15);
+    border-color: rgba($color-translucent, .15);
+    box-shadow: $shadow-button-active;
+
+    &:focus {
+      box-shadow: $shadow-button-active, 0 0 0 $focus-width-button $color_outline;
+    }
+  }
+}
+
+// Quick fix for badges in buttons
+.#{$namespace}button .#{$namespace}badge {
+  position: relative;
+  top: -1px;
+}

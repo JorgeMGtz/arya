@@ -1,0 +1,35 @@
+
+.#{$namespace}justify-content-start   { @include justify-content-start(); }
+.#{$namespace}justify-content-end     { @include justify-content-end(); }
+.#{$namespace}justify-content-center  { @include justify-content-center(); }
+.#{$namespace}justify-content-between { @include justify-content-between(); }
+.#{$namespace}justify-content-around  { @include justify-content-around(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("justify-content") {
+  .hover\:#{$namespace}justify-content-start:hover   { @include justify-content-start(); }
+  .hover\:#{$namespace}justify-content-end:hover     { @include justify-content-end(); }
+  .hover\:#{$namespace}justify-content-center:hover  { @include justify-content-center(); }
+  .hover\:#{$namespace}justify-content-between:hover { @include justify-content-between(); }
+  .hover\:#{$namespace}justify-content-around:hover  { @include justify-content-around(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("justify-content") {
+  @each $breakpoint in responsive-breakpoints("justify-content") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}justify-content-start   { @include justify-content-start(); }
+      .#{$namespace}#{$infix}justify-content-end     { @include justify-content-end(); }
+      .#{$namespace}#{$infix}justify-content-center  { @include justify-content-center(); }
+      .#{$namespace}#{$infix}justify-content-between { @include justify-content-between(); }
+      .#{$namespace}#{$infix}justify-content-around  { @include justify-content-around(); }
+    }
+  }
+}

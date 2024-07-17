@@ -1,0 +1,74 @@
+
+@include media-breakpoint-down($breakpoint-nav) {
+
+  .#{$namespace}collapsible-nav {
+    position: relative;
+
+    // Convert to a column layout on small screen sizes
+    @include flex-column();
+    @include flex-nowrap();
+    margin-left: 0;
+    margin-right: 0;
+    max-height: $line-height-collapsible-nav;
+    overflow: hidden;
+    cursor: pointer;
+    @include transition($transition-collapsible-nav);
+
+    > * {
+      line-height: $line-height-collapsible-nav;
+    }
+
+    // Position items with the aria-selected="true" attribute first
+    > [aria-selected="true"] {
+      order: -1;
+    }
+
+    .#{$namespace}nav-link {
+      padding: 0;
+      border: none;
+
+      &::after {
+        display: none;
+      }
+
+      &.is-active {
+
+        // Position link first
+        order: -1;
+
+        // Override pill nav styles
+        color: inherit;
+        background-color: transparent;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      top: calc(#{$line-height-collapsible-nav} / 2 - .5em);
+      content: "";
+      height: 1em;
+      width: 1em;
+      background: $background-collapsible;
+      pointer-events: none;
+
+      [dir="rtl"] & {
+        left: 0;
+        right: auto;
+      }
+    }
+
+    &.is-expanded {
+      max-height: 100vh;
+
+      &::after {
+        background: $background-collapsible-active;
+      }
+    }
+
+    // Hide dropdown menus
+    .#{$namespace}dropdown-menu {
+      display: none !important;
+    }
+  }
+}

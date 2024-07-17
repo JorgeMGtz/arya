@@ -1,0 +1,352 @@
+
+//
+// Form fields
+//
+// Markup is added by the {{request_form}} helper automatically.
+
+.#{$namespace}form-field {
+  margin-bottom: $margin-form-field;
+
+  // Form field label
+  > label {
+    display: block;
+    margin: $margin-input-label;
+    font-size: $font-size-input-label;
+    font-weight: $font-weight-input-label;
+  }
+
+  // Form field description
+  > p {
+    margin: $margin-input-description;
+    color: $color-input-description;
+    font-size: $font-size-input-description;
+    font-weight: $font-weight-input-description;
+  }
+
+  select,
+  > input,
+  > textarea {
+    padding: $padding-input;
+    font-size: $font-size-input;
+    line-height: $line-height-input;
+    color: $color-input;
+    border: $border-width-input solid $border-color-input;
+    background-color: $bg-color-input;
+    width: 100%;
+    @include border-radius($border-radius-input);
+    @include transition($transition-input);
+
+    &:hover {
+      border-color: $border-color-input-hover;
+    }
+
+    &:focus {
+
+      // Replace the default outline style with a custom border color
+      outline: 0;
+      border-color: $border-color-input-focus;
+      box-shadow: 0 0 0 $focus-width-input $focus-color;
+    }
+
+    &:disabled,
+    &.is-disabled {
+      border-color: $border-color-input-disabled;
+      background-color: $bg-color-input-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  select {
+    padding-right: 2em;
+    background: $background-select;
+    background-position: right 0.75em center;
+    @include appearance(none);
+  }
+
+  > input,
+  > textarea {
+    @include placeholder();
+  }
+
+  > textarea {
+    min-height: 8em;
+  }
+
+  &.required > label::after {
+    margin-left: 2px;
+    content: "*";
+    color: $color-red-400;
+  }
+
+  .optional {
+    margin-left: 2px;
+  }
+}
+
+//
+// Search
+//
+
+$width-search-icon: 1em;
+
+.#{$namespace}search {
+  position: relative;
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: $width-search-icon;
+    margin-right: $width-search-icon;
+    bottom: -.125em;
+    display: inline-block;
+    width: $width-search-icon;
+    line-height: 1;
+  }
+
+  .form-field {
+    display: flex;
+    margin-left: -($spacer / 2);
+    margin-right: -($spacer / 2);
+
+    &:hover {
+
+      + .search-icon {
+        color: $color-search-icon-hover;
+      }
+    }
+
+    &.is-focused { // Simulated focused-state added using JavaScript
+
+      + .search-icon {
+        color: $color-search-icon-focus;
+      }
+    }
+  }
+
+  // Search field
+  [type="search"] {
+    padding: $padding-input-search;
+    margin: 0 ($spacer / 2);
+    background-color: $bg-color-input-search;
+    border-color: $border-color-input-search;
+    border-radius: $border-radius-input-search;
+    box-shadow: $shadow-input-search;
+
+    &:hover {
+      border-color: $border-color-input-search-hover;
+      box-shadow: $shadow-input-search-hover;
+
+    }
+
+    &:focus {
+      border-color: $border-color-input-search-focus;
+      box-shadow: $shadow-input-search-focus;
+    }
+  }
+
+  &-sm [type="search"] {
+    padding: $padding-input-search-sm;
+  }
+
+  &-lg [type="search"] {
+    padding: $padding-input-search-lg;
+  }
+
+  // Left alignment
+  &:not(.search-right) {
+
+    .#{$namespace}search-icon {
+
+      [dir="ltr"] & {
+        left: 0;
+      }
+
+      [dir="rtl"] & {
+        right: 0;
+      }
+    }
+
+    [type="search"] {
+
+      [dir="ltr"] & {
+        padding-left: 2.5 * $width-search-icon;
+      }
+
+      [dir="rtl"] & {
+        padding-right: 2.5 * $width-search-icon;
+      }
+    }
+  }
+
+  // Right alignment
+  &-right {
+
+    .#{$namespace}search-icon {
+
+      [dir="ltr"] & {
+        right: 0;
+      }
+
+      [dir="rtl"] & {
+        left: 0;
+      }
+    }
+
+    [type="search"] {
+
+      [dir="ltr"] & {
+        padding-right: 2.5 * $width-search-icon;
+      }
+
+      [dir="rtl"] & {
+        padding-left: 2.5 * $width-search-icon;
+      }
+    }
+  }
+
+  // Submit button
+  [type="submit"] {
+    @include button();
+    @include button-variant($color_primary, $color_primary_inverse);
+    flex: 0;
+    margin: 0 ($spacer / 2);
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+      font-size: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' focusable='false' viewBox='0 0 12 12' width='16' height='16' fill='none' stroke='white' aria-hidden='true'%3E%3Ccircle cx='4.5' cy='4.5' r='4'%3E%3C/circle%3E%3Cpath stroke-linecap='round' d='M11 11L7.5 7.5'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center center;
+      justify-content: space-between;
+      align-items: center;
+      padding: $spacer ($spacer * 1.5);
+    }
+  }
+
+  &-translucent {
+
+    .search-icon {
+      color: $color-white;
+    }
+
+    [type="search"] {
+      background-color: $color-translucent;
+      backdrop-filter: blur(8px);
+      border-color: $color-translucent;
+
+      &:hover {
+        background-color: rgba($color-translucent, .25);
+        border-color: rgba($color-translucent, .25);
+      }
+
+      &:focus {
+        background-color: $color-white;
+      }
+
+      &:not(:focus) {
+        color: $color-white;
+        @include placeholder($color-gray-200);
+      }
+    }
+  }
+}
+
+
+//
+// Checkboxes
+//
+
+.boolean {
+
+  input {
+    padding: $padding-input-checkbox;
+    margin-right: 0.5em;
+    width: auto;
+
+    @include appearance(none);
+
+    &:checked {
+      background-image: $background-checkbox-checked;
+    }
+
+    &:indeterminate {
+      background-image: $background-checkbox-indeterminate;
+    }
+
+    &:checked,
+    &:indeterminate {
+      border-color: $border-color-input-focus;
+      background-color: $border-color-input-focus;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 0.75em;
+    }
+
+    &:active {
+      filter: brightness(90%);
+    }
+
+    &:focus {
+      outline: 0;
+      border-color: $border-color-input-focus;
+    }
+  }
+}
+
+//
+// Custom inputs
+//
+
+.nesty-input,
+.hc-multiselect-toggle {
+  @extend select;
+  height: auto;
+
+  &:hover {
+    color: $color-input;
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "";
+  }
+}
+
+.hc-multiselect-toggle {
+
+  li {
+    padding: 4px 6px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: $font-size-sm;
+    line-height: 1;
+  }
+}
+
+.upload-dropzone {
+  font-size: $font-size-input;
+  line-height: $line-height-input;
+  color: $color-input;
+  border: $border-width-input solid $border-color-input;
+  background-color: $bg-color-input;
+  width: 100%;
+  @include border-radius($border-radius-input);
+  @include transition($transition-input);
+
+  span {
+    color: inherit;
+  }
+
+  &:hover {
+    border-color: $border-color-input-hover;
+  }
+
+  &[data-hc-focus="true"] {
+
+    // Replace the default outline style with a custom border color
+    outline: 0;
+    border-color: $border-color-input-focus;
+    box-shadow: 0 0 0 $focus-width-input $focus-color;
+  }
+}

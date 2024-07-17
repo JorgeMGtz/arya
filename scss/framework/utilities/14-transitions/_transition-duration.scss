@@ -1,0 +1,32 @@
+
+.#{$namespace}transition-none   { transition-duration: 0s; }
+.#{$namespace}transition-slow   { transition-duration: $transition-duration-slow; }
+.#{$namespace}transition-medium { transition-duration: $transition-duration;  }
+.#{$namespace}transition-fast   { transition-duration: $transition-duration-fast; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("transition-duration") {
+  .hover\:#{$namespace}transition-none:hover   { transition-duration: 0s; }
+  .hover\:#{$namespace}transition-slow:hover   { transition-duration: $transition-duration-slow; }
+  .hover\:#{$namespace}transition-medium:hover { transition-duration: $transition-duration;  }
+  .hover\:#{$namespace}transition-fast:hover   { transition-duration: $transition-duration-fast; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("transition-duration") {
+  @each $breakpoint in responsive-breakpoints("transition-duration") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}transition-none   { transition-duration: 0s; }
+      .#{$namespace}#{$infix}transition-slow   { transition-duration: $transition-duration-slow; }
+      .#{$namespace}#{$infix}transition-medium { transition-duration: $transition-duration;  }
+      .#{$namespace}#{$infix}transition-fast   { transition-duration: $transition-duration-fast; }
+    }
+  }
+}

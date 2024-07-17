@@ -1,0 +1,8 @@
+
+.#{$namespace}hover\:skew-forward {
+  transform-origin: 0 100%;
+
+  &:hover {
+    transform: skew(var(--transition-skew-factor, -4deg));
+  }
+}

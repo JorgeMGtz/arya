@@ -1,0 +1,26 @@
+
+.#{$namespace}table-auto  { table-layout: auto; }
+.#{$namespace}table-fixed { table-layout: fixed; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("table-layout") {
+  .hover\:#{$namespace}table-auto:hover  { table-layout: auto; }
+  .hover\:#{$namespace}table-fixed:hover { table-layout: fixed; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("table-layout") {
+  @each $breakpoint in responsive-breakpoints("table-layout") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}table-auto  { table-layout: auto; }
+      .#{$namespace}#{$infix}table-fixed { table-layout: fixed; }
+    }
+  }
+}

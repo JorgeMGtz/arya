@@ -1,0 +1,9 @@
+
+.#{$namespace}img-fluid {
+  @include img-fluid();
+}
+
+// Ensure images within the content area respect the width of the content
+.#{$namespace}content img {
+  @include img-fluid();
+}

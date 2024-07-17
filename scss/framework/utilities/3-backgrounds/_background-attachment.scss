@@ -1,0 +1,29 @@
+
+.#{$namespace}bg-fixed  { background-attachment: fixed; }
+.#{$namespace}bg-local  { background-attachment: local; }
+.#{$namespace}bg-scroll { background-attachment: scroll; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("background-attachment") {
+  .hover\:#{$namespace}bg-fixed:hover  { background-attachment: fixed; }
+  .hover\:#{$namespace}bg-local:hover  { background-attachment: local; }
+  .hover\:#{$namespace}bg-scroll:hover { background-attachment: scroll; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("background-attachment") {
+  @each $breakpoint in responsive-breakpoints("background-attachment") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}bg-fixed  { background-attachment: fixed; }
+      .#{$namespace}#{$infix}bg-local  { background-attachment: local; }
+      .#{$namespace}#{$infix}bg-scroll { background-attachment: scroll; }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+
+.#{$namespace}border-radius        { border-radius: $border-radius; }
+.#{$namespace}border-radius-0      { border-radius: 0; }
+.#{$namespace}border-radius-top    { @include border-top-radius(); }
+.#{$namespace}border-radius-right  { @include border-right-radius(); }
+.#{$namespace}border-radius-bottom { @include border-bottom-radius(); }
+.#{$namespace}border-radius-left   { @include border-left-radius(); }
+.#{$namespace}rounded              { @include rounded(); }
+.#{$namespace}circle               { @include circle(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("border-radius") {
+  .hover\:#{$namespace}border-radius:hover        { border-radius: $border-radius; }
+  .hover\:#{$namespace}border-radius-0:hover      { border-radius: 0; }
+  .hover\:#{$namespace}border-radius-top:hover    { @include border-top-radius(); }
+  .hover\:#{$namespace}border-radius-right:hover  { @include border-right-radius(); }
+  .hover\:#{$namespace}border-radius-bottom:hover { @include border-bottom-radius(); }
+  .hover\:#{$namespace}border-radius-left:hover   { @include border-left-radius(); }
+  .hover\:#{$namespace}rounded:hover              { @include rounded(); }
+  .hover\:#{$namespace}circle:hover               { @include circle(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("border-radius") {
+  @each $breakpoint in responsive-breakpoints("border-radius") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}border-radius        { border-radius: $border-radius; }
+      .#{$namespace}#{$infix}border-radius-0      { border-radius: 0; }
+      .#{$namespace}#{$infix}border-radius-top    { @include border-top-radius(); }
+      .#{$namespace}#{$infix}border-radius-right  { @include border-right-radius(); }
+      .#{$namespace}#{$infix}border-radius-bottom { @include border-bottom-radius(); }
+      .#{$namespace}#{$infix}border-radius-left   { @include border-left-radius(); }
+      .#{$namespace}#{$infix}rounded              { @include rounded(); }
+      .#{$namespace}#{$infix}circle               { @include circle(); }
+    }
+  }
+}

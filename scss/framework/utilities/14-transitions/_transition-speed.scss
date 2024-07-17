@@ -1,0 +1,45 @@
+
+.#{$namespace}transition-slow { @include transition($transition-duration-slow); }
+.#{$namespace}transition      { @include transition($transition-duration); }
+.#{$namespace}transition-fast { @include transition($transition-duration-fast); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("transitions") {
+  .hover\:#{$namespace}transition-slow:hover { @include transition($transition-duration-slow); }
+  .hover\:#{$namespace}transition:hover      { @include transition($transition-duration); }
+  .hover\:#{$namespace}transition-fast:hover { @include transition($transition-duration-fast); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("transitions") {
+  @each $breakpoint in responsive-breakpoints("transitions") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}transition-slow { @include transition($transition-duration-slow); }
+      .#{$namespace}#{$infix}transition      { @include transition($transition-duration); }
+      .#{$namespace}#{$infix}transition-fast { @include transition($transition-duration-fast); }
+    }
+  }
+}
+
+//
+// Timing functions
+//
+
+.#{$namespace}timing-bounce {
+  transition-timing-function: cubic-bezier(0.77, 0, 0.2, 2.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *, *:before, *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

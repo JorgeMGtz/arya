@@ -1,0 +1,4 @@
+
+@mixin appearance($appearance) {
+  @include prefix(appearance, $appearance, webkit moz);
+}

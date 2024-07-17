@@ -1,0 +1,50 @@
+
+.#{$namespace}top-0    { top: 0; }
+.#{$namespace}top-100  { top: 100%; }
+.#{$namespace}bottom-0 { bottom: 0; }
+.#{$namespace}left-0   { left: 0; }
+.#{$namespace}right-0  { right: 0; }
+
+.#{$namespace}top-auto    { top: auto; }
+.#{$namespace}bottom-auto { bottom: auto; }
+.#{$namespace}left-auto   { left: auto; }
+.#{$namespace}right-auto  { right: auto; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("coordinates") {
+  .hover\:#{$namespace}top-0:hover    { top: 0; }
+  .hover\:#{$namespace}top-100:hover  { top: 100%; }
+  .hover\:#{$namespace}bottom-0:hover { bottom: 0; }
+  .hover\:#{$namespace}left-0:hover   { left: 0; }
+  .hover\:#{$namespace}right-0:hover  { right: 0; }
+
+  .hover\:#{$namespace}top-auto:hover    { top: auto; }
+  .hover\:#{$namespace}bottom-auto:hover { bottom: auto; }
+  .hover\:#{$namespace}left-auto:hover   { left: auto; }
+  .hover\:#{$namespace}right-auto:hover  { right: auto; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("coordinates") {
+  @each $breakpoint in responsive-breakpoints("coordinates") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}top-0    { top: 0; }
+      .#{$namespace}#{$infix}top-100  { top: 100%; }
+      .#{$namespace}#{$infix}bottom-0 { bottom: 0; }
+      .#{$namespace}#{$infix}left-0   { left: 0; }
+      .#{$namespace}#{$infix}right-0  { right: 0; }
+
+      .#{$namespace}#{$infix}top-auto    { top: auto; }
+      .#{$namespace}#{$infix}bottom-auto { bottom: auto; }
+      .#{$namespace}#{$infix}left-auto   { left: auto; }
+      .#{$namespace}#{$infix}right-auto  { right: auto; }
+    }
+  }
+}

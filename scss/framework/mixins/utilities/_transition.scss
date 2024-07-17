@@ -1,0 +1,14 @@
+
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    $transition: all $transition-duration-fast ease-in-out;
+  }
+
+  @if $legacy-browser-support {
+    @include prefix(transition, $transition, webkit moz);
+  } @else {
+    transition: $transition;
+  }
+
+  //@media screen and (prefers-reduced-motion: reduce) { transition: none; }
+}

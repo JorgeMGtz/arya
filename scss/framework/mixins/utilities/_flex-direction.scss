@@ -1,0 +1,24 @@
+
+@mixin flex-direction($value) {
+  @if $legacy-browser-support {
+    @include prefix(flex-direction, $value, ms webkit);
+  } @else {
+    flex-direction: $value;
+  }
+}
+
+@mixin flex-row {
+  @include flex-direction(row);
+}
+
+@mixin flex-column {
+  @include flex-direction(column);
+}
+
+@mixin flex-row-reverse {
+  @include flex-direction(row-reverse);
+}
+
+@mixin flex-column-reverse {
+  @include flex-direction(column-reverse);
+}

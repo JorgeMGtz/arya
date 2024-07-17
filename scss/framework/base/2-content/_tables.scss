@@ -1,0 +1,27 @@
+
+//
+// Base table styles
+//
+// See .table for custom table styles
+//
+
+table {
+  margin-bottom: spacing();
+  width: 100%;
+
+  // Prevent double borders
+  border-collapse: collapse;
+}
+
+thead {
+  vertical-align: bottom;
+}
+
+th {
+  text-align: inherit;
+}
+
+caption {
+  text-align: left;
+  caption-side: bottom;
+}

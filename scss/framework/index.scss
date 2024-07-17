@@ -1,0 +1,275 @@
+
+@import "variables";
+@import "mixins";
+
+//
+//                      _       _
+//                     | |     | |
+//  _______ _ __  _ __ | | __ _| |_ ___  ___
+// |_  / _ \ '_ \| '_ \| |/ _` | __/ _ \/ __|
+//  / /  __/ | | | |_) | | (_| | ||  __/\__ |
+// /___\___|_| |_| .__/|_|\__,_|\__\___||___/
+//               | |
+//               |_|
+//
+// Find more high quality Zendesk Guide themes at https://zenplates.co
+//
+//
+// Table of Contents
+// -----------------
+//  1.  Base
+//  2.  Elements
+//  3.  Utilities
+//    1.  Typography
+//    2.  Layout
+//    3.  Backgrounds
+//    4.  Borders
+//    5.  Flex box
+//    6.  Spacing
+//    7.  Sizing
+//    8.  Tables
+//    9.  Effects
+//    10. Interactivity
+//    11. SVG
+//  4.  Theme
+//
+//
+// 1. Base
+// -------
+//
+// Browser reset
+//
+
+@import "css-variables";
+@import "base/1-reset/normalize";
+@import "base/1-reset/reset";
+
+//
+// Content element styles
+//
+
+@import "base/2-content/type";
+@import "base/2-content/code";
+@import "base/2-content/images";
+@import "base/2-content/links";
+@import "base/2-content/lists";
+@import "base/2-content/forms";
+@import "base/2-content/tables";
+
+//
+// 2. Elements
+// -------------
+//
+// Elements are reusable blocks of UI.
+//
+// Properties and nested declarations for each element appear in the following order:
+//
+// 1.  Any @ rules                     (e.g., @extend .a-selector)
+// 2.  Layout and box-model properties (e.g., position, display, margin, padding)
+// 3.  Typographic properties          (e.g., font-family, font-size)
+// 4.  Stylistic properties            (e.g., color, background-color)
+// 5.  UI properties                   (e.g., user-select)
+// 6.  Pseudo-elements                 (e.g., ::after, ::before)
+// 7.  Pseudo-selectors                (e.g., :hover, :active)
+// 8.  Modifier classes
+// 9.  Nested elements
+//
+
+//
+// Content
+//
+
+@import "elements/1-content/avatars";
+@import "elements/1-content/badges";
+@import "elements/1-content/buttons";
+@import "elements/1-content/button-group";
+@import "elements/1-content/forms";
+@import "elements/1-content/icons";
+@import "elements/1-content/images";
+@import "elements/1-content/links";
+@import "elements/1-content/lists";
+@import "elements/1-content/list-groups";
+@import "elements/1-content/tables";
+@import "elements/1-content/typography";
+
+//
+// Layout
+//
+
+@import "elements/2-layout/alerts";
+@import "elements/2-layout/containers";
+@import "elements/2-layout/rows";
+@import "elements/2-layout/columns";
+@import "elements/2-layout/cards";
+@import "elements/2-layout/ctas";
+@import "elements/2-layout/hero-sections";
+@import "elements/2-layout/loaders";
+@import "elements/2-layout/media-elements";
+@import "elements/2-layout/svg-shapes";
+@import "elements/2-layout/header";
+@import "elements/2-layout/footer";
+
+//
+// Navigation
+//
+
+@import "elements/3-navigation/breadcrumbs";
+@import "elements/3-navigation/dropdowns";
+@import "elements/3-navigation/navs";
+@import "elements/3-navigation/nav-menus";
+@import "elements/3-navigation/navbars";
+@import "elements/3-navigation/pagination";
+@import "elements/3-navigation/collapsible-navs";
+
+//
+// Plugins
+//
+
+@import "elements/4-plugins/collapsible";
+@import "elements/4-plugins/tabs";
+@import "elements/4-plugins/toggles";
+
+
+//
+// 3. Utilities
+// ------------
+//
+// Utilities have a very specific role (often providing only one declaration) and should not be
+// changed.  They can be reused and are not tied to any specific piece of UI.
+//
+//
+// 3.1. Typography
+//
+
+@import "utilities/1-typography/color";
+@import "utilities/1-typography/font-family";
+@import "utilities/1-typography/font-size";
+@import "utilities/1-typography/font-style";
+@import "utilities/1-typography/font-weight";
+@import "utilities/1-typography/letter-spacing";
+@import "utilities/1-typography/line-height";
+@import "utilities/1-typography/list-style";
+@import "utilities/1-typography/text-align";
+@import "utilities/1-typography/text-decoration";
+@import "utilities/1-typography/text-transform";
+@import "utilities/1-typography/vertical-align";
+@import "utilities/1-typography/white-space";
+@import "utilities/1-typography/word-break";
+
+//
+// 3.2. Layout
+//
+
+@import "utilities/2-layout/aspect-ratio";
+@import "utilities/2-layout/display";
+@import "utilities/2-layout/float";
+@import "utilities/2-layout/overflow";
+@import "utilities/2-layout/position";
+@import "utilities/2-layout/coordinates";
+@import "utilities/2-layout/visibility";
+@import "utilities/2-layout/z-index";
+
+//
+// 3.3. Backgrounds
+//
+
+@import "utilities/3-backgrounds/background-attachment";
+@import "utilities/3-backgrounds/background-color";
+@import "utilities/3-backgrounds/background-position";
+@import "utilities/3-backgrounds/background-repeat";
+@import "utilities/3-backgrounds/background-size";
+
+//
+// 3.3. Borders
+//
+
+@import "utilities/4-borders/border";
+@import "utilities/4-borders/border-color";
+@import "utilities/4-borders/border-radius";
+@import "utilities/4-borders/border-style";
+@import "utilities/4-borders/border-width";
+
+//
+// 3.5. Flex box
+//
+
+@import "utilities/5-flex-box/align-content";
+@import "utilities/5-flex-box/align-items";
+@import "utilities/5-flex-box/align-self";
+@import "utilities/5-flex-box/flex";
+@import "utilities/5-flex-box/flex-direction";
+@import "utilities/5-flex-box/flex-order";
+@import "utilities/5-flex-box/flex-wrap";
+@import "utilities/5-flex-box/justify-content";
+
+//
+// 3.6. Spacing
+//
+
+@import "utilities/6-spacing/margin";
+@import "utilities/6-spacing/padding";
+
+//
+// 3.7. Sizing
+//
+
+@import "utilities/7-sizing/height";
+@import "utilities/7-sizing/max-height";
+@import "utilities/7-sizing/min-height";
+@import "utilities/7-sizing/width";
+@import "utilities/7-sizing/max-width";
+@import "utilities/7-sizing/min-width";
+
+//
+// 3.8. Tables
+//
+
+@import "utilities/8-tables/border-collapse";
+@import "utilities/8-tables/table-layout";
+
+//
+// 3.9. Effects
+//
+
+@import "utilities/9-effects/box-shadow";
+@import "utilities/9-effects/opacity";
+
+//
+// 3.10. Interactivity
+//
+
+@import "utilities/10-interactivity/appearance";
+@import "utilities/10-interactivity/cursor";
+@import "utilities/10-interactivity/outline";
+@import "utilities/10-interactivity/pointer-events";
+@import "utilities/10-interactivity/user-select";
+
+//
+// 3.11. SVG
+//
+
+@import "utilities/11-svg/fill";
+@import "utilities/11-svg/stroke";
+
+//
+// 3.12. Accessibility
+//
+
+@import "utilities/12-accesibility/screen-readers";
+
+//
+// 3.13. Transforms
+//
+
+@import "utilities/13-transforms/scale";
+@import "utilities/13-transforms/rotate";
+@import "utilities/13-transforms/translate";
+
+//
+// 3.14. Transitions
+//
+
+@import "utilities/14-transitions/transition-speed";
+@import "utilities/14-transitions/transition-property";
+@import "utilities/14-transitions/transition-duration";
+@import "utilities/14-transitions/transition-timing-function";

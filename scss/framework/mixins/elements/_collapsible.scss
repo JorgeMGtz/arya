@@ -1,0 +1,50 @@
+
+@mixin collapse-title {
+  position: relative;
+  @include flex();
+  @include justify-content-between();
+  @include align-items-center();
+  padding: $padding-collapsible-title;
+  margin: 0;
+  color: $color-collapsible-title;
+  font-size: $font-size-collapsible-title;
+  font-weight: $font-weight-collapsible-title;
+  cursor: pointer;
+  user-select: none;
+  @include transition(color $transition-duration-fast ease-in-out);
+
+  &::after {
+    content: "";
+    height: 1em;
+    width: 1em;
+    background: $background-collapsible;
+  }
+
+  &.is-active::after {
+    background: $background-collapsible-active;
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+@mixin collapse {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+
+  &.show,
+  &.hide {
+    @include transition(max-height $transition-duration ease-in-out);
+  }
+
+  &.is-visible {
+    max-height: none;
+  }
+
+  &:not(.is-hidden) {
+    display: block;
+  }
+}

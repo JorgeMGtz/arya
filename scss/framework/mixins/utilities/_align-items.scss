@@ -1,0 +1,37 @@
+
+@mixin flex-align-items($value) {
+  @if $legacy-browser-support {
+
+    // IE10
+    @if $value == flex-start {
+      -ms-flex-align: start;
+    } @else if $value == flex-end {
+      -ms-flex-align: end;
+    } @else if $value == center or $value == baseline or $value == stretch {
+      -ms-flex-align: $value;
+    }
+    @include prefix(align-items, $value, webkit);
+  } @else {
+    align-items: $value;
+  }
+}
+
+@mixin align-items-start {
+  @include flex-align-items(flex-start);
+}
+
+@mixin align-items-end {
+  @include flex-align-items(flex-end);
+}
+
+@mixin align-items-center {
+  @include flex-align-items(center);
+}
+
+@mixin align-items-baseline {
+  @include flex-align-items(baseline);
+}
+
+@mixin align-items-stretch {
+  @include flex-align-items(stretch);
+}

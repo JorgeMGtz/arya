@@ -1,0 +1,76 @@
+
+input,
+select,
+textarea {
+  line-height: inherit;
+}
+
+input {
+
+  &::-webkit-file-upload-button {
+    @include appearance(button);
+    font: inherit;
+  }
+
+  &[type="search"] {
+    box-sizing: border-box; // Override default value for search fields
+    @include appearance(none);
+
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
+      @include appearance(none);
+    }
+  }
+}
+
+select {
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+[type="date"],
+[type="time"],
+[type="datetime-local"],
+[type="month"] {
+  @include appearance(listbox);
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: spacing(2);
+  line-height: inherit;
+  color: inherit;
+  white-space: normal;
+}

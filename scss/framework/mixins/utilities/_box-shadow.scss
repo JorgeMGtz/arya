@@ -1,0 +1,40 @@
+
+@mixin shadow {
+  box-shadow: $shadow;
+}
+
+@mixin shadow-xs {
+  box-shadow: $shadow-xs;
+}
+
+@mixin shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+@mixin shadow-md {
+  box-shadow: $shadow-md;
+}
+
+@mixin shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+@mixin shadow-xl {
+  box-shadow: $shadow-xl;
+}
+
+@mixin shadow-inner {
+  box-shadow: $shadow-inner;
+}
+
+@mixin shadow-outline {
+  box-shadow: $shadow-outline;
+}
+
+@mixin shadow-solid {
+  box-shadow: $shadow-solid;
+}
+
+@mixin shadow-none {
+  box-shadow: none;
+}

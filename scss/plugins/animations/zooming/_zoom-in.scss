@@ -1,0 +1,15 @@
+@include keyframes(zoomIn) {
+
+	from {
+		opacity: 0;
+		transform: scale3d(.8, .8, .8);
+	}
+
+	50% {
+    opacity: 1;
+  }
+}
+
+.#{$namespace}animation\:zoom-in {
+  animation-name: zoomIn;
+}

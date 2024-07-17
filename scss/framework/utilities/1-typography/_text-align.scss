@@ -1,0 +1,32 @@
+
+.#{$namespace}text-left    { text-align: left; }
+.#{$namespace}text-right   { text-align: right; }
+.#{$namespace}text-center  { text-align: center; }
+.#{$namespace}text-justify { text-align: justify; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("text-align") {
+  .hover\:#{$namespace}text-left:hover    { text-align: left; }
+  .hover\:#{$namespace}text-right:hover   { text-align: right; }
+  .hover\:#{$namespace}text-center:hover  { text-align: center; }
+  .hover\:#{$namespace}text-justify:hover { text-align: justify; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("text-align") {
+  @each $breakpoint in responsive-breakpoints("text-align") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}text-left    { text-align: left; }
+      .#{$namespace}#{$infix}text-right   { text-align: right; }
+      .#{$namespace}#{$infix}text-center  { text-align: center; }
+      .#{$namespace}#{$infix}text-justify { text-align: justify; }
+    }
+  }
+}

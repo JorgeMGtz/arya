@@ -1,0 +1,35 @@
+
+@each $size, $height in $max-heights {
+  .#{$namespace}max-h-#{$size} {
+    max-height: $height;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("max-height") {
+  @each $size, $height in $max-heights {
+    .hover\:#{$namespace}max-h-#{$size}:hover {
+      max-height: $height;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("max-height") {
+  @each $breakpoint in responsive-breakpoints("max-height") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $size, $height in $max-heights {
+        .#{$namespace}#{$infix}max-h-#{$size} {
+          max-height: $height;
+        }
+      }
+    }
+  }
+}

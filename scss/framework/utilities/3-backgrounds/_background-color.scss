@@ -1,0 +1,60 @@
+
+.#{$namespace}bg-inherit        { background-color: inherit; }
+.#{$namespace}bg-transparent    { background-color: transparent; }
+.#{$namespace}bg-translucent    { background-color: $color-translucent; }
+
+.#{$namespace}bg-header-fixed     { background-color: transparent; }
+.#{$namespace}bg-header           { background-color: $bg_color_header; }
+.#{$namespace}bg-note             { background-color: $color_note; }
+.#{$namespace}bg-warning          { background-color: $color_warning; }
+.#{$namespace}bg-notification     { background-color: $bg_color_notification; }
+.#{$namespace}bg-custom-blocks    { background-color: $bg_color_custom_blocks; }
+.#{$namespace}bg-content-blocks   { background-color: $bg_color_content_blocks; }
+
+.#{$namespace}blur {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+@each $name, $color in $all-colors {
+  .#{$namespace}bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("background-color") {
+  .hover\:#{$namespace}bg-inherit:hover      { background-color: inherit; }
+  .hover\:#{$namespace}bg-transparent:hover  { background-color: transparent; }
+  .hover\:#{$namespace}bg-translucent:hover  { background-color: $color-translucent; }
+
+  @each $name, $color in $all-colors {
+    .hover\:#{$namespace}bg-#{$name}:hover {
+      background-color: $color;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("background-color") {
+  @each $breakpoint in responsive-breakpoints("background-color") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}bg-inherit     { background-color: inherit; }
+      .#{$namespace}#{$infix}bg-transparent { background-color: transparent; }
+      .#{$namespace}#{$infix}bg-translucent { background-color: $color-translucent; }
+
+      @each $name, $color in $all-colors {
+        .#{$namespace}#{$infix}bg-#{$name} {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}

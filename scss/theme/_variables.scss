@@ -1,0 +1,117 @@
+
+//
+// Variables assigned here will override default framework values.
+//
+// Names should follow the `$component-property-size-state` naming convention for consistency. For example,
+// $card-border-color: #fefefe;
+//
+
+//
+// Responsive and hover-state variants
+// -----------------------------------
+//
+
+$responsive-variants: (
+
+  // Typography
+  "color",
+  "font-size",
+  "font-style",
+  "font-weight",
+  "letter-spacing",
+  "text-align",
+  "text-transform",
+  "vertical-align",
+
+  // Layout
+  "coordinates",
+  "display",
+  "float",
+  "overflow",
+  "position",
+  "visibility",
+
+  // Background
+  "background-color",
+  "background-position",
+  "background-repeat",
+  "background-size",
+
+  // Border
+  "border",
+  "border-color",
+  "border-width",
+  "border-radius",
+
+  // Flex
+  "align-content",
+  "align-items",
+  "align-self",
+  "flex",
+  "flex-direction",
+  "flex-order",
+  "flex-wrap",
+  "justify-content",
+
+  // Spacing
+  "margin",
+  "padding",
+
+  // Sizing
+  "height",
+  "width",
+  "min-width",
+  "max-width",
+
+  // Effects
+  "box-shadow"
+);
+
+$hover-variants: (
+
+  // Typography
+  "color",
+  "text-decoration",
+
+  // Background
+  "background-color",
+
+  // Border
+  "border-color",
+
+  // Effects
+  "box-shadow"
+);
+
+//
+// Custom variables
+// ----------------
+//
+
+//
+// Typography
+// ----------
+//
+
+$font-weight-h1: 700;
+$font-weight-h2: 700;
+
+$font-weight-2xl: 1.75rem;
+
+$color-nav-link-active: $color-primary;
+$color-nav-link-hover: #4A5568;
+
+$border-radius-nav-line: null;
+
+$spacers: (
+  "1px": 1px
+);
+
+
+$padding-button-sm: .5rem 1.5rem;
+$font-weight-button: 600;
+
+$border-radius-button: 2rem;
+$border-radius-input-search: 2rem;
+
+$content-breadcrumb-divider: str-replace(url("data:image/svg+xml,%0A%3Csvg width='6px' height='12px' viewBox='0 0 8 14' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cpath d='M7.71,6.29 L1.71,0.29 C1.4224393,0.00625543785 0.992397095,-0.0765967301 0.62,0.08 C0.246574493,0.233403598 0.00201514517,0.596298114 0,1 L0,13 C0.00201514517,13.4037019 0.246574493,13.7665964 0.62,13.92 C0.738679383,13.9759814 0.868823467,14.0033801 1,14 C1.26580298,14.0015368 1.52128117,13.8971865 1.71,13.71 L7.71,7.71 C7.89931265,7.5222334 8.00579832,7.26663754 8.00579832,7 C8.00579832,6.73336246 7.89931265,6.4777666 7.71,6.29 Z' fill='#{#ccc}' fill-rule='nonzero'%3E%3C/path%3E%3C/svg%3E"), "#", "%23");

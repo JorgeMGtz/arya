@@ -1,0 +1,29 @@
+
+
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+//
+// Returns the spacer with the given size.
+//
+
+@function spacing($key: 4) {
+  @if map-has-key($spacers, $key) {
+    @return map-get($spacers, $key);
+  }
+  @warn "Unknown `#{$key}` in $spacers.";
+  @return null;
+}
+
+@function get-max-width($map) {
+  $max-width: null;
+  @each $key, $value in $map {
+    @if $value != null and $value != false and $value != '' {
+      $max-width: $value;
+    }
+  }
+  @return $max-width;
+}

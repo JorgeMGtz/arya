@@ -1,0 +1,29 @@
+
+.#{$namespace}font-heading { font-family: $heading_font; }
+.#{$namespace}font-text    { font-family: $text_font; }
+.#{$namespace}font-code    { font-family: $font-family-code; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("font-family") {
+  .hover\:#{$namespace}font-heading:hover { font-family: $heading_font; }
+  .hover\:#{$namespace}font-text:hover    { font-family: $text_font; }
+  .hover\:#{$namespace}font-code:hover    { font-family: $font-family-code; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("font-family") {
+  @each $breakpoint in responsive-breakpoints("font-family") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}font-heading { font-family: $heading_font; }
+      .#{$namespace}#{$infix}font-text    { font-family: $text_font; }
+      .#{$namespace}#{$infix}font-code    { font-family: $font-family-code; }
+    }
+  }
+}

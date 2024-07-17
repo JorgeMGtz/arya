@@ -1,0 +1,32 @@
+
+.#{$namespace}bg-repeat    { background-repeat: repeat; }
+.#{$namespace}bg-no-repeat { background-repeat: no-repeat; }
+.#{$namespace}bg-repeat-x  { background-repeat: repeat-x; }
+.#{$namespace}bg-repeat-y  { background-repeat: repeat-y; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("background-repeat") {
+  .hover\:#{$namespace}bg-repeat:hover    { background-repeat: repeat; }
+  .hover\:#{$namespace}bg-no-repeat:hover { background-repeat: no-repeat; }
+  .hover\:#{$namespace}bg-repeat-x:hover  { background-repeat: repeat-x; }
+  .hover\:#{$namespace}bg-repeat-y:hover  { background-repeat: repeat-y; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("background-repeat") {
+  @each $breakpoint in responsive-breakpoints("background-repeat") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}bg-repeat    { background-repeat: repeat; }
+      .#{$namespace}#{$infix}bg-no-repeat { background-repeat: no-repeat; }
+      .#{$namespace}#{$infix}bg-repeat-x  { background-repeat: repeat-x; }
+      .#{$namespace}#{$infix}bg-repeat-y  { background-repeat: repeat-y; }
+    }
+  }
+}

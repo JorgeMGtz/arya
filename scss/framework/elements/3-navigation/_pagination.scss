@@ -1,0 +1,29 @@
+
+.pagination {
+  margin: $margin-pagination;
+  text-align: center;
+
+  &-list {
+    padding-left: 0;
+  }
+
+  &-next,
+  &-prev,
+  &-first,
+  &-last {
+    display: inline-block;
+
+    &-link {
+      @include button();
+      @include button-outline-variant($color_primary, $color_primary_inverse);
+    }
+  }
+
+  &-first,
+  &-last {
+
+    &-text {
+      @include sr-only();
+    }
+  }
+}

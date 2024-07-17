@@ -1,0 +1,19 @@
+
+@mixin badge-variant($color) {
+  color: color-yiq($color);
+  background-color: $color;
+
+  @at-root a#{&} {
+
+    @include hover-focus {
+      color: color-yiq($color);
+      background-color: zass-darken($color, 10%);
+    }
+
+    &:focus,
+    &.is-focused {
+      outline: 0;
+      box-shadow: 0 0 0 $focus-width-badge rgba($color, .25);
+    }
+  }
+}

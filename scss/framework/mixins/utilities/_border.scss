@@ -1,0 +1,6 @@
+
+@mixin border($width: $border-width)        { border: $width solid $border-color; }
+@mixin border-top($width: $border-width)    { border-top: $width solid $border-color; }
+@mixin border-right($width: $border-width)  { border-right: $width solid $border-color; }
+@mixin border-bottom($width: $border-width) { border-bottom: $width solid $border-color; }
+@mixin border-left($width: $border-width)   { border-left: $width solid $border-color; }

@@ -1,0 +1,15 @@
+
+.#{$namespace}hr {
+  margin: $margin-hr;
+  border: 0;
+  border-bottom: $border-width-hr solid $border-color-hr;
+  background: transparent;
+}
+
+//
+// Comment text
+//
+
+.zd-comment {
+  margin-bottom: spacing();
+}

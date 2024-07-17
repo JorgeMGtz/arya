@@ -1,0 +1,36 @@
+
+.#{$namespace}white-space-normal   { white-space: normal; }
+.#{$namespace}white-space-no-wrap  { white-space: nowrap; }
+.#{$namespace}white-space-pre      { white-space: pre; }
+.#{$namespace}white-space-pre-line { white-space: pre-line; }
+.#{$namespace}white-space-pre-wrap { white-space: pre-wrap; }
+
+
+//
+// Hover
+//
+
+@if has-hover-variants("white-space") {
+  .hover\:#{$namespace}white-space-normal:hover   { white-space: normal; }
+  .hover\:#{$namespace}white-space-no-wrap:hover  { white-space: nowrap; }
+  .hover\:#{$namespace}white-space-pre:hover      { white-space: pre; }
+  .hover\:#{$namespace}white-space-pre-line:hover { white-space: pre-line; }
+  .hover\:#{$namespace}white-space-pre-wrap:hover { white-space: pre-wrap; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("white-space") {
+  @each $breakpoint in responsive-breakpoints("white-space") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}white-space-normal   { white-space: normal; }
+      .#{$namespace}#{$infix}white-space-no-wrap  { white-space: nowrap; }
+      .#{$namespace}#{$infix}white-space-pre      { white-space: pre; }
+      .#{$namespace}#{$infix}white-space-pre-line { white-space: pre-line; }
+      .#{$namespace}#{$infix}white-space-pre-wrap { white-space: pre-wrap; }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+
+//
+// Custom background images
+//
+
+.#{$namespace}bg-community {
+  background-image: url($community_background_image);
+}
+
+.#{$namespace}bg-home {
+  background-image: url($homepage_background_image);
+}
+
+.#{$namespace}bg-hero {
+  background: -webkit-#{$bg_gradient_hero}-gradient($bg_color_hero, $bg_color_secondary_hero);
+  background: #{$bg_gradient_hero}-gradient($bg_color_hero, $bg_color_secondary_hero);
+}
+
+//
+// Consider using a tool like http://www.heropatterns.com/ to create your own custom CSS
+// backgrounds.
+//

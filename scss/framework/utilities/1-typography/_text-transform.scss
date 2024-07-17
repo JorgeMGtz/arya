@@ -1,0 +1,32 @@
+
+.lowercase    { text-transform: lowercase; }
+.uppercase    { text-transform: uppercase; }
+.capitalize   { text-transform: capitalize; }
+.normal-case  { text-transform: none; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("text-transform") {
+  .hover\:#{$namespace}lowercase:hover    { text-transform: lowercase; }
+  .hover\:#{$namespace}uppercase:hover    { text-transform: uppercase; }
+  .hover\:#{$namespace}capitalize:hover   { text-transform: capitalize; }
+  .hover\:#{$namespace}normal-case:hover  { text-transform: none; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("text-transform") {
+  @each $breakpoint in responsive-breakpoints("text-transform") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}lowercase    { text-transform: lowercase; }
+      .#{$namespace}#{$infix}uppercase    { text-transform: uppercase; }
+      .#{$namespace}#{$infix}capitalize   { text-transform: capitalize; }
+      .#{$namespace}#{$infix}normal-case  { text-transform: none; }
+    }
+  }
+}

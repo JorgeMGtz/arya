@@ -1,0 +1,33 @@
+
+a {
+  color: $color_link;
+  font-family: $font-family-link;
+  font-weight: $font-weight-link;
+  text-decoration: $decoration-link;
+  background-color: $bg-color-link; // Remove the gray background on active links in IE 10
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: $decoration-link-hover;
+  }
+
+  &:active {
+    color: $color-link-active;
+  }
+
+  &.is-disabled {
+    color: $color-link-disabled;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+fieldset:disabled a {
+  pointer-events: none;
+}
+
+// Footnotes
+a[href^="#fn:"],
+a[href^="#fnref:"] {
+  margin: 0 2px;
+}

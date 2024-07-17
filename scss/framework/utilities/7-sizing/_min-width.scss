@@ -1,0 +1,35 @@
+
+@each $size, $width in $min-widths {
+  .#{$namespace}min-w-#{$size} {
+    min-width: $width;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("min-width") {
+  @each $size, $width in $min-widths {
+    .hover\:#{$namespace}min-w-#{$size}:hover {
+      min-width: $width;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("min-width") {
+  @each $breakpoint in responsive-breakpoints("min-width") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $size, $width in $min-widths {
+        .#{$namespace}#{$infix}min-w-#{$size} {
+          min-width: $width;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+
+.#{$namespace}toggle {
+  padding-left: 1em;
+  padding-right: 1em;
+
+  &:not(:last-child) {
+    @include border-bottom();
+  }
+}
+
+.#{$namespace}toggle-title {
+  @include collapse-title();
+}

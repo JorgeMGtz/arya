@@ -1,0 +1,26 @@
+
+.#{$namespace}border-collapse { border-collapse: collapse; }
+.#{$namespace}border-separate { border-collapse: separate; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("border-collapse") {
+  .hover\:#{$namespace}border-collapse:hover { border-collapse: collapse; }
+  .hover\:#{$namespace}border-separate:hover { border-collapse: separate; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("border-collapse") {
+  @each $breakpoint in responsive-breakpoints("border-collapse") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}border-collapse { border-collapse: collapse; }
+      .#{$namespace}#{$infix}border-separate { border-collapse: separate; }
+    }
+  }
+}

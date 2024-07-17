@@ -1,0 +1,141 @@
+
+.actions-user,
+.subscribe-article,
+.subscribe-section,
+.subscribe-topic,
+.subscribe-organization,
+.subscribe-link,
+.subscribe-user {
+
+  button {
+    @include button();
+  }
+}
+
+.subscribe-article,
+.subscribe-section,
+.subscribe-topic,
+.subscribe-organization {
+
+  button {
+    @include button-outline($color_primary, $color_primary_inverse);
+  }
+}
+
+.subscribe-article,
+.subscribe-section,
+.subscribe-topic {
+  @include align-self-center();
+  white-space: nowrap;
+
+  button {
+    padding: $padding-button-sm;
+    font-size: $font-size-button-sm;
+    line-height: $line-height-button-sm;
+  }
+}
+
+//
+// Buttons on User Profile page
+//
+
+.actions-user,
+.subscribe-link,
+.subscribe-user {
+
+  button {
+    @include button-variant($color_primary, $color_primary_inverse);
+    padding: $padding-button-sm;
+    font-size: $font-size-button-sm;
+    line-height: $line-height-button-sm;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: auto;
+    }
+  }
+}
+
+//
+// Actions buttons
+//
+
+.actions-user {
+  position: relative;
+  @include inline-flex();
+  vertical-align: middle; // match .button alignment given font-size hack above
+
+  > button {
+    position: relative;
+
+    // Bring the hover, focused, and "active" buttons to the front to overlay the borders properly
+    &:hover {
+      z-index: 1;
+    }
+
+    &:focus,
+    &:active,
+    &.is-active {
+      z-index: 1;
+    }
+  }
+
+  // Prevent double borders when buttons are next to each other
+  > button:not(:first-child) {
+    margin-left: -1px;
+  }
+
+  // Reset rounded corners
+  > button:first-child {
+    @include border-right-radius(0);
+  }
+
+  > button:last-child {
+    width: auto;
+    @include border-left-radius(0);
+  }
+}
+
+.actions-comment {
+
+  button {
+    @include not-a-button();
+    padding: .5rem;
+    margin-right: -.5rem;
+  }
+}
+
+//
+// Form submit button
+//
+
+.form input[type="submit"] {
+  @include button();
+  @include button-variant($color_primary, $color_primary_inverse);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: $padding-button-lg;
+  font-size: $font-size-button-lg;
+  line-height: $line-height-button-lg;
+}
+
+// Allow button labels to use the title attribute
+//.#{$namespace}button-title {
+//
+//  &::after {
+//    content: attr(title);
+//  }
+//}
+
+//
+// Use the `button-variant` and `button-outline-variant` mixins to create additional button variants
+// using defined colors, for example:
+//
+// .button-red {
+//   @include button-variant(color("red"));
+// }
+//
+// .button-outline-red {
+//   @include button-outline-variant(color("red"));
+// }
+//

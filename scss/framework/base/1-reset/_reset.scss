@@ -1,0 +1,93 @@
+
+@at-root {
+  @-ms-viewport {
+    width: device-width;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $base_font_size;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Changes the default tap highlight to be completely transparent in iOS
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  // See https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7165383/
+  -ms-overflow-style: scrollbar;
+  background-color: $bg_color_boxed;
+  height: 100%;
+}
+
+body {
+  font-family: $text_font;
+  color: $color_text;
+  font-size: $font-size;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+[role="main"] {
+  @include flex-grow();
+}
+
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+output  {
+  display: inline-block;
+}
+
+summary {
+  display: list-item;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+// Suppress the focus outline on elements that cannot be accessed via keyboard
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}

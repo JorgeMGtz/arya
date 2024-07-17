@@ -1,0 +1,38 @@
+
+.#{$namespace}break-normal { word-break: normal; }
+.#{$namespace}break-words  { word-wrap: break-word; }
+.#{$namespace}break-spaces { word-wrap: break-spaces; }
+.#{$namespace}break-all    { word-break: break-all; }
+.#{$namespace}truncate     { @include text-truncate(); }
+.#{$namespace}text-hide    { @include text-hide(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("word-break") {
+  .hover\:#{$namespace}break-normal:hover { word-break: normal; }
+  .hover\:#{$namespace}break-words:hover  { word-wrap: break-word; }
+  .hover\:#{$namespace}break-spaces:hover { word-wrap: break-spaces; }
+  .hover\:#{$namespace}break-all:hover    { word-break: break-all; }
+  .hover\:#{$namespace}truncate:hover     { @include text-truncate(); }
+  .hover\:#{$namespace}text-hide:hover    { @include text-hide(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("word-break") {
+  @each $breakpoint in responsive-breakpoints("word-break") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}break-normal { word-break: normal; }
+      .#{$namespace}#{$infix}break-words  { word-wrap: break-word; }
+      .#{$namespace}#{$infix}break-spaces { word-wrap: break-spaces; }
+      .#{$namespace}#{$infix}break-all    { word-break: break-all; }
+      .#{$namespace}#{$infix}truncate     { @include text-truncate(); }
+      .#{$namespace}#{$infix}text-hide    { @include text-hide(); }
+    }
+  }
+}

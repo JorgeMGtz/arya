@@ -1,0 +1,29 @@
+
+@each $level, $opacity in $opacity-levels {
+  .#{$namespace}opacity-#{$level} { opacity: $opacity; }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("opacity") {
+  @each $level, $opacity in $opacity-levels {
+    .hover\:#{$namespace}opacity-#{$level}:hover { opacity: $opacity; }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("opacity") {
+  @each $breakpoint in responsive-breakpoints("opacity") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $level, $opacity in $opacity-levels {
+        .#{$namespace}#{$infix}opacity-#{$level} { opacity: $opacity; }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+
+//
+// SVG icons
+//
+
+.#{$namespace}svg-icon {
+
+  // Allow padding to be used
+  box-sizing: content-box;
+  height: 1em;
+}
+
+// Ensure alignment with text
+// https://css-tricks.com/align-svg-icons-text-say-goodbye-font-icons/
+
+//.#{$namespace}icon::before,
+.#{$namespace}svg-icon {
+  position: relative;
+  bottom: -.125em;
+  display: inline-block;
+  width: 1em;
+  line-height: 1;
+  flex-shrink: 0;
+}

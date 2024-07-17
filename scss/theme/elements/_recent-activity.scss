@@ -1,0 +1,73 @@
+
+//
+// Styles for the {{recent_activity}} placeholder.
+//
+
+.recent-activity-list {
+  display: grid;
+  margin-top: $spacer;
+  margin-bottom: 0;
+  list-style: none;
+  gap: $column-gap-sm;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.recent-activity-header {
+  margin-top: $spacer;
+  margin-bottom: $spacer;
+}
+
+.recent-activity-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $spacer ($spacer * 1.25);
+  background-color: $color-white;
+}
+
+.recent-activity-item-parent {
+  @extend .badge;
+}
+
+.recent-activity-item-link {
+  display: block;
+  font-weight: $font-weight-semibold;
+  margin-top: ($spacer / 2);
+  margin-bottom: ($spacer / 2);
+}
+
+.recent-activity-item-meta {
+  font-size: $font-size-md;
+  margin-bottom: 0;
+  @include list-divider(.5rem);
+
+  > * + * {
+
+    &::before {
+      color: $color-list-divider;
+    }
+  }
+}
+
+.recent-activity-accessibility-label {
+  @include sr-only();
+}
+
+.recent-activity-comment-icon::after {
+  content: attr(data-comment-count);
+  margin-left: ($spacer / 4);
+}
+
+.recent-activity-controls a {
+  display: block;
+  margin-top: $spacer;
+}

@@ -1,0 +1,18 @@
+// ==========================================================================
+// Colors
+// ==========================================================================
+
+$plyr-color-main: var(--color-primary, hsl(198deg, 100%, 50%)) !default;
+$plyr-video-background: var(--plyr-video-background, rgb(0, 0, 0)) !default;
+
+// Grayscale
+$plyr-color-gray-900: $color-gray-900 !default; // hsl(216deg 15% 16%, 100%) !default;
+$plyr-color-gray-800: $color-gray-800 !default; // hsl(216deg 15% 25%, 100%) !default;
+$plyr-color-gray-700: $color-gray-700 !default; // hsl(216deg 15% 34%, 100%) !default;
+$plyr-color-gray-600: $color-gray-600 !default; // hsl(216deg 15% 43%, 100%) !default;
+$plyr-color-gray-500: $color-gray-500 !default; // hsl(216deg 15% 52%, 100%) !default;
+$plyr-color-gray-400: $color-gray-400 !default; // hsl(216deg 15% 61%, 100%) !default;
+$plyr-color-gray-300: $color-gray-300 !default; // hsl(216deg 15% 70%, 100%) !default;
+$plyr-color-gray-200: $color-gray-200 !default; // hsl(216deg 15% 79%, 100%) !default;
+$plyr-color-gray-100: $color-gray-100 !default; // hsl(216deg 15% 88%, 100%) !default;
+$plyr-color-gray-50: $color-gray-100 !default; // hsl(216deg 15% 97%, 100%) !default;

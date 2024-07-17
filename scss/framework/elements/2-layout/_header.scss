@@ -1,0 +1,91 @@
+
+//
+// Standard header
+//
+
+.#{$namespace}header {
+  height: $header_height;
+  background-color: $bg-color-header;
+
+  .#{$namespace}navbar-brand,
+  .#{$namespace}navbar-toggle,
+  .#{$namespace}nav-link {
+    color: $color-header-link;
+
+    @include hover-focus {
+      color: $color-header-link-hover;
+    }
+
+    &:active {
+      color: $color-header-link-active;
+    }
+  }
+}
+
+//
+// Fixed header
+//
+
+.#{$namespace}fixed-header {
+  visibility: hidden;
+  background-color: transparent;
+  transition: background-color $transition-duration-fast ease-in-out;
+
+  .#{$namespace}navbar-brand,
+  .#{$namespace}navbar-toggle,
+  .#{$namespace}nav-link {
+    color: $color-header-fixed-link;
+
+    @include hover-focus {
+      color: $color-header-fixed-link-hover;
+    }
+
+    &:active {
+      color: $color-header-fixed-link-active;
+    }
+  }
+
+  //
+  // Sticky header and initial state
+  //
+
+  &:not(.visible),
+  &.#{$namespace}sticky-header {
+
+    ~ main > .#{$namespace}hero {
+      margin-top: -$header_height;
+    }
+  }
+}
+
+//
+// Override link styles
+//
+// This is used to override fixed header link styles when the header is stuck to the top of the page or
+// when the mobile menu is open
+//
+
+.#{$namespace}text-header {
+
+  .#{$namespace}navbar-brand,
+  .#{$namespace}navbar-toggle,
+  .#{$namespace}nav-link {
+    color: $color-header-link;
+
+    @include hover-focus {
+      color: $color-header-link-hover;
+    }
+
+    &:active {
+      color: $color-header-link-active;
+    }
+  }
+}
+
+//
+// Logo
+//
+
+#logo {
+  height: $logo_height;
+}

@@ -1,0 +1,46 @@
+
+.#{$namespace}tab-panel {
+  padding: spacing();
+  margin-bottom: spacing();
+  list-style: none;
+  @include border();
+  @include border-bottom-radius;
+
+  &:not(:first-of-type) {
+    display: none;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.#{$namespace}tab {
+  display: none;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.#{$namespace}fade {
+  @include transition(opacity 150ms ease);
+
+  &:not(.is-shown) {
+    opacity: 0;
+  }
+}
+
+.#{$namespace}scaled {
+  @include transition(opacity 500ms ease, transform 500ms ease);
+  transform: scale(1);
+
+  &:not(.is-shown) {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}

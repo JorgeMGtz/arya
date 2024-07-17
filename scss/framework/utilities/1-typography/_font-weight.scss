@@ -1,0 +1,35 @@
+
+@each $weight, $font-weight in $font-weights {
+  .#{$namespace}font-#{$weight} {
+    font-weight: $font-weight;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("font-weight") {
+  @each $weight, $font-weight in $font-weights {
+    .hover\:#{$namespace}font-#{$weight}:hover {
+      font-weight: $font-weight;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("font-weight") {
+  @each $breakpoint in responsive-breakpoints("font-weight") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $weight, $font-weight in $font-weights {
+        .#{$namespace}#{$infix}font-#{$weight} {
+          font-weight: $font-weight;
+        }
+      }
+    }
+  }
+}

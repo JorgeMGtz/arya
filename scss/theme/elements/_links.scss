@@ -1,0 +1,43 @@
+
+//
+// Social sharing links
+//
+
+.#{$namespace}share {
+  @include list-unstyled();
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: .5rem;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  &-facebook {
+
+    @include hover-focus {
+      color: $color-facebook;
+    }
+  }
+
+  &-twitter {
+
+    @include hover-focus {
+      color: $color-twitter;
+    }
+  }
+
+  &-linkedin {
+
+    @include hover-focus {
+      color: $color-linkedin;
+    }
+  }
+}

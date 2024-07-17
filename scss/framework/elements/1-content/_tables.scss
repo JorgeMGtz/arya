@@ -1,0 +1,130 @@
+
+.#{$namespace}table {
+  color: $color-table;
+  background-color: $bg-color-table; // Reset for nesting within parents with `background-color`.
+  border-color: transparent;
+
+  th,
+  td {
+    padding: $padding-table-cell;
+    vertical-align: top;
+
+    &:first-child {
+      //padding-left: 0;
+    }
+
+    &:last-child {
+      //padding-right: 0;
+    }
+  }
+
+  thead th {
+    color: $color-table-header;
+    font-size: $font-size-table-header;
+    font-weight: $font-weight-table-header;
+    vertical-align: bottom;
+    background-color: $bg-color-table-header;
+    border-bottom: $border-width-table solid $border-color-table;
+  }
+
+  tbody {
+    font-size: $font-size-table-body;
+    background-color: $bg-color-table-body;
+  }
+
+  tr:not(:last-child) {
+    border-bottom: $border-width-table solid $border-color-table;
+  }
+}
+
+//
+// Condensed table with half padding
+//
+
+.#{$namespace}table-sm {
+
+  th,
+  td {
+    padding: $padding-table-cell-sm;
+  }
+}
+
+//
+// Remove padding on the first and last elements of each row
+//
+
+.#{$namespace}table-flush {
+
+  th,
+  td {
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+//
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
+
+.#{$namespace}table-bordered {
+  border: $border-width-table solid $border-color-table;
+
+  th,
+  td {
+    border: $border-width-table solid $border-color-table;
+
+    &:first-child {
+      padding-left: $padding-table-cell;
+    }
+
+    &:last-child {
+      padding-right: $padding-table-cell;
+    }
+  }
+
+  thead {
+
+    th,
+    td {
+      border-bottom-width: 2 * $border-width-table;
+    }
+  }
+}
+
+//
+// Borderless table
+//
+
+.#{$namespace}table-borderless {
+
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+
+  tr:not(:last-child){
+    border-bottom: none;
+  }
+}
+
+//
+// Table with no padding on left- and right-most cells
+//
+
+.table-flush {
+
+  th,
+  td {
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+  }
+}

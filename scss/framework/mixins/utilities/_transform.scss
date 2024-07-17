@@ -1,0 +1,6 @@
+
+@mixin transition($transform...) {
+  @if $legacy-browser-support {
+    @include prefix(transform, $transform, webkit ms);
+  }
+}

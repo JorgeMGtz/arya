@@ -1,0 +1,40 @@
+
+.wysiwyg-font-size-small      { font-size: $font-size-sm; }
+.wysiwyg-font-size-medium     { font-size: $font-size; }
+.wysiwyg-font-size-large      { font-size: $font-size-lg; }
+.wysiwyg-font-size-x-large    { font-size: $font-size-xl; }
+
+@each $size, $font-size in $font-sizes {
+  .#{$namespace}font-size-#{$size} {
+    font-size: $font-size;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("font-size") {
+  @each $size, $font-size in $font-sizes {
+    .hover\:#{$namespace}font-size-#{$size}:hover {
+      font-size: $font-size;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("font-size") {
+  @each $breakpoint in responsive-breakpoints("font-size") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $size, $font-size in $font-sizes {
+        .#{$namespace}#{$infix}font-size-#{$size} {
+          font-size: $font-size;
+        }
+      }
+    }
+  }
+}

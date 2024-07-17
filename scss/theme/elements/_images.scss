@@ -1,0 +1,29 @@
+
+.#{$namespace}img-left {
+  float: left;
+  text-align: left;
+  margin-right: spacing();
+}
+
+.#{$namespace}img-right {
+  float: right;
+  text-align: right;
+  margin-left: spacing();
+}
+
+.#{$namespace}img-thumbnail {
+  padding: spacing();
+  @include border();
+  @include border-radius();
+}
+
+@include media-breakpoint-up(md) {
+
+  .#{$namespace}img-left {
+    margin-left: - spacing();
+  }
+
+  .#{$namespace}img-right {
+    margin-right: - spacing();
+  }
+}

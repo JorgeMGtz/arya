@@ -1,0 +1,102 @@
+
+//
+// Standard
+//
+
+@each $size, $length in $spacers {
+  .#{$namespace}p-#{$size} {
+    padding: $length;
+  }
+
+  .#{$namespace}pt-#{$size},
+  .#{$namespace}py-#{$size} {
+    padding-top: $length;
+  }
+
+  .#{$namespace}pr-#{$size},
+  .#{$namespace}px-#{$size} {
+    padding-right: $length;
+  }
+
+  .#{$namespace}pb-#{$size},
+  .#{$namespace}py-#{$size} {
+    padding-bottom: $length;
+  }
+
+  .#{$namespace}pl-#{$size},
+  .#{$namespace}px-#{$size} {
+    padding-left: $length;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("padding") {
+  .hover\:#{$namespace}outline-none:hover { outline: none; }
+
+  @each $size, $length in $spacers {
+    .hover\:#{$namespace}p-#{$size}:hover {
+      padding: $length;
+    }
+
+    .hover\:#{$namespace}pt-#{$size}:hover,
+    .hover\:#{$namespace}py-#{$size}:hover {
+      padding-top: $length;
+    }
+
+    .hover\:#{$namespace}pr-#{$size}:hover,
+    .hover\:#{$namespace}px-#{$size}:hover {
+      padding-right: $length;
+    }
+
+    .hover\:#{$namespace}pb-#{$size}:hover,
+    .hover\:#{$namespace}py-#{$size}:hover {
+      padding-bottom: $length;
+    }
+
+    .hover\:#{$namespace}pl-#{$size}:hover,
+    .hover\:#{$namespace}px-#{$size}:hover {
+      padding-left: $length;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("padding") {
+  @each $breakpoint in responsive-breakpoints("padding") {
+    $infix: breakpoint-infix($breakpoint);
+
+    @include media-breakpoint-up($breakpoint) {
+      @each $size, $length in $spacers {
+        .#{$namespace}#{$infix}p-#{$size} {
+          padding: $length;
+        }
+
+        .#{$namespace}#{$infix}pt-#{$size},
+        .#{$namespace}#{$infix}py-#{$size} {
+          padding-top: $length;
+        }
+
+        .#{$namespace}#{$infix}pr-#{$size},
+        .#{$namespace}#{$infix}px-#{$size} {
+          padding-right: $length;
+        }
+
+        .#{$namespace}#{$infix}pb-#{$size},
+        .#{$namespace}#{$infix}py-#{$size} {
+          padding-bottom: $length;
+        }
+
+        .#{$namespace}#{$infix}pl-#{$size},
+        .#{$namespace}#{$infix}px-#{$size} {
+          padding-left: $length;
+        }
+      }
+    }
+  }
+}

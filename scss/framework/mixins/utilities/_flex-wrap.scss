@@ -1,0 +1,27 @@
+
+@mixin wrap($value) {
+  @if $legacy-browser-support {
+
+    // IE10
+    @if $value == nowrap {
+      -ms-flex-wrap: none;
+    } @else if $value == wrap or $value == wrap-reverse {
+      -ms-flex-wrap: $value;
+    }
+    @include prefix(flex-wrap, $value, webkit);
+  } @else {
+    flex-wrap: $value;
+  }
+}
+
+@mixin flex-wrap {
+  @include wrap(wrap);
+}
+
+@mixin flex-nowrap {
+  @include wrap(nowrap);
+}
+
+@mixin flex-wrap-reverse {
+  @include wrap(wrap-reverse);
+}

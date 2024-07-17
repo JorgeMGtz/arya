@@ -1,0 +1,37 @@
+
+//
+// Badges
+//
+// By default badges are used on Article, Topic, Request and Requests pages
+//
+
+.#{$namespace}badge {
+  padding: $padding-badge;
+  font-size: $font-size-badge;
+  font-weight: $font-weight-badge;
+  line-height: $line-height-badge;
+  border-radius: $border-radius-badge;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  @include badge-variant($bg-color-badge);
+  @include transition($transition-badge);
+
+  @at-root a#{&} {
+
+    @include hover-focus {
+      text-decoration: none;
+    }
+  }
+
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+}
+
+// Ensure proper alignment with text
+.#{$namespace}badge {
+  position: relative;
+  top: -1px;
+}

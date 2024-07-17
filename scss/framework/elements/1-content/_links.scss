@@ -1,0 +1,129 @@
+
+//
+// Plain link
+//
+
+.#{$namespace}link-plain {
+  @include link-plain();
+}
+
+//
+// Stretched link
+//
+
+.#{$namespace}link-stretched {
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+
+    // Just in case `pointer-events: none` is set on a parent
+    pointer-events: auto;
+
+    // IE10 bugfix, see https://stackoverflow.com/questions/16947967/ie10-hover-pseudo-class-doesnt-work-without-background-color
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+//
+// Anchor link used for headings with IDs
+//
+
+.#{$namespace}link-anchor {
+  @include link-anchor();
+}
+
+//
+// Default links
+//
+
+.#{$namespace}link {
+  color: currentColor;
+
+  &::after {
+    background-color: currentColor;
+    opacity: 0.2;
+  }
+
+  @include hover-focus {
+    color: $color_link;
+
+    &::after {
+      background-color: $color_link;
+      opacity: 1;
+    }
+  }
+}
+
+//
+// Article links
+//
+
+.#{$namespace}link-article {
+  color: $color_link;
+
+  &::after {
+    background-color: $color_link;
+    opacity: 0.2;
+  }
+
+  @include hover-focus {
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+//
+// Implied links
+//
+
+.#{$namespace}link-implied {
+  @include link-plain();
+  color: currentColor;
+
+  &::after {
+    background-color: currentColor;
+    opacity: 0;
+  }
+
+  @include hover-focus {
+
+    &::after {
+      opacity: 0.2;
+    }
+  }
+}
+
+
+.#{$namespace}link,
+.#{$namespace}link-article,
+.#{$namespace}link-implied {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -.125em;
+    content: "";
+    height: .125em;
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  &:active {
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}

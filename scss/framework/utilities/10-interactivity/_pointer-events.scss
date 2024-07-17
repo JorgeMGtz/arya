@@ -1,0 +1,27 @@
+
+.#{$namespace}pointer-events-none { pointer-events: none; }
+.#{$namespace}pointer-events-auto { pointer-events: auto; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("pointer-events") {
+  .hover\:#{$namespace}pointer-events-none:hover { pointer-events: none; }
+  .hover\:#{$namespace}pointer-events-auto:hover { pointer-events: auto; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("pointer-events") {
+  @each $breakpoint in responsive-breakpoints("pointer-events") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}pointer-events-none { pointer-events: none; }
+      .#{$namespace}#{$infix}pointer-events-auto { pointer-events: auto; }
+    }
+  }
+}
+

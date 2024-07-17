@@ -1,0 +1,54 @@
+
+.#{$namespace}transition-none       { transition-property: none; }
+.#{$namespace}transition-all	      { transition-property: all; }
+.#{$namespace}transition-colors	    { transition-property: background-color, border-color, color, fill, stroke; }
+.#{$namespace}transition-opacity	  { transition-property: opacity; }
+.#{$namespace}transition-shadow	    { transition-property: box-shadow; }
+.#{$namespace}transition-transform	{ transition-property: transform; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("transition-prooerty") {
+  .hover\:#{$namespace}transition-none:hover        { transition-property: none; }
+  .hover\:#{$namespace}transition-all:hover	        { transition-property: all; }
+  .hover\:#{$namespace}transition-colors:hover	    { transition-property: background-color, border-color, color, fill, stroke; }
+  .hover\:#{$namespace}transition-opacity:hover	    { transition-property: opacity; }
+  .hover\:#{$namespace}transition-shadow:hover	    { transition-property: box-shadow; }
+  .hover\:#{$namespace}transition-transform:hover	  { transition-property: transform; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("transition-property") {
+  @each $breakpoint in responsive-breakpoints("transition-property") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}transition-none        { transition-property: none; }
+      .#{$namespace}#{$infix}transition-all	        { transition-property: all; }
+      .#{$namespace}#{$infix}transition-colors	    { transition-property: background-color, border-color, color, fill, stroke; }
+      .#{$namespace}#{$infix}transition-opacity	    { transition-property: opacity; }
+      .#{$namespace}#{$infix}transition-shadow	    { transition-property: box-shadow; }
+      .#{$namespace}#{$infix}transition-transform	  { transition-property: transform; }
+    }
+  }
+}
+
+//
+// Timing functions
+//
+
+.#{$namespace}timing-bounce {
+  transition-timing-function: cubic-bezier(0.77, 0, 0.2, 2.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *, *:before, *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

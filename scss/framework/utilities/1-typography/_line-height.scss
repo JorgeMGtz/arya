@@ -1,0 +1,35 @@
+
+@each $height, $line-height in $line-heights {
+  .#{$namespace}line-height-#{$height} {
+    line-height: $line-height;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("line-height") {
+  @each $height, $line-height in $line-heights {
+    .hover\:#{$namespace}line-height-#{$height}:hover {
+      line-height: $line-height;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("line-height") {
+  @each $breakpoint in responsive-breakpoints("line-height") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $height, $line-height in $line-heights {
+        .#{$namespace}#{$infix}line-height-#{$height} {
+          line-height: $line-height;
+        }
+      }
+    }
+  }
+}

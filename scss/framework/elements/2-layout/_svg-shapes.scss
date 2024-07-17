@@ -1,0 +1,8 @@
+
+.#{$namespace}svg-shape {
+  position: relative;
+  z-index: $z-index-svg-shape;
+  width: 100%;
+  height: 4rem;
+  fill: $bg_color;
+}

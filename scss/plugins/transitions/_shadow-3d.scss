@@ -1,0 +1,11 @@
+
+.#{$namespace}hover\:shadow-3d {
+  //transition: background-color $transition-duration ease,
+  //            box-shadow $transition-duration ease,
+  //            transform $transition-duration ease;
+
+  &:hover {
+    transform: translate3d(-.25rem, -.25rem, 0) rotateZ(-1deg);
+    box-shadow: $shadow-3d;
+  }
+}

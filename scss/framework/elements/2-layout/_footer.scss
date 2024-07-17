@@ -1,0 +1,17 @@
+
+.#{$namespace}footer {
+  position: relative;
+  background-color: $bg-color-footer;
+
+  .nav-link {
+    color: $color-footer-link;
+
+    &:hover {
+      color: $color-footer-link-hover;
+    }
+
+    &:active {
+      color: $color-footer-link-active;
+    }
+  }
+}

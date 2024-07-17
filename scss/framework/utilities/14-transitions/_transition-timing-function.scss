@@ -1,0 +1,23 @@
+
+.#{$namespace}timing-bounce { transition-timing-function: cubic-bezier(0.77, 0, 0.2, 2.25); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("transition-timing-function") {
+  .hover\:#{$namespace}timing-bounce:hover { transition-timing-function: cubic-bezier(0.77, 0, 0.2, 2.25); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("transition-timing-function") {
+  @each $breakpoint in responsive-breakpoints("transition-timing-function") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}timing-bounce { transition-timing-function: cubic-bezier(0.77, 0, 0.2, 2.25); }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+
+.#{$namespace}stroke-current { stroke: currentColor; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("stroke") {
+  .hover\:#{$namespace}stroke-current:hover { stroke: currentColor; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("stroke") {
+  @each $breakpoint in responsive-breakpoints("stroke") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}stroke-current { stroke: currentColor; }
+    }
+  }
+}

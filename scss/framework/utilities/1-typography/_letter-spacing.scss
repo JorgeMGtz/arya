@@ -1,0 +1,35 @@
+
+@each $spacing, $letter-spacing in $letter-spacings {
+  .#{$namespace}tracking-#{$spacing} {
+    letter-spacing: $letter-spacing;
+  }
+}
+
+//
+// Hover
+//
+
+@if has-hover-variants("letter-spacing") {
+  @each $spacing, $letter-spacing in $letter-spacings {
+    .hover\:#{$namespace}tracking-#{$spacing}:hover {
+      letter-spacing: $letter-spacing;
+    }
+  }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("letter-spacing") {
+  @each $breakpoint in responsive-breakpoints("letter-spacing") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      @each $spacing, $letter-spacing in $letter-spacings {
+        .#{$namespace}#{$infix}tracking-#{$spacing} {
+          letter-spacing: $letter-spacing;
+        }
+      }
+    }
+  }
+}

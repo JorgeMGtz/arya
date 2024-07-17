@@ -1,0 +1,8 @@
+
+.#{$namespace}hover\:float {
+  transition-timing-function: ease-out;
+
+  &:hover {
+    transform: translateY(calc(var(--transition-translate-factor, .5) * var(--spacer, 1rem) * -1));
+  }
+}

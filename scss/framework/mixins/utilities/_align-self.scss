@@ -1,0 +1,41 @@
+
+@mixin flex-align-self($value) {
+  @if $legacy-browser-support {
+
+    // IE10
+    @if $value == flex-start {
+      -ms-flex-item-align: start;
+    } @else if $value == flex-end {
+      -ms-flex-item-align: end;
+    } @else if $value == auto or $value == center or $value == baseline or $value == stretch {
+      -ms-flex-item-align: $value;
+    }
+    @include prefix(align-self, $value, webkit);
+  } @else {
+    align-self: $value;
+  }
+}
+
+@mixin align-self-auto {
+  @include flex-align-self(auto);
+}
+
+@mixin align-self-start {
+  @include flex-align-self(flex-start);
+}
+
+@mixin align-self-end {
+  @include flex-align-self(flex-end);
+}
+
+@mixin align-self-center {
+  @include flex-align-self(center);
+}
+
+@mixin align-self-baseline {
+  @include flex-align-self(baseline);
+}
+
+@mixin align-self-stretch {
+  @include flex-align-self(stretch);
+}

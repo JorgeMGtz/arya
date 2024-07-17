@@ -1,0 +1,23 @@
+
+.#{$namespace}fill-current  { fill: currentColor; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("fill") {
+  .hover\:#{$namespace}fill-current:hover  { fill: currentColor; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("fill") {
+  @each $breakpoint in responsive-breakpoints("fill") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}fill-current  { fill: currentColor; }
+    }
+  }
+}

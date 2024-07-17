@@ -1,0 +1,7 @@
+
+.#{$namespace}hover\:rotate {
+
+  &:hover {
+    transform: rotate(var(--transition-rotate-factor, -4deg));
+  }
+}

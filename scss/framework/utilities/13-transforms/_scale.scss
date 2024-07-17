@@ -1,0 +1,32 @@
+
+.#{$namespace}scale-95  { transform: scale(.95); }
+.#{$namespace}scale-100 { transform: scale(1); }
+.#{$namespace}scale-105 { transform: scale(1.05); }
+.#{$namespace}scale-110 { transform: scale(1.1); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("scale") {
+  .hover\:#{$namespace}scale-95:hover  { transform: scale(.95); }
+  .hover\:#{$namespace}scale-100:hover { transform: scale(1); }
+  .hover\:#{$namespace}scale-105:hover { transform: scale(1.05); }
+  .hover\:#{$namespace}scale-110:hover { transform: scale(1.1); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("scale") {
+  @each $breakpoint in responsive-breakpoints("scale") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}scale-95  { transform: scale(.95); }
+      .#{$namespace}#{$infix}scale-100 { transform: scale(1); }
+      .#{$namespace}#{$infix}scale-105 { transform: scale(1.05); }
+      .#{$namespace}#{$infix}scale-110 { transform: scale(1.1); }
+    }
+  }
+}

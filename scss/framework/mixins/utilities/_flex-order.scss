@@ -1,0 +1,17 @@
+
+@mixin flex-order($value) {
+  @if $legacy-browser-support {
+    -ms-flex-order: $value;
+    @include prefix(order, $value, webkit);
+  } @else {
+    order: $value;
+  }
+}
+
+@mixin flex-first {
+  @include flex-order(-1);
+}
+
+@mixin flex-last {
+  @include flex-order($column-number + 1);
+}

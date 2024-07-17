@@ -1,0 +1,36 @@
+
+//
+// Standard
+//
+
+.#{$namespace}float-left   { float: left; }
+.#{$namespace}float-right  { float: right; }
+.#{$namespace}float-none   { float: none; }
+.#{$namespace}clearfix     { @include clearfix(); }
+
+//
+// Hover
+//
+
+@if has-hover-variants("float") {
+  .hover\:#{$namespace}float-left:hover   { float: left; }
+  .hover\:#{$namespace}float-right:hover  { float: right; }
+  .hover\:#{$namespace}float-none:hover   { float: none; }
+  .hover\:#{$namespace}clearfix:hover     { @include clearfix(); }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("float") {
+  @each $breakpoint in responsive-breakpoints("float") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}float-left   { float: left; }
+      .#{$namespace}#{$infix}float-right  { float: right; }
+      .#{$namespace}#{$infix}float-none   { float: none; }
+      .#{$namespace}#{$infix}clearfix     { @include clearfix(); }
+    }
+  }
+}

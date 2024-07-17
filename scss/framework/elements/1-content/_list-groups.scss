@@ -1,0 +1,146 @@
+
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+//
+
+.#{$namespace}list-group {
+  @include flex();
+  @include flex-direction(column);
+
+  // No need to set list-style: none; since .list-group-item is block level
+  padding-left: 0; // reset padding because ul and ol
+  margin-bottom: 0;
+}
+
+//
+// Interactive list items
+//
+// Use anchor or button elements instead of `li`s or `div`s to create interactive
+// list items. Includes an extra `.active` modifier class for selected items.
+//
+
+.#{$namespace}list-group-item-action {
+  width: 100%; // For `<button>`s (anchors become 100% by default though)
+  color: $color-list-group-action;
+  text-align: inherit; // For `<button>`s (anchors inherit)
+
+  // Hover state
+  @include hover-focus {
+    z-index: 1; // Place hover/focus items above their siblings for proper border styling
+    color: $color-list-group-action-hover;
+    text-decoration: none;
+    background-color: $bg-color-list-group-hover;
+  }
+
+  &:active {
+    color: $color-list-group-action-active;
+    background-color: $bg-color-list-group-action-active;
+  }
+}
+
+//
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+//
+
+.#{$namespace}list-group-item {
+  position: relative;
+  display: block;
+  padding: $padding-list-group-item;
+
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -$border-width-list-group;
+  color: $color-list-group;
+  background-color: $bg-color-list-group;
+  border: $border-width-list-group solid $border-color-list-group;
+
+  &:first-child {
+    @include border-top-radius($border-radius-list-group);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+    @include border-bottom-radius($border-radius-list-group);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    color: $color-list-group-disabled;
+    pointer-events: none;
+    background-color: $bg-color-list-group-disabled;
+  }
+
+  // Include both here for `<a>`s and `<button>`s
+  &.is-active {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: $color-list-group-active;
+    background-color: $bg-color-list-group-active;
+    border-color: $border-color-list-group-active;
+  }
+}
+
+//
+// Horizontal
+//
+// Change the layout of list group items from vertical (default) to horizontal.
+//
+
+@each $breakpoint in map-keys($breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint);
+
+    .#{$infix}list-group-horizontal {
+      @include flex-direction(row);
+
+      .#{$namespace}list-group-item {
+        margin-right: -$border-width-list-group;
+        margin-bottom: 0;
+
+        &:first-child {
+          @include border-left-radius($border-radius-list-group);
+          @include border-top-right-radius(0);
+        }
+
+        &:last-child {
+          margin-right: 0;
+          @include border-right-radius($border-radius-list-group);
+          @include border-bottom-left-radius(0);
+        }
+      }
+    }
+  }
+}
+
+//
+// Flush list items
+//
+// Remove borders and border-radius to keep list group items edge-to-edge. Most
+// useful within other components (e.g., cards).
+//
+
+.#{$namespace}list-group-flush {
+
+  .#{$namespace}list-group-item {
+    border-right: 0;
+    border-left: 0;
+    @include border-radius(0);
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: -$border-width-list-group;
+    }
+  }
+
+  &:last-child {
+
+    .#{$namespace}list-group-item:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+}

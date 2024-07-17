@@ -1,0 +1,38 @@
+
+.#{$namespace}align-baseline    { vertical-align: baseline; }
+.#{$namespace}align-top         { vertical-align: top; }
+.#{$namespace}align-middle      { vertical-align: middle; }
+.#{$namespace}align-bottom      { vertical-align: bottom; }
+.#{$namespace}align-text-top    { vertical-align: text-top; }
+.#{$namespace}align-text-bottom { vertical-align: text-bottom; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("vertical-align") {
+  .hover\:#{$namespace}align-baseline:hover    { vertical-align: baseline; }
+  .hover\:#{$namespace}align-top:hover         { vertical-align: top; }
+  .hover\:#{$namespace}align-middle:hover      { vertical-align: middle; }
+  .hover\:#{$namespace}align-bottom:hover      { vertical-align: bottom; }
+  .hover\:#{$namespace}align-text-top:hover    { vertical-align: text-top; }
+  .hover\:#{$namespace}align-text-bottom:hover { vertical-align: text-bottom; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("vertical-align") {
+  @each $breakpoint in responsive-breakpoints("vertical-align") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}align-baseline    { vertical-align: baseline; }
+      .#{$namespace}#{$infix}align-top         { vertical-align: top; }
+      .#{$namespace}#{$infix}align-middle      { vertical-align: middle; }
+      .#{$namespace}#{$infix}align-bottom      { vertical-align: bottom; }
+      .#{$namespace}#{$infix}align-text-top    { vertical-align: text-top; }
+      .#{$namespace}#{$infix}align-text-bottom { vertical-align: text-bottom; }
+    }
+  }
+}

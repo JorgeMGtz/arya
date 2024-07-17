@@ -1,0 +1,11 @@
+
+//
+// Group hover
+//
+
+.#{$namespace}group:hover {
+
+  .#{$namespace}group-hover\:text-white             { color: $color-white; }
+  .#{$namespace}group-hover\:text-primary           { color: $color-primary; }
+  .#{$namespace}group-hover\:text-primary-inverse   { color: $color_primary_inverse; }
+}

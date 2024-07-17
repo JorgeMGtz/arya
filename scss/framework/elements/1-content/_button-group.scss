@@ -1,0 +1,92 @@
+
+// Make the div behave like a button
+.#{$namespace}button-group,
+.#{$namespace}button-group-vertical {
+  position: relative;
+  @include inline-flex();
+  vertical-align: middle; // match .button alignment given font-size hack above
+
+  > .#{$namespace}button {
+    position: relative;
+    flex: 1 1 auto;
+
+    // Bring the hover, focused, and "active" buttons to the front to overlay the borders properly
+    &:hover {
+      z-index: 1;
+    }
+
+    &:focus,
+    &:active,
+    &.is-active {
+      z-index: 1;
+    }
+  }
+}
+
+.#{$namespace}button-group {
+
+  // Prevent double borders when buttons are next to each other
+  > .#{$namespace}button:not(:first-child),
+  > .#{$namespace}button-group:not(:first-child) {
+    margin-left: -1px;
+  }
+
+  // Reset rounded corners
+  > .#{$namespace}button:not(:last-child),
+  > .#{$namespace}button-group:not(:last-child) > .#{$namespace}button {
+    @include border-right-radius(0);
+  }
+
+  > .#{$namespace}button:not(:first-child),
+  > .#{$namespace}button-group:not(:first-child) > .#{$namespace}button {
+    @include border-left-radius(0);
+  }
+}
+
+//
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.#{$namespace}button-group-sm > .button {
+  padding: $padding-button-sm;
+  font-size: $font-size-button-sm;
+  line-height: $line-height-button-sm;
+}
+
+.#{$namespace}button-group-lg > .button {
+  padding: $padding-button-lg;
+  font-size: $font-size-button-lg;
+  line-height: $line-height-button-lg;
+}
+
+//
+// Vertical button groups
+//
+
+.#{$namespace}button-group-vertical {
+  @include flex-direction(column);
+  @include align-content-start();
+  @include justify-content-center();
+
+  > .#{$namespace}button,
+  > .#{$namespace}button-group {
+    width: 100%;
+  }
+
+  > .#{$namespace}button:not(:first-child),
+  > .#{$namespace}button-group:not(:first-child) {
+    margin-top: -1px;
+  }
+
+  // Reset rounded corners
+  > .#{$namespace}button:not(:last-child),
+  > .#{$namespace}button-group:not(:last-child) > .#{$namespace}button {
+    @include border-bottom-radius(0);
+  }
+
+  > .#{$namespace}button:not(:first-child),
+  > .#{$namespace}button-group:not(:first-child) > .#{$namespace}button {
+    @include border-top-radius(0);
+  }
+}

@@ -1,0 +1,44 @@
+
+.#{$namespace}avatar {
+  position: relative;
+  display: inline-block;
+  margin: $margin-avatar;
+  width: $width-avatar;
+  min-width: $width-avatar;
+  height: $height-avatar;
+}
+
+.#{$namespace}avatar-img {
+  border: $border-width-avatar-img solid $border-color-avatar-img;
+  border-radius: $border-radius-avatar-img;
+  max-width: 100%;
+  height: 100%;
+}
+
+//
+// Sizes
+//
+
+.#{$namespace}avatar-sm {
+  width: $width-avatar-sm;
+  min-width: $width-avatar-sm;
+  height: $height-avatar-sm;
+}
+
+.#{$namespace}avatar-lg {
+  width: $width-avatar-lg;
+  min-width: $width-avatar-lg;
+  height: $height-avatar-lg;
+}
+
+//
+// Avatar group
+//
+
+.#{$namespace}avatar-group {
+  @include list-unstyled();
+
+  .#{$namespace}avatar:not(:last-child) {
+    margin-right: -1rem;
+  }
+}

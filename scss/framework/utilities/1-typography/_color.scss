@@ -1,0 +1,65 @@
+
+.#{$namespace}text-note               { color: $color_note; }
+.#{$namespace}text-warning            { color: $color_warning; }
+.#{$namespace}text-notification       { color: $color_notification; }
+
+.#{$namespace}text-inherit            { color: inherit; }
+.#{$namespace}text-base               { color: $color_text; }
+
+@each $name, $color in $all-colors {
+  .#{$namespace}text-#{$name} {
+    color: $color;
+  }
+}
+
+// Theme inverse colors
+.#{$namespace}text-primary-inverse    { color: $color_primary_inverse; }
+.#{$namespace}text-secondary-inverse  { color: $color_secondary_inverse; }
+.#{$namespace}text-tertiary-inverse   { color: $color_tertiary_inverse; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("color") {
+
+  .hover\:#{$namespace}text-inherit:hover           { color: inherit; }
+  .hover\:#{$namespace}text-base:hover              { color: $color_text; }
+
+  @each $name, $color in $all-colors {
+    .hover\:#{$namespace}text-#{$name}:hover {
+      color: $color;
+    }
+  }
+
+  // Theme inverse colors
+  .hover\:#{$namespace}text-primary-inverse:hover   { color: $color_primary_inverse; }
+  .hover\:#{$namespace}text-secondary-inverse:hover { color: $color_secondary_inverse; }
+  .hover\:#{$namespace}text-tertiary-inverse:hover  { color: $color_tertiary_inverse; }
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("color") {
+  @each $breakpoint in responsive-breakpoints("color") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+
+      .#{$namespace}#{$infix}text-inherit           { color: inherit; }
+      .#{$namespace}#{$infix}text-base              { color: $color_text; }
+
+      @each $name, $color in $all-colors {
+        .#{$namespace}#{$infix}text-#{$name} {
+          color: $color;
+        }
+      }
+
+      // Theme inverse colors
+      .#{$namespace}#{$infix}text-primary-inverse   { color: $color_primary_inverse; }
+      .#{$namespace}#{$infix}text-secondary-inverse { color: $color_secondary_inverse; }
+      .#{$namespace}#{$infix}text-tertiary-inverse  { color: $color_tertiary_inverse; }
+    }
+  }
+}

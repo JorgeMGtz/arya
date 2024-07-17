@@ -1,0 +1,14 @@
+
+@mixin keyframes($animation-name) {
+  @if $legacy-browser-support {
+    @-webkit-keyframes #{$animation-name} {
+      @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+      @content;
+    }
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}

@@ -1,0 +1,31 @@
+
+//
+// Badge variants
+//
+
+.#{$namespace}badge-white {
+  @include badge-variant($color-white);
+}
+
+.#{$namespace}badge-new {
+  @include badge-variant($color-status-new);
+}
+
+.#{$namespace}badge-open {
+  @include badge-variant($color-status-open);
+}
+
+.#{$namespace}badge-hold {
+  @include badge-variant($color-status-hold);
+}
+
+.#{$namespace}badge-solved {
+  @include badge-variant($color-status-solved);
+}
+
+.#{$namespace}badge-answered,
+.#{$namespace}badge-answered,
+.#{$namespace}badge-completed,
+.#{$namespace}badge-planned {
+  @include badge-variant($color-status-pending);
+}

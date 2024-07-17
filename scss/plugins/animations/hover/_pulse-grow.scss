@@ -1,0 +1,17 @@
+@include keyframes(pulseGrow) {
+
+	to {
+    transform: scale(1.1);
+  }
+}
+
+.#{$namespace}hover\:pulse-grow {
+
+  @include hover-focus-active {
+    animation-name: pulseGrow;
+    animation-duration: $transition-duration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}

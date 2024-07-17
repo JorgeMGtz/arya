@@ -1,0 +1,15 @@
+
+//
+// Media object
+// @see https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+//
+.#{$namespace}media {
+  @include flex();
+  @include align-items-start();
+  @include flex-1(); // Fix for IE11
+
+  &-body {
+    @include flex-1();
+    min-width: 0;
+  }
+}

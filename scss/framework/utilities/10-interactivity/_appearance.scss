@@ -1,0 +1,24 @@
+
+.#{$namespace}appearance-none { appearance: none; }
+
+//
+// Hover
+//
+
+@if has-hover-variants("appearance") {
+  .hover\:#{$namespace}appearance-none:hover { appearance: none; }
+
+}
+
+//
+// Responsive
+//
+
+@if has-responsive-variants("appearance") {
+  @each $breakpoint in responsive-breakpoints("appearance") {
+    $infix: breakpoint-infix($breakpoint);
+    @include media-breakpoint-up($breakpoint) {
+      .#{$namespace}#{$infix}appearance-none { appearance: none; }
+    }
+  }
+}

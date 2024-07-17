@@ -1,0 +1,22 @@
+
+@include keyframes(show) {
+  0% {
+    transform: translateZ(300px) translateY(200px) rotateX(-70deg);
+    opacity: 0.1
+  }
+
+  100% {
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1
+  }
+}
+
+.#{$namespace}animation\:show {
+  -webkit-animation: show 0.8s 1 cubic-bezier(0.175,0.885,0.320,1.075);
+  animation: show 0.8s 1 cubic-bezier(0.175,0.885,0.320,1.075);
+  transform-origin: center bottom;
+}
+
+//-webkit-perspective: 600px;
+//-moz-perspective: 600px;
+//perspective: 600px
